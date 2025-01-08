@@ -1,7 +1,7 @@
 import "./App.css";
 
 function App() {
-  return <h2>rame</h2>;
+  return <h2>games</h2>;
 }
 
 export default App;
