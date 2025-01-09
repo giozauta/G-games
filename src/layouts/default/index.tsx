@@ -6,10 +6,9 @@ import { Outlet } from "react-router-dom";
 const DefaultLayout: React.FC = () => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-          <Header />
-          <Outlet />
+      <Header />
+      <Outlet />
     </ThemeProvider>
-
   );
 };
 

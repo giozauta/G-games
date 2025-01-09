@@ -1,12 +1,14 @@
-import Hero from '../hero'
+import GameCarousel from "../games-carousel";
+import Hero from "../hero";
 
-const HomeList:React.FC = () => {
+const HomeList: React.FC = () => {
   return (
-    <div>
-              <Hero/>
-
+    <div className="h-[1980px]">
+      <Hero />
+       {/*just for style*/} <div className="hidden sm:flex sm:h-[750px] border "></div>
+      <GameCarousel/>
     </div>
-  )
-}
+  );
+};
 
-export default HomeList
+export default HomeList;

@@ -6,3 +6,26 @@
     --radius: 0.5rem;
   }
 }
+
+@layer utilities {
+  /* Slim scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Scrollbar track (background) */
+  ::-webkit-scrollbar-track {
+    background: #ffac05; /* Yellow */
+  }
+
+  /* Scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background: #f75a1d; /* Orange */
+    border-radius: 10px;
+  }
+
+  /* Hover effect on scrollbar thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e44a1c; /* Darker orange when hovered */
+  }
+}
