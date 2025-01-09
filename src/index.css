@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --radius: 0.5rem;
@@ -13,19 +14,34 @@
     width: 6px;
   }
 
-  /* Scrollbar track (background) */
+  /* Light mode scrollbar track */
   ::-webkit-scrollbar-track {
-    background: #ffac05; /* Yellow */
+    background: #d0f0ff; /* Light blue background */
   }
 
-  /* Scrollbar thumb (the draggable part) */
+  /* Light mode scrollbar thumb */
   ::-webkit-scrollbar-thumb {
-    background: #f75a1d; /* Orange */
+    background: #6ec1e4; /* Light blue thumb */
     border-radius: 10px;
   }
 
-  /* Hover effect on scrollbar thumb */
+  /* Hover effect on light mode scrollbar thumb */
   ::-webkit-scrollbar-thumb:hover {
+    background: #56a8cc; /* Slightly darker blue when hovered */
+  }
+
+  /* Dark mode scrollbar track */
+  .dark ::-webkit-scrollbar-track {
+    background: #ffac05; /* Yellow */
+  }
+
+  /* Dark mode scrollbar thumb */
+  .dark ::-webkit-scrollbar-thumb {
+    background: #f75a1d; /* Orange */
+  }
+
+  /* Hover effect on dark mode scrollbar thumb */
+  .dark ::-webkit-scrollbar-thumb:hover {
     background: #e44a1c; /* Darker orange when hovered */
   }
 }

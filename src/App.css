@@ -3,7 +3,8 @@
 }
 
 html:not(.dark) body {
-  color: #f6591d;
+  color: #6ec1e4;
+  background-color: #fcfbf5;
 }
 
 html.dark body {
