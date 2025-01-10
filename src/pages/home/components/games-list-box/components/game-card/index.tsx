@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 
 const GameCard: React.FC = () => {
   return (
-    <div className="px-4 text-black dark:text-white w-96 h-full flex flex-col rounded-3xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-[#F75A1D] transition-all duration-500">
-      <div className=" overflow-hidden h-[50%] flex justify-center items-center rounded-xl ">
+    <div className="px-4 text-black dark:text-white  w-96 h-full flex flex-col rounded-3xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-[#F75A1D] hover:border-[#6ec1e4] transition-all duration-500">
+      <div className=" overflow-hidden h-[50%] mt-5  flex justify-center items-center rounded-xl ">
         <img
           src="./public/images/game2.webp"
           alt="game"
-          className="transition-all duration-500 transform hover:scale-105 "
+          className="transition-all duration-500 transform hover:scale-105 h-full"
         />{" "}
       </div>
       <div className=" h-[10%] flex justify-start items-center text-xl font-chakra-petch font-bold ">
