@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import React from "react";
@@ -8,6 +9,7 @@ const DefaultLayout: React.FC = () => {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Header />
       <Outlet />
+      <Footer />
     </ThemeProvider>
   );
 };

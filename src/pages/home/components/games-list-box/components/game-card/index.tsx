@@ -33,7 +33,7 @@ const GameCard: React.FC = () => {
           variant="outline"
           className="rounded-[50%] w-12 h-12 dark:bg-[#60D600] bg-[#6ec1e4] flex items-center justify-center hover:rotate-[-45deg]  hover:bg-[#60D600] dark:hover:bg-[#F75A1D] transition-all duration-500"
         >
-          <img src="/images/right-up.png"  alt="arrow" />
+          <img src="/images/right-up.png" alt="arrow" />
         </Button>
       </div>
     </div>

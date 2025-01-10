@@ -9,7 +9,7 @@ import {
 
 const GameCarousel: React.FC = () => {
   return (
-    <Carousel className="w-[70%] mx-auto  z-40">
+    <Carousel className="w-[70%]  mx-auto mt-20 sm:mt-[700px] z-40 ">
       <CarouselContent className="-ml-1 ">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem
