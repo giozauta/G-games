@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
             <div className=" h-1/2  flex justify-start items-end ">
               <img src="/public/images/footerLogo.png" alt="logo" />
             </div>
-            <div className=" h-1/3 py-4 sm:py-0 flex items-center text-5xl font-bold font-chakra-petch">
+            <div className="text-blue2 dark:text-white h-1/3 py-4 sm:py-0 flex items-center text-5xl font-bold font-chakra-petch">
               Games
             </div>
             <div className=" h-1/2 py-4 sm:py-0 font-chakra-petch  flex items-start gap-2">
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="border-t  dark:border-white/10 flex justify-center items-center h-[100px]">
+      <div className="border-t text-blue2 dark:text-white dark:border-white/10 flex justify-center items-center h-[100px]">
         Made By Giorgi Zautashvili
       </div>
     </div>

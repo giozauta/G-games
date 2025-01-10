@@ -3,7 +3,7 @@
 }
 
 html:not(.dark) body {
-  color: #6ec1e4;
+  color: #F75A1D;
   background-color: #fcfbf5;
 }
 
@@ -19,7 +19,7 @@ html.dark a {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", serif;
+  font-family: "Chakra Petch", "Roboto", serif, sans-serif;
   font-weight: 400;
   font-style: normal;
 }

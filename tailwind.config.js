@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "chakra-petch": ['"Chakra Petch"', "serif"],
+        "chakra-petch": ["Chakra Petch", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -22,7 +22,11 @@ export default {
         "bar-mobile": "url('/images/bar-mobile.png')",
         sword: "url('/images/sword.png')",
       },
-      colors: {},
+      colors: {
+        blue2:"#6ec1e4",
+        orange2: "#F75A1D",
+        green2: "#60D600",
+      },
     },
   },
   plugins: [
