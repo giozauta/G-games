@@ -3,7 +3,7 @@ import { Badge } from "../ui/badge";
 
 const Footer: React.FC = () => {
   return (
-    <div className="flex flex-col bg-white dark:bg-black  h-auto sm:h-[594px] ">
+    <div className="flex flex-col bg-white dark:bg-black  h-auto sm:h-[594px] dark:bg-custom-gradient2">
       <div className="border-t   dark:border-white/10 sm:flex-row flex-col h-auto  sm:h-[494px] mx-auto flex w-full">
         <div className=" w-full sm:w-[45%]  flex flex-col justify-center items-center   py-4 sm:py-0">
           <div className=" h-full w-full sm:w-1/2 flex flex-col  pl-4 ">
@@ -22,15 +22,17 @@ const Footer: React.FC = () => {
         </div>
         <div className="  sm:border-l py-4 sm:py-0  dark:border-white/10 w-full sm:w-[25%] flex  justify-start">
           <div className=" flex flex-col pl-4  ">
-            <div className="  flex justify-center pt-0 sm:pt-[84px] items-end  font-bold text-3xl font-chakra-petch">
+            <div className="text-[#6EC1E4] dark:text-[#F75A1D]  flex justify-center pt-0 sm:pt-[84px] items-end  font-bold text-3xl font-chakra-petch">
               Explore
             </div>
-            <div className="text-black  pt-10 dark:text-white">User Profile </div>
+            <div className="text-black  pt-10 dark:text-white">
+              User Profile{" "}
+            </div>
           </div>
         </div>
         <div className="border-l py-4 sm:py-0 dark:border-white/10 w-full sm:w-[30%] flex justify-evenly items-center">
           <div className="pl-4 h-full  w-full sm:w-1/2 flex flex-col">
-            <div className="  pb-10 h-1/3 flex items-end text-3xl font-bold font-chakra-petch">
+            <div className="text-[#6EC1E4] dark:text-[#F75A1D]   pb-10 h-1/3 flex items-end text-3xl font-bold font-chakra-petch">
               Follow Me
             </div>
             <div className=" h-1/2 flex flex-col text-black dark:text-white">
@@ -49,7 +51,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="border-t bg-white dark:bg-black dark:border-white/10 flex justify-center items-center h-[100px]">
+      <div className="border-t  dark:border-white/10 flex justify-center items-center h-[100px]">
         Made By Giorgi Zautashvili
       </div>
     </div>

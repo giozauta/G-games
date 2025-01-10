@@ -1,5 +1,6 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Link } from "react-router-dom";
 
 const Hero: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const Hero: React.FC = () => {
 
             <button className="text-lg rounded-3xl  w-[120px] h-[50px]  border-r-2 border-l-2 border-[#F75A1D]  ">
               <span className="bg-[#F75A1D] rounded-3xl px-5 py-2">
-                Sign Up
+                <Link to="/sign-up">Sign Up</Link>
               </span>
             </button>
           </div>

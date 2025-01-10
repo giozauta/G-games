@@ -12,6 +12,15 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(to bottom, #000000, #0D1800)",
+        "custom-gradient2": "linear-gradient(to top, #000000, #0D1800)",
+        "custom-gradientLight": "linear-gradient(to bottom, #ffffff, #F65A1D)",
+        "custom-gradient-RightTop-leftBottom":"linear-gradient(to bottom left, #0C1700, black)",
+        'bar': "url('/images/bar.png')",
+        'bar-mobile': "url('/images/bar-mobile.png')",
+
+      },
       colors: {},
     },
   },

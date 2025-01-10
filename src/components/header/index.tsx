@@ -13,7 +13,6 @@ const Header: React.FC = () => {
       if (window.scrollY > 50) {
         headerRef.current?.classList.add("dark:bg-black");
         headerRef.current?.classList.remove("dark:bg-transparent");
-
       } else {
         headerRef.current?.classList.remove("dark:bg-black");
         headerRef.current?.classList.add("dark:bg-transparent");

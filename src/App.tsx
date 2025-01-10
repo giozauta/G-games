@@ -7,17 +7,15 @@ import AddGame from "./pages/add-game";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
 
-
 function App() {
   return (
     <Routes>
       <Route element={<DefaultLayout />}>
         <Route path="home" element={<HomeListViews />} />
-        <Route path="profile" element={<Profile/>} />
-        <Route path="addGame" element={<AddGame/>} />
-        <Route path="sign-in" element={<SignIn/>} />
-        <Route path="sign-up" element={<SignUp/>} />
-
+        <Route path="profile" element={<Profile />} />
+        <Route path="addGame" element={<AddGame />} />
+        <Route path="sign-in" element={<SignIn />} />
+        <Route path="sign-up" element={<SignUp />} />
       </Route>
 
       <Route path="/" element={<Navigate to="/home" />} />
