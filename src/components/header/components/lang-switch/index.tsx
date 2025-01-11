@@ -20,13 +20,8 @@ const LangSwitch: React.FC = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem >
-          English
-        </DropdownMenuItem>
-        <DropdownMenuItem >
-          Georgian
-        </DropdownMenuItem>
-
+        <DropdownMenuItem>English</DropdownMenuItem>
+        <DropdownMenuItem>Georgian</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

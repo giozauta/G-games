@@ -4,7 +4,7 @@ import Hero from "../hero";
 
 const HomeList: React.FC = () => {
   return (
-    <div className="h-full mb-40 sm:mb-80">
+    <div className="h-full mb-40 sm:mb-80 ">
       <Hero />
       {/*just for style*/}
       <GameCarousel />
