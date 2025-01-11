@@ -2,7 +2,12 @@ import React from "react";
 import GameCard from "./components/game-card";
 
 const GamesListBox: React.FC = () => {
-  const array = [1, 2, 3, 4, 5, 6];
+  const array = [
+    { id: "1", name: "gameName" },
+    { id: "2", name: "gameName2" },
+    { id: "1", name: "gameName" },
+    { id: "1", name: "gameName" },
+  ];
 
   return (
     <div className="border-[1px]  dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20  rounded-3xl gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-[82%] mx-auto h-[700px] sm:h-[800px] md:h-[900px] ">
@@ -17,8 +22,8 @@ const GamesListBox: React.FC = () => {
         />
       </div>
       <div className=" gap-10 flex flex-wrap justify-center  sm:mt-10  overflow-y-scroll h-[500px]">
-        {array.map((index) => {
-          return <GameCard key={index} />;
+        {array.map((game) => {
+          return <GameCard key={game.id} gameData={game} />;
         })}
       </div>
     </div>

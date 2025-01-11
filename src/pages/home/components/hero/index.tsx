@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             className=" w-[520px] h-[650px]"
           />
         </div>
-        <div className=" h-96 w-full  sm:w-[35%] flex justify-center sm:justify-start ">
+        <div className=" h-96 w-full  sm:w-[35%] flex justify-center sm:justify-start text-white">
           <div className=" bg-red w-96   flex flex-col  justify-start items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 ">
             <div className="text-3xl font-bold flex items-center gap-4  w-full h-1/4 ">
               <div className="bg-[#F75A1D] w-4 h-4 rounded-lg "></div>Top 3

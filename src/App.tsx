@@ -7,6 +7,7 @@ import AddGame from "./pages/add-game";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
 import NotFound from "./pages/404";
+import GamePage from "./pages/game-page";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="addGame" element={<AddGame />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
+        <Route path="gamePage/:id" element={<GamePage />} />
       </Route>
 
       <Route path="/" element={<Navigate to="/home" />} />
