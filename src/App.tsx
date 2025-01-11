@@ -20,7 +20,7 @@ function App() {
       </Route>
 
       <Route path="/" element={<Navigate to="/home" />} />
-      <Route path="*" element={<NotFound/>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

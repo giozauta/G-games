@@ -1,14 +1,16 @@
-import { Button } from '@/components/ui/button'
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Button } from "@/components/ui/button";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-const NotFound : React.FC = () => {
+const NotFound: React.FC = () => {
   return (
-    <div className='flex flex-col justify-center items-center h-screen gap-4'>
+    <div className="flex flex-col justify-center items-center h-screen gap-4">
       404 Not Found
-      <Button variant={"outline"}><NavLink to="/">Go Home</NavLink></Button>
-    </div>  
-  )
-}
+      <Button variant={"outline"}>
+        <NavLink to="/">Go Home</NavLink>
+      </Button>
+    </div>
+  );
+};
 
-export default NotFound
+export default NotFound;

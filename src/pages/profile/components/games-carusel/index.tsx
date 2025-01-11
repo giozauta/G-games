@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 
 const ProfileGameCarusel = () => {
-  const names = ["rame", "ramerjd", "fdsf sdfsdsdfsdfsdfsdfsdf", ""]; 
+  const names = ["rame", "ramerjd", "fdsf sdfsdsdfsdfsdfsdfsdf", ""];
 
   return (
     <Carousel className="w-full h-full max-w-md mx-auto">
@@ -40,7 +40,7 @@ const ProfileGameCarusel = () => {
                 <div className="bg-gray-100 dark:bg-black text-center py-2 min-h-[48px] flex items-center justify-center">
                   <span
                     className="text-sm font-medium truncate w-full px-2"
-                    title={names[index] || "No name available"} 
+                    title={names[index] || "No name available"}
                   >
                     {names[index] || "No Name"}
                   </span>

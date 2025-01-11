@@ -26,7 +26,7 @@ export default {
         blue2: "#6ec1e4",
         orange2: "#F75A1D",
         green2: "#60D600",
-        white2:"#ecece8",
+        white2: "#ecece8",
       },
     },
   },

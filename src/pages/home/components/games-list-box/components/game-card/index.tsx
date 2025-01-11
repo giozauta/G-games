@@ -17,7 +17,7 @@ const GameCard: React.FC = () => {
       <div className=" h-[20%] flex-col gap-2 border-t dark:border-t-white/10 flex justify-center items-start    line-clamp-3 text-lg font-chakra-petch">
         <div>
           <Badge variant="outline" className="">
-            Price
+            Platform
           </Badge>
           <Badge variant="outline" className="">
             likes
