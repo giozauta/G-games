@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { HeaderButton, HeaderButtonX } from "./components/buttons";
-import Navbar from "./components/navbar";
+import { HeaderButton, HeaderButtonX } from "./components/buttons/buttons";
+import Navbar from "./components/navbar/navbar";
 import { Link } from "react-router-dom";
-import { ModeToggle } from "../mode-toggle";
+import { ModeToggle } from "./components/mode-toggle";
+import LangSwitch from "./components/lang-switch";
 
 const Header: React.FC = () => {
   const [buttonState, setButtonState] = React.useState(false);
@@ -31,14 +32,15 @@ const Header: React.FC = () => {
   return (
     <div
       ref={headerRef}
-      className="header bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
+      className="header  bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
     >
-      <div className="logo  w-full sm:w-[40%] h-full flex items-center py-4 sm:p-1 justify-between ">
-        <div className="flex items-center gap-5">
+      <div className="logo  w-full sm:w-[45%] h-full flex items-center py-4 sm:p-1 justify-between  ">
+        <div className="flex items-center gap-5 ">
           <img src="/public/images/logo.png" alt="logo" />
           <p className="font-chakra-petch text-3xl font-bold">Games</p>
         </div>
-        <div className=" flex items-center gap-2">
+        <div className=" flex items-center gap-2 pr-10 ">
+          <LangSwitch />
           <ModeToggle />
           <button onClick={handleButtonState} className="sm:hidden">
             {buttonState ? <HeaderButton /> : <HeaderButtonX />}
@@ -49,7 +51,7 @@ const Header: React.FC = () => {
       <div
         className={`${
           buttonState ? "hidden" : "flex"
-        }  flex flex-col w-full h-full sm:flex sm:w-[58%]  sm:flex-row sm:items-center sm:justify-between `}
+        }  flex flex-col w-full h-full sm:flex sm:w-[55%]   sm:flex-row sm:items-center sm:justify-between `}
       >
         <Navbar />
         <Link
