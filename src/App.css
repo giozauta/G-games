@@ -3,7 +3,7 @@
 }
 
 html:not(.dark) body {
-  color: #f75a1d;
+  color: black;
   background-color: white;
 }
 
