@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 
 interface GameData {
   id: string;
-
 }
 
 const GameCard: React.FC<{ gameData: GameData }> = ({ gameData }) => {
-
   if (!gameData) {
     return null;
   }
