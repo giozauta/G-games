@@ -6,6 +6,7 @@ import Profile from "./pages/profile";
 import AddGame from "./pages/add-game";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
+import NotFound from "./pages/404";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       </Route>
 
       <Route path="/" element={<Navigate to="/home" />} />
-      <Route path="*" element={<div>404</div>} />
+      <Route path="*" element={<NotFound/>} />
     </Routes>
   );
 }

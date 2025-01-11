@@ -31,7 +31,7 @@ const Header: React.FC = () => {
   return (
     <div
       ref={headerRef}
-      className="header bg-white dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
+      className="header bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
     >
       <div className="logo  w-full sm:w-[40%] h-full flex items-center py-4 sm:p-1 justify-between ">
         <div className="flex items-center gap-5">

@@ -23,9 +23,10 @@ export default {
         sword: "url('/images/sword.png')",
       },
       colors: {
-        blue2:"#6ec1e4",
+        blue2: "#6ec1e4",
         orange2: "#F75A1D",
         green2: "#60D600",
+        white2:"#ecece8",
       },
     },
   },
