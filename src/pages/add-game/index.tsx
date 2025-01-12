@@ -18,25 +18,28 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslation } from "react-i18next";
 
 const AddGame: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className=" flex justify-center items-center font-chakra-petch min-h-[750px] dark:bg-custom-gradient">
       <Card className="w-[500px] dark:bg-custom-gradient shadow-lg">
         <CardHeader>
-          <CardTitle className="text-orange2 text-2xl">Add Game</CardTitle>
-          <CardDescription>
-            Use the tabs to provide information in English and Georgian.
-          </CardDescription>
+          <CardTitle className="text-orange2 text-2xl">
+            {t("addGame.addGame")}
+          </CardTitle>
+          <CardDescription>{t("addGame.instruction")}</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="english" className="w-full ">
             <TabsList className="flex justify-center mb-4">
               <TabsTrigger className="w-1/2" value="english">
-                English
+                {t("addGame.english")}
               </TabsTrigger>
               <TabsTrigger className="w-1/2" value="georgian">
-                Georgian
+                {t("addGame.georgian")}
               </TabsTrigger>
             </TabsList>
 
@@ -48,11 +51,11 @@ const AddGame: React.FC = () => {
                     htmlFor="name-en"
                     className="dark:text-green2 text-blue2"
                   >
-                    Name (English)
+                    {t("addGame.name")} ({t("addGame.english")})
                   </Label>
                   <Input
                     id="name-en"
-                    placeholder="Name of your game (English)"
+                    placeholder={t("addGame.name-placeholderEn")}
                   />
                 </div>
                 <div className="flex flex-col space-y-1.5">
@@ -60,11 +63,11 @@ const AddGame: React.FC = () => {
                     htmlFor="description-en"
                     className="dark:text-green2 text-blue2"
                   >
-                    Description (English)
+                    {t("addGame.description")} ({t("addGame.english")})
                   </Label>
                   <Textarea
                     id="description-en"
-                    placeholder="Description of your game (English)"
+                    placeholder={t("addGame.description-placeholderEn")}
                   />
                 </div>
               </div>
@@ -78,11 +81,11 @@ const AddGame: React.FC = () => {
                     htmlFor="name-ka"
                     className="dark:text-green2 text-blue2"
                   >
-                    Name (Georgian)
+                    {t("addGame.name")} ({t("addGame.georgian")})
                   </Label>
                   <Input
                     id="name-ka"
-                    placeholder="Name of your game (Georgian)"
+                    placeholder={t("addGame.description-placeholderKa")}
                   />
                 </div>
                 <div className="flex flex-col space-y-1.5">
@@ -90,11 +93,11 @@ const AddGame: React.FC = () => {
                     htmlFor="description-ka"
                     className="dark:text-green2 text-blue2"
                   >
-                    Description (Georgian)
+                    {t("addGame.description")} ({t("addGame.georgian")})
                   </Label>
                   <Textarea
                     id="description-ka"
-                    placeholder="Description of your game (Georgian)"
+                    placeholder={t("addGame.description-placeholderKa")}
                   />
                 </div>
               </div>
@@ -105,17 +108,23 @@ const AddGame: React.FC = () => {
           <div className="grid w-full items-center gap-4 mt-6">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="year" className="dark:text-green2 text-blue2">
-                Year
+                {t("addGame.year")}
               </Label>
-              <Input id="year" type="number" placeholder="Release year" />
+              <Input
+                id="year"
+                type="number"
+                placeholder={t("addGame.year-placeholder")}
+              />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="platform" className="dark:text-green2 text-blue2">
-                Platform
+                {t("addGame.platform")}
               </Label>
               <Select>
                 <SelectTrigger id="platform">
-                  <SelectValue placeholder="Select a platform" />
+                  <SelectValue
+                    placeholder={t("addGame.platform-placeholder")}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="xbox">Xbox</SelectItem>
@@ -126,7 +135,7 @@ const AddGame: React.FC = () => {
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="image" className="dark:text-green2 text-blue2">
-                Upload Image
+                {t("addGame.image")}
               </Label>
               <Input
                 id="image"
@@ -142,7 +151,7 @@ const AddGame: React.FC = () => {
             variant="outline"
             className="w-full sm:w-auto bg-orange2 text-white"
           >
-            Add Game
+            {t("addGame.addGame")}
           </Button>
         </CardFooter>
       </Card>

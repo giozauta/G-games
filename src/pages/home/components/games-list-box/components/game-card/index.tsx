@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 interface GameData {
@@ -7,6 +8,8 @@ interface GameData {
 }
 
 const GameCard: React.FC<{ gameData: GameData }> = ({ gameData }) => {
+  const { t } = useTranslation();
+
   if (!gameData) {
     return null;
   }
@@ -37,7 +40,7 @@ const GameCard: React.FC<{ gameData: GameData }> = ({ gameData }) => {
         </Badge>
       </div>
       <div className=" h-[20%]  flex justify-between items-center border-t dark:border-t-white/10 ">
-        <Button variant={"outline"}>Like</Button>
+        <Button variant={"outline"}>{t("listBox.like")}</Button>
         <Link to={`/gamePage/${gameData.id}`}>
           <Button
             variant="outline"

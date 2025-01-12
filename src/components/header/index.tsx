@@ -4,10 +4,12 @@ import Navbar from "./components/navbar/navbar";
 import { Link } from "react-router-dom";
 import { ModeToggle } from "./components/mode-toggle";
 import LangSwitch from "./components/lang-switch";
+import { useTranslation } from "react-i18next";
 
 const Header: React.FC = () => {
   const [buttonState, setButtonState] = React.useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,12 +36,14 @@ const Header: React.FC = () => {
       ref={headerRef}
       className="header  bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
     >
-      <div className="logo  w-full sm:w-[45%] h-full flex items-center py-4 sm:p-1 justify-between  ">
+      <div className="logo  w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between  ">
         <div className="flex items-center gap-5 ">
           <img src="/public/images/logo.png" alt="logo" />
-          <p className="font-chakra-petch text-3xl font-bold">Games</p>
+          <p className="font-chakra-petch text-3xl font-bold ">
+            {t("navbar.logo")}
+          </p>
         </div>
-        <div className=" flex items-center gap-2 pr-10 ">
+        <div className=" flex items-center gap-2 pr-4 ">
           <LangSwitch />
           <ModeToggle />
           <button onClick={handleButtonState} className="sm:hidden">
@@ -51,7 +55,7 @@ const Header: React.FC = () => {
       <div
         className={`${
           buttonState ? "hidden" : "flex"
-        }  flex flex-col w-full h-full sm:flex sm:w-[55%]   sm:flex-row sm:items-center sm:justify-between `}
+        }  flex flex-col w-full h-full sm:flex sm:w-[57%]   sm:flex-row sm:items-center sm:justify-between `}
       >
         <Navbar />
         <Link
@@ -59,7 +63,7 @@ const Header: React.FC = () => {
           className="flex pb-5 sm:pb-0 w-20 sm:w-auto  items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in"
         >
           <img src="/images/user4.png" alt="user" className="w-5 h-5" />
-          <div className="text-base pt-2 ">Log in</div>
+          <div className="text-base pt-2 ">{t("navbar.login")}</div>
         </Link>
       </div>
     </div>

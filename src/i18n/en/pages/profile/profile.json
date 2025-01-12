@@ -1,0 +1,16 @@
+{
+  "edit-profile": "Edit Profile",
+  "name": "Name",
+  "phone": "Phone Number",
+  "location": "Location",
+  "gender": "Gender",
+  "age": "Age",
+
+  "description": "Make changes to your profile here. Click save when you're done.",
+  "english": "English",
+  "georgian": "Georgian",
+  "save": "Save changes",
+
+  "enter": "Enter",
+  "delete": "Delete"
+}

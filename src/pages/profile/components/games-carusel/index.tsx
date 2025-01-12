@@ -6,9 +6,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-const ProfileGameCarusel = () => {
+const ProfileGameCarusel: React.FC = () => {
+  const { t } = useTranslation();
+
   const data = [
     {
       id: 1,
@@ -39,10 +42,10 @@ const ProfileGameCarusel = () => {
                   to={`/gamePage/${data.id}`}
                   className="flex justify-center items-center px-4 w-[80%] sm:w-[60%] py-2 bg-green2 text-white rounded-md hover:bg-green2/80"
                 >
-                  Enter
+                  {t("profile.enter")}
                 </Link>
                 <button className="px-4 w-[80%] sm:w-[60%] py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
-                  Delete
+                  {t("profile.delete")}
                 </button>
               </div>
 

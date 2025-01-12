@@ -1,0 +1,22 @@
+{
+  "edit-profile": "რედაქტირება",
+  "name": "სახელი",
+  "phone": "მობილური",
+  "location": "ლოკაცია",
+  "gender": "სქესი",
+  "age": "ასაკი",
+
+  "description": "მოახდინე პროფილის ცვლილებები,როდესაც დაასრულებ დააჭირე შენახვას.",
+  "english": "ინგლისური",
+  "georgian": "ქართული",
+  "save": "შენახვა",
+
+  "name-placeholder": "სახელი ინგლისურად",
+  "location-placeholder": "სახელი ქართულად",
+  "phone-placeholder": "ტელეფონის ნომერი",
+  "gender-placeholder": "სქესი ქართულად",
+  "age-placeholder": "ასაკი ქართულად",
+
+  "enter": "შესვლა",
+  "delete": "წაშლა"
+}

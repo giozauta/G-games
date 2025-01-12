@@ -1,0 +1,24 @@
+{
+  "addGame": "დაამატე თამაში",
+
+  "instruction": "შეავსე ინგლისური და ქართული ინფორმაცია",
+  "english": "ინგლისურად",
+  "georgian": "ქართულად",
+  "name": "სახელი",
+  "description": "აღწერა",
+  "year": "წელი",
+  "platform": "პლატფორმა",
+  "image": "ატვირთე სურათი",
+
+  "name-placeholderEn": "შენი თამაშის სახელი  (ინგლისურად)",
+  "description-placeholderEn": "შენი თამაშის აღწერა (ინგლისურად)",
+  "year-placeholder": "გამოშვების წელი",
+  "platform-placeholder": "აირჩიე პლატფორმა",
+
+  "name-placeholderKa": "შენი  თამაშის სახელი (ქართულად)",
+  "description-placeholderKa": "შენი თამაშის აღწერა (ქართულად)",
+
+  "edditGame": "შეასწორე",
+  "edditGameInstruction": "შეიტანეთ ცვლილებები თქვენი თამაშის ინფორმაციაში აქ",
+  "save": "შენახვა"
+}

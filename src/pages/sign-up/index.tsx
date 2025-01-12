@@ -12,22 +12,20 @@ import { Label } from "@/components/ui/label";
 import { useSignUp } from "@/react-query/mutation/sign-up";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import {FormValues} from "./types";
+import { FormValues } from "./types";
 import { signUpSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-
 const SignUp: React.FC = () => {
-  const { control, handleSubmit ,formState} = useForm<FormValues>({
-    resolver:zodResolver(signUpSchema),
-    defaultValues:{
+  const { control, handleSubmit, formState } = useForm<FormValues>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: {
       name: "",
       email: "",
       password: "",
       confirmPassword: "",
-    }
+    },
   });
-
 
   const { mutate: handleSignUp } = useSignUp();
 
@@ -53,11 +51,20 @@ const SignUp: React.FC = () => {
                 <Controller
                   name="name"
                   control={control}
-                  render={({ field:{onChange,value}}) => {
-                    return <Input value={value} onChange={onChange} id="name" placeholder="enter your name" />;
+                  render={({ field: { onChange, value } }) => {
+                    return (
+                      <Input
+                        value={value}
+                        onChange={onChange}
+                        id="name"
+                        placeholder="enter your name"
+                      />
+                    );
                   }}
                 />
-                <Label className="text-red-600">{formState.errors.name?.message}</Label>
+                <Label className="text-red-600">
+                  {formState.errors.name?.message}
+                </Label>
               </div>
 
               <div className="flex flex-col space-y-3.5">
@@ -65,45 +72,63 @@ const SignUp: React.FC = () => {
                 <Controller
                   name="email"
                   control={control}
-                  render={({field:{onChange,value}}) => {
-                    return(
-                      <Input value={value} onChange={onChange} id="email" placeholder="enter your email" />
-                    )
+                  render={({ field: { onChange, value } }) => {
+                    return (
+                      <Input
+                        value={value}
+                        onChange={onChange}
+                        id="email"
+                        placeholder="enter your email"
+                      />
+                    );
                   }}
                 />
-                <Label className="text-red-600">{formState.errors.email?.message}</Label>
+                <Label className="text-red-600">
+                  {formState.errors.email?.message}
+                </Label>
               </div>
 
               <div className="flex flex-col space-y-3.5">
                 <Label htmlFor="framework">Password</Label>
 
-                  <Controller
-                    name="password"
-                    control={control}
-                    render={({field}) => {
-                      return(
-                        <Input {...field} id="password" placeholder="enter your password" />
-                      )
-                    }}
-                  />
-                  <Label className="text-red-600">{formState.errors.password?.message}</Label>
+                <Controller
+                  name="password"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        {...field}
+                        id="password"
+                        placeholder="enter your password"
+                      />
+                    );
+                  }}
+                />
+                <Label className="text-red-600">
+                  {formState.errors.password?.message}
+                </Label>
               </div>
 
               <div className="flex flex-col space-y-3.5">
                 <Label htmlFor="framework">ConfirmPassword</Label>
-              
-              <Controller
-                name="confirmPassword"
-                control={control}
-                render={({field}) => {
-                  return(
-                    <Input {...field} id="confirmPassword" placeholder="confirm your password" />
-                  )
-                }}/>
-              <Label className="text-red-600">{formState.errors.confirmPassword?.message}</Label>
+
+                <Controller
+                  name="confirmPassword"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        {...field}
+                        id="confirmPassword"
+                        placeholder="confirm your password"
+                      />
+                    );
+                  }}
+                />
+                <Label className="text-red-600">
+                  {formState.errors.confirmPassword?.message}
+                </Label>
               </div>
-
-
             </div>
           </form>
         </CardContent>
@@ -128,4 +153,3 @@ const SignUp: React.FC = () => {
 };
 
 export default SignUp;
-
