@@ -122,7 +122,11 @@ const GameEdit: React.FC = () => {
               <Label htmlFor="year" className="dark:text-green2 text-blue2">
                 {t("addGame.year")}
               </Label>
-              <Input id="year" type="number" placeholder={t("addGame.year-placeholder")} />
+              <Input
+                id="year"
+                type="number"
+                placeholder={t("addGame.year-placeholder")}
+              />
             </div>
 
             <div className="flex flex-col space-y-1.5">
@@ -131,7 +135,9 @@ const GameEdit: React.FC = () => {
               </Label>
               <Select>
                 <SelectTrigger id="platform">
-                  <SelectValue placeholder={t("addGame.platform-placeholder")} />
+                  <SelectValue
+                    placeholder={t("addGame.platform-placeholder")}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="xbox">Xbox</SelectItem>

@@ -18,6 +18,8 @@ import placeholderEnGeorgian from "./en/pages/profile/placeholder-ka.json";
 import placeholderKaGeorgian from "./ka/pages/profile/placeholder-ka.json";
 import addGameEn from "./en/pages/add-game/add-game.json";
 import addGameKa from "./ka/pages/add-game/add-game.json";
+import signInEn from "./en/pages/sign/sign.json";
+import signInKa from "./ka/pages/sign/sign.json";
 
 i18next.use(initReactI18next).init({
   lng: "en",
@@ -35,6 +37,7 @@ i18next.use(initReactI18next).init({
         profilePlaceholder: placeHolderEn,
         profilePlaceholderKa: placeholderEnGeorgian,
         addGame: addGameEn, //using in : add game and edit game page
+        sign: signInEn,
       },
     },
     ka: {
@@ -48,6 +51,7 @@ i18next.use(initReactI18next).init({
         profilePlaceholder: placeholderKa,
         profilePlaceholderKa: placeholderKaGeorgian,
         addGame: addGameKa, //using in : add game and edit game page
+        sign: signInKa,
       },
     },
   },

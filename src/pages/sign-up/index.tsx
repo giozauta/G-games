@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { FormValues } from "./types";
 import { signUpSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslation } from "react-i18next";
 
 const SignUp: React.FC = () => {
   const { control, handleSubmit, formState } = useForm<FormValues>({
@@ -26,6 +27,7 @@ const SignUp: React.FC = () => {
       confirmPassword: "",
     },
   });
+  const {t} = useTranslation();
 
   const { mutate: handleSignUp } = useSignUp();
 
@@ -40,14 +42,14 @@ const SignUp: React.FC = () => {
     <div className="flex justify-center items-center font-chakra-petch h-[750px] dark:bg-custom-gradient">
       <Card className="w-[350px] dark:bg-custom-gradient">
         <CardHeader>
-          <CardTitle>Sign Up</CardTitle>
-          <CardDescription>register if you have an account</CardDescription>
+          <CardTitle>{t("sign.signUp")}</CardTitle>
+          <CardDescription>{t("sign.instruction")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid w-full items-center gap-5 ">
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">Name</Label>
+                <Label htmlFor="framework">{t("sign.name")}</Label>
                 <Controller
                   name="name"
                   control={control}
@@ -57,7 +59,7 @@ const SignUp: React.FC = () => {
                         value={value}
                         onChange={onChange}
                         id="name"
-                        placeholder="enter your name"
+                        placeholder={t("sign.name-placeholder")}
                       />
                     );
                   }}
@@ -68,7 +70,7 @@ const SignUp: React.FC = () => {
               </div>
 
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">Email</Label>
+                <Label htmlFor="framework">{t("sign.email")}</Label>
                 <Controller
                   name="email"
                   control={control}
@@ -78,7 +80,7 @@ const SignUp: React.FC = () => {
                         value={value}
                         onChange={onChange}
                         id="email"
-                        placeholder="enter your email"
+                        placeholder={t("sign.email-placeholder")}
                       />
                     );
                   }}
@@ -89,7 +91,7 @@ const SignUp: React.FC = () => {
               </div>
 
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">Password</Label>
+                <Label htmlFor="framework">{t("sign.password")}</Label>
 
                 <Controller
                   name="password"
@@ -99,7 +101,7 @@ const SignUp: React.FC = () => {
                       <Input
                         {...field}
                         id="password"
-                        placeholder="enter your password"
+                        placeholder={t("sign.password-placeholder")}
                       />
                     );
                   }}
@@ -110,7 +112,7 @@ const SignUp: React.FC = () => {
               </div>
 
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">ConfirmPassword</Label>
+                <Label htmlFor="framework">{t("sign.confirmPassword")}</Label>
 
                 <Controller
                   name="confirmPassword"
@@ -120,7 +122,7 @@ const SignUp: React.FC = () => {
                       <Input
                         {...field}
                         id="confirmPassword"
-                        placeholder="confirm your password"
+                        placeholder={t("sign.confirmPassword")}
                       />
                     );
                   }}
@@ -138,12 +140,12 @@ const SignUp: React.FC = () => {
             variant="outline"
             className="w-full"
           >
-            Sign up
+            {t("sign.signUp")}
           </Button>
           <div className="flex w-full justify-center items-center">
-            <p className="text-sm"> have an account ?</p>
+            <p className="text-sm"> {t("sign.have-an-acount")}</p>
             <Button variant="link" className="text-[#6EC1E4]">
-              <Link to="/sign-in">Sign In</Link>
+              <Link to="/sign-in">{t("sign.signIn")}</Link>
             </Button>
           </div>
         </CardFooter>
