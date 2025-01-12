@@ -5,8 +5,8 @@ const GamesListBox: React.FC = () => {
   const array = [
     { id: "1", name: "gameName" },
     { id: "2", name: "gameName2" },
-    { id: "1", name: "gameName" },
-    { id: "1", name: "gameName" },
+    { id: "3", name: "gameName" },
+    { id: "4", name: "gameName" },
   ];
 
   return (

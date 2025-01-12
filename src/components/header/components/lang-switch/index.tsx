@@ -1,14 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
-import React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import  i18n  from "i18next";
+import { useTranslation } from "react-i18next";
+
 
 const LangSwitch: React.FC = () => {
+const {t} = useTranslation();
+  
+  const handleChangeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  }
+
+
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -20,8 +30,8 @@ const LangSwitch: React.FC = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>English</DropdownMenuItem>
-        <DropdownMenuItem>Georgian</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleChangeLanguage("en")}>{t("lang-switch.lang-en")}</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleChangeLanguage("ka")}>{t("lang-switch.lang-ka")}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

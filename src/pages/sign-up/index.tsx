@@ -9,10 +9,37 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useSignUp } from "@/react-query/mutation/sign-up";
+import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import {FormValues} from "./types";
+import { signUpSchema } from "./schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+
 const SignUp: React.FC = () => {
+  const { control, handleSubmit ,formState} = useForm<FormValues>({
+    resolver:zodResolver(signUpSchema),
+    defaultValues:{
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    }
+  });
+
+
+  const { mutate: handleSignUp } = useSignUp();
+
+  const onSubmit = (fieldValues: FormValues) => {
+    handleSignUp({
+      email: fieldValues.email,
+      password: fieldValues.password,
+    });
+  };
+
   return (
-    <div className="flex justify-center items-center font-chakra-petch h-[650px] dark:bg-custom-gradient">
+    <div className="flex justify-center items-center font-chakra-petch h-[750px] dark:bg-custom-gradient">
       <Card className="w-[350px] dark:bg-custom-gradient">
         <CardHeader>
           <CardTitle>Sign Up</CardTitle>
@@ -23,31 +50,69 @@ const SignUp: React.FC = () => {
             <div className="grid w-full items-center gap-5 ">
               <div className="flex flex-col space-y-3.5">
                 <Label htmlFor="framework">Name</Label>
-                <Input id="name" placeholder="Enter your name" />
+                <Controller
+                  name="name"
+                  control={control}
+                  render={({ field:{onChange,value}}) => {
+                    return <Input value={value} onChange={onChange} id="name" placeholder="enter your name" />;
+                  }}
+                />
+                <Label className="text-red-600">{formState.errors.name?.message}</Label>
               </div>
 
               <div className="flex flex-col space-y-3.5">
                 <Label htmlFor="framework">Email</Label>
-                <Input id="email" placeholder="Enter your email" />
-              </div>
-
-              <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">Password</Label>
-                <Input id="password" placeholder="Enter your password" />
-              </div>
-
-              <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">Password</Label>
-                <Input
-                  id="confirmPassword"
-                  placeholder="confirm your password"
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({field:{onChange,value}}) => {
+                    return(
+                      <Input value={value} onChange={onChange} id="email" placeholder="enter your email" />
+                    )
+                  }}
                 />
+                <Label className="text-red-600">{formState.errors.email?.message}</Label>
               </div>
+
+              <div className="flex flex-col space-y-3.5">
+                <Label htmlFor="framework">Password</Label>
+
+                  <Controller
+                    name="password"
+                    control={control}
+                    render={({field}) => {
+                      return(
+                        <Input {...field} id="password" placeholder="enter your password" />
+                      )
+                    }}
+                  />
+                  <Label className="text-red-600">{formState.errors.password?.message}</Label>
+              </div>
+
+              <div className="flex flex-col space-y-3.5">
+                <Label htmlFor="framework">ConfirmPassword</Label>
+              
+              <Controller
+                name="confirmPassword"
+                control={control}
+                render={({field}) => {
+                  return(
+                    <Input {...field} id="confirmPassword" placeholder="confirm your password" />
+                  )
+                }}/>
+              <Label className="text-red-600">{formState.errors.confirmPassword?.message}</Label>
+              </div>
+
+
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex  flex-col  gap-2">
-          <Button variant="outline" className="w-full">
+          <Button
+            onClick={handleSubmit(onSubmit)}
+            variant="outline"
+            className="w-full"
+          >
             Sign up
           </Button>
           <div className="flex w-full justify-center items-center">
@@ -63,3 +128,4 @@ const SignUp: React.FC = () => {
 };
 
 export default SignUp;
+
