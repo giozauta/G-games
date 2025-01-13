@@ -5,6 +5,9 @@ import { Link, useParams } from "react-router-dom";
 import { ModeToggle } from "./components/mode-toggle";
 import LangSwitch from "./components/lang-switch";
 import { useTranslation } from "react-i18next";
+import { useAtom } from "jotai";
+import { userAtom } from "@/store/jotai";
+import { useLogOut } from "@/react-query/mutation/log-out";
 
 const Header: React.FC = () => {
   const [buttonState, setButtonState] = React.useState(false);
@@ -12,6 +15,11 @@ const Header: React.FC = () => {
   const { t } = useTranslation();
   const lang = useParams();
   const currentLang = lang.lang ?? "en";
+  const [user] = useAtom(userAtom);
+
+  console.log(user);
+
+  const { mutate: logOut } = useLogOut();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +41,10 @@ const Header: React.FC = () => {
     setButtonState(!buttonState);
   };
 
+  const handleLogout = () => {
+    logOut();
+  };
+
   return (
     <div
       ref={headerRef}
@@ -51,9 +63,9 @@ const Header: React.FC = () => {
         <div className=" flex items-center gap-2 pr-4 ">
           <LangSwitch />
           <ModeToggle />
-          <button onClick={handleButtonState} className="sm:hidden">
+          <div onClick={handleButtonState} className="sm:hidden">
             {buttonState ? <HeaderButton /> : <HeaderButtonX />}
-          </button>
+          </div>
         </div>
       </div>
 
@@ -63,13 +75,26 @@ const Header: React.FC = () => {
         }  flex flex-col w-full h-full sm:flex sm:w-[57%]   sm:flex-row sm:items-center sm:justify-between `}
       >
         <Navbar />
-        <Link
-          to="sign-in"
-          className="flex pb-5 sm:pb-0 w-20 sm:w-auto  items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in"
-        >
-          <img src="/images/user4.png" alt="user" className="w-5 h-5" />
-          <div className="text-base pt-2 ">{t("navbar.login")}</div>
-        </Link>
+
+        {user && (
+          <button
+            onClick={handleLogout}
+            className="flex pb-5 sm:pb-0 w-20 sm:w-auto  items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in "
+          >
+            <img src="/images/user4.png" alt="user" className="w-5 h-5" />
+            <div className="text-base pt-2 ">{t("navbar.logout")}</div>
+          </button>
+        )}
+
+        {!user && (
+          <Link
+            to="sign-in"
+            className="flex pb-5 sm:pb-0 w-20 sm:w-auto  items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in"
+          >
+            <img src="/images/user4.png" alt="user" className="w-5 h-5" />
+            <div className="text-base pt-2 ">{t("navbar.login")}</div>
+          </Link>
+        )}
       </div>
     </div>
   );

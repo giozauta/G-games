@@ -1,4 +1,4 @@
-import { register } from "@/supabase/sign-up";
+import { register } from "@/supabase/auth";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { AUTH_MUTATION_KEYS } from "./enum";
@@ -10,7 +10,7 @@ export const useSignUp = () => {
     mutationFn: register,
     onSuccess: () => {
       alert("Sign-up successful and redirecting to sign-in page");
-      navigate("/sign-in");
+      navigate("/en/sign-in");
     },
   });
 };

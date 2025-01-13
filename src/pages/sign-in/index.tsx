@@ -16,21 +16,27 @@ import { Link } from "react-router-dom";
 import { FormValues } from "./types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "./schema";
+import { useSignIn } from "@/react-query/mutation/sign-in";
 
 const SignIn: React.FC = () => {
-  const { control, handleSubmit, formState } = useForm<FormValues>(
-{  resolver: zodResolver(signUpSchema),
-  defaultValues: {
-    email: "",
-    password: "",
-  }}
-  );
+  const { control, handleSubmit, formState } = useForm<FormValues>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   const { t } = useTranslation();
   const lang = i18next.language;
   const currentLang = lang ?? "en";
 
+  const { mutate: handleSignIn } = useSignIn();
+
   const onSubmit = (fieldValues: FormValues) => {
-    console.log(fieldValues);
+    handleSignIn({
+      email: fieldValues.email,
+      password: fieldValues.password,
+    });
   };
 
   return (

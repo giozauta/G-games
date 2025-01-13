@@ -4,5 +4,6 @@
   "eddGame": "Add New Game",
 
   "logo": "Games",
-  "login": "Login"
+  "login": "Login",
+  "logout": "Logout"
 }

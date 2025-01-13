@@ -9,15 +9,66 @@ import SignUp from "./pages/sign-up";
 import NotFound from "./pages/404";
 import GamePage from "./pages/game-page";
 import LangGuard from "./components/lang-guard";
+import AuthGuard from "./components/auth-guard";
+import { useAtom } from "jotai";
+import { userAtom } from "./store/jotai";
+import { useEffect } from "react";
+import supabase from "./supabase";
 
 function App() {
+  const [, setUser] = useAtom(userAtom);
+
+  useEffect(() => {
+    const loadSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session) {
+        setUser(session);
+        localStorage.setItem("userSession", JSON.stringify(session));
+      }
+    };
+
+    loadSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session);
+      if (session) {
+        localStorage.setItem("userSession", JSON.stringify(session));
+      } else {
+        localStorage.removeItem("userSession");
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [setUser]);
+
   return (
     <Routes>
       <Route path=":lang" element={<LangGuard />}>
         <Route element={<DefaultLayout />}>
           <Route path="home" element={<HomeListViews />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="addGame" element={<AddGame />} />
+
+          <Route
+            path="profile"
+            element={
+              <AuthGuard>
+                <Profile />
+              </AuthGuard>
+            }
+          />
+
+          <Route
+            path="addGame"
+            element={
+              <AuthGuard>
+                <AddGame />
+              </AuthGuard>
+            }
+          />
+
           <Route path="sign-in" element={<SignIn />} />
           <Route path="sign-up" element={<SignUp />} />
           <Route path="gamePage/:id" element={<GamePage />} />
