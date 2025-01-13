@@ -21,10 +21,28 @@ const Footer: React.FC = () => {
               {t("footer.games")}
             </div>
             <div className=" h-1/2 py-4 sm:py-0 font-chakra-petch  flex items-start gap-2">
-              <a href="https://github.com/giozauta" target="_blank" rel="noopener noreferrer"><Github /></a>
-              <a href="https://www.linkedin.com/in/giorgi-zautashvili-9779a7215/" target="_blank" rel="noopener noreferrer"><Linkedin /></a>
-              
-              <a href="https://x.com/zautashvil5392" target="_blank" rel="noopener noreferrer"><Twitter /></a>
+              <a
+                href="https://github.com/giozauta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/giorgi-zautashvili-9779a7215/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin />
+              </a>
+
+              <a
+                href="https://x.com/zautashvil5392"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter />
+              </a>
             </div>
           </div>
         </div>

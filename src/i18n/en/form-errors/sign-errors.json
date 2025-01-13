@@ -1,0 +1,6 @@
+{
+  "min": "String must contain at least 6 character(s)",
+  "max": "String must contain at most 50 character(s)",
+  "invalid-email": "Invalid email",
+  "dont-match": "Passwords do not match"
+}

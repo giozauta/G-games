@@ -9,11 +9,29 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import i18next from "i18next";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { FormValues } from "./types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signUpSchema } from "./schema";
 
 const SignIn: React.FC = () => {
+  const { control, handleSubmit, formState } = useForm<FormValues>(
+{  resolver: zodResolver(signUpSchema),
+  defaultValues: {
+    email: "",
+    password: "",
+  }}
+  );
   const { t } = useTranslation();
+  const lang = i18next.language;
+  const currentLang = lang ?? "en";
+
+  const onSubmit = (fieldValues: FormValues) => {
+    console.log(fieldValues);
+  };
 
   return (
     <div className="flex justify-center items-center font-chakra-petch h-[650px] dark:bg-custom-gradient">
@@ -27,27 +45,63 @@ const SignIn: React.FC = () => {
             <div className="grid w-full items-center gap-5 ">
               <div className="flex flex-col space-y-3.5">
                 <Label htmlFor="framework">{t("sign.email")}</Label>
-                <Input id="email" placeholder={t("sign.email-placeholder")} />
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        id="email"
+                        {...field}
+                        placeholder={t("sign.email-placeholder")}
+                      />
+                    );
+                  }}
+                />
+                {formState.errors.email?.message && (
+                  <Label className="text-red-600">
+                    {t(`signErrors.${formState.errors.email?.message}`)}
+                  </Label>
+                )}
               </div>
               <div className="flex flex-col space-y-3.5">
                 <Label htmlFor="framework">{t("sign.password")}</Label>
-                <Input
-                  type="password"
-                  id="password"
-                  placeholder={t("sign.password-placeholder")}
+                <Controller
+                  name="password"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <Input
+                        {...field}
+                        type="password"
+                        id="password"
+                        placeholder={t("sign.password-placeholder")}
+                      />
+                    );
+                  }}
                 />
+
+                {formState.errors.password?.message && (
+                  <Label className="text-red-600">
+                    {t(`signErrors.${formState.errors.password?.message}`)}
+                  </Label>
+                )}
               </div>
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex  flex-col  gap-2 ">
-          <Button variant="outline" className="w-full ">
+          <Button
+            onClick={handleSubmit(onSubmit)}
+            variant="outline"
+            className="w-full "
+          >
             {t("sign.signIn")}
           </Button>
           <div className="flex w-full justify-center items-center">
             <p className="text-sm">{t("sign.dont-have-account")}</p>
             <Button variant="link" className="text-[#6EC1E4] ">
-              <Link to="/sign-up">{t("sign.signUp")}</Link>
+              <Link to={`/${currentLang}/sign-up`}>{t("sign.signUp")}</Link>
             </Button>
           </div>
         </CardFooter>

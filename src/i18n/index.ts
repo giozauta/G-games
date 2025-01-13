@@ -20,6 +20,8 @@ import addGameEn from "./en/pages/add-game/add-game.json";
 import addGameKa from "./ka/pages/add-game/add-game.json";
 import signInEn from "./en/pages/sign/sign.json";
 import signInKa from "./ka/pages/sign/sign.json";
+import signErrorsEn from "./en/form-errors/sign-errors.json";
+import signErrorsKa from "./ka/form-errors/sign-errors.json";
 
 i18next.use(initReactI18next).init({
   lng: "en",
@@ -38,6 +40,7 @@ i18next.use(initReactI18next).init({
         profilePlaceholderKa: placeholderEnGeorgian,
         addGame: addGameEn, //using in : add game and edit game page
         sign: signInEn,
+        signErrors: signErrorsEn,
       },
     },
     ka: {
@@ -52,6 +55,7 @@ i18next.use(initReactI18next).init({
         profilePlaceholderKa: placeholderKaGeorgian,
         addGame: addGameKa, //using in : add game and edit game page
         sign: signInKa,
+        signErrors: signErrorsKa,
       },
     },
   },

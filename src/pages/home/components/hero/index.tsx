@@ -35,7 +35,9 @@ const Hero: React.FC = () => {
                 variant={"outline"}
                 className="bg-[#F75A1D]  dark:border-green2 rounded-md px-5 py-2 dark:hover:bg-orange2 flex justify-center items-center transition-all duration-300 ease-in"
               >
-                <Link to="/sign-up">{t("hero.sign-up")}</Link>
+                <Link to={`/${currentLanguage}/sign-up`}>
+                  {t("hero.sign-up")}
+                </Link>
               </Button>
             </button>
           </div>

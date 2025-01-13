@@ -16,6 +16,7 @@ import { FormValues } from "./types";
 import { signUpSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const SignUp: React.FC = () => {
   const { control, handleSubmit, formState } = useForm<FormValues>({
@@ -28,6 +29,8 @@ const SignUp: React.FC = () => {
     },
   });
   const { t } = useTranslation();
+  const lang = i18next.language;
+  const currentLang = lang ?? "en";
 
   const { mutate: handleSignUp } = useSignUp();
 
@@ -64,9 +67,11 @@ const SignUp: React.FC = () => {
                     );
                   }}
                 />
-                <Label className="text-red-600">
-                  {formState.errors.name?.message}
-                </Label>
+                {formState.errors.name?.message && (
+                  <Label className="text-red-600">
+                    {t(`signErrors.${formState.errors.name?.message}`)}
+                  </Label>
+                )}
               </div>
 
               <div className="flex flex-col space-y-3.5">
@@ -85,9 +90,11 @@ const SignUp: React.FC = () => {
                     );
                   }}
                 />
-                <Label className="text-red-600">
-                  {formState.errors.email?.message}
-                </Label>
+                {formState.errors.email?.message && (
+                  <Label className="text-red-600">
+                    {t(`signErrors.${formState.errors.email?.message}`)}
+                  </Label>
+                )}
               </div>
 
               <div className="flex flex-col space-y-3.5">
@@ -106,9 +113,11 @@ const SignUp: React.FC = () => {
                     );
                   }}
                 />
-                <Label className="text-red-600">
-                  {formState.errors.password?.message}
-                </Label>
+                {formState.errors.password?.message && (
+                  <Label className="text-red-600">
+                    {t(`signErrors.${formState.errors.password?.message}`)}
+                  </Label>
+                )}
               </div>
 
               <div className="flex flex-col space-y-3.5">
@@ -127,9 +136,13 @@ const SignUp: React.FC = () => {
                     );
                   }}
                 />
-                <Label className="text-red-600">
-                  {formState.errors.confirmPassword?.message}
-                </Label>
+                {formState.errors.confirmPassword?.message && (
+                  <Label className="text-red-600">
+                    {t(
+                      `signErrors.${formState.errors.confirmPassword?.message}`,
+                    )}
+                  </Label>
+                )}
               </div>
             </div>
           </form>
@@ -145,7 +158,7 @@ const SignUp: React.FC = () => {
           <div className="flex w-full justify-center items-center">
             <p className="text-sm"> {t("sign.have-an-acount")}</p>
             <Button variant="link" className="text-[#6EC1E4]">
-              <Link to="/sign-in">{t("sign.signIn")}</Link>
+              <Link to={`/${currentLang}/sign-in`}>{t("sign.signIn")}</Link>
             </Button>
           </div>
         </CardFooter>

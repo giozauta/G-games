@@ -2,12 +2,19 @@ import { z } from "zod";
 
 export const signUpSchema = z
   .object({
-    name: z.string().min(3).max(50),
-    email: z.string().email().min(3).max(50),
-    password: z.string().min(6).max(50),
-    confirmPassword: z.string().min(6).max(50),
+    name: z.string().min(6, { message: "min" }).max(50, { message: "max" }),
+    email: z
+      .string()
+      .email({ message: "invalid-email" })
+      .min(6, { message: "min" })
+      .max(50, { message: "max" }),
+    password: z.string().min(6, { message: "min" }).max(50, { message: "max" }),
+    confirmPassword: z
+      .string()
+      .min(6, { message: "min" })
+      .max(50, { message: "max" }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
+    message: "dont-match",
     path: ["confirmPassword"],
   });
