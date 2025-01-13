@@ -72,7 +72,7 @@ function App() {
           <Route path="sign-in" element={<SignIn />} />
 
           <Route path="sign-up" element={<SignUp />} />
-          
+
           <Route path="gamePage/:id" element={<GamePage />} />
         </Route>
       </Route>

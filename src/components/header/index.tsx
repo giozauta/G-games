@@ -42,7 +42,6 @@ const Header: React.FC = () => {
   };
 
   const handleLogout = () => {
-   
     logOut();
   };
 

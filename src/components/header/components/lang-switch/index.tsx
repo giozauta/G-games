@@ -16,11 +16,11 @@ const LangSwitch: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
- const [,setLang] = useAtom(Lang);
+  const [, setLang] = useAtom(Lang);
 
   const handleChangeLanguage = (language: string) => {
     i18n.changeLanguage(language);
-    setLang(language);// update language in atom store
+    setLang(language); // update language in atom store
     const currentPath = location.pathname.split("/").slice(2).join("/");
     navigate(`/${language}/${currentPath}`);
   };

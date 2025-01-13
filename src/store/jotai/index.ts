@@ -6,8 +6,6 @@ interface User {
   };
 }
 
-
-
 export const userAtom = atom<User | null>(null);
 
 export const Lang = atom("en");
