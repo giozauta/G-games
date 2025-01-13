@@ -8,7 +8,7 @@ const GamePage: React.FC = () => {
         <CardContent className="gap-5 p-0 flex justify-between flex-col sm:flex-row">
           <div className=" flex ">
             <img
-              src="/public/images/ghostGame.webp"
+              src="/images/ghostGame.webp"
               alt="game"
               className="rounded-md"
             />

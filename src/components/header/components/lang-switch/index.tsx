@@ -8,12 +8,18 @@ import {
 } from "@/components/ui/dropdown-menu";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LangSwitch: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChangeLanguage = (language: string) => {
     i18n.changeLanguage(language);
+
+    const currentPath = location.pathname.split('/').slice(2).join('/');
+    navigate(`/${language}/${currentPath}`);
   };
 
   return (

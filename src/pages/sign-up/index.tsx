@@ -27,7 +27,7 @@ const SignUp: React.FC = () => {
       confirmPassword: "",
     },
   });
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const { mutate: handleSignUp } = useSignUp();
 

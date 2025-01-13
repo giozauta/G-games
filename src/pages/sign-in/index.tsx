@@ -13,16 +13,14 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const SignIn: React.FC = () => {
-  const {t} = useTranslation();
-  
+  const { t } = useTranslation();
+
   return (
     <div className="flex justify-center items-center font-chakra-petch h-[650px] dark:bg-custom-gradient">
       <Card className="w-[350px] dark:bg-custom-gradient">
         <CardHeader>
           <CardTitle>{t("sign.signIn")}</CardTitle>
-          <CardDescription>
-          {t("sign.instruction")}
-          </CardDescription>
+          <CardDescription>{t("sign.instruction")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
@@ -33,14 +31,18 @@ const SignIn: React.FC = () => {
               </div>
               <div className="flex flex-col space-y-3.5">
                 <Label htmlFor="framework">{t("sign.password")}</Label>
-                <Input type="password" id="password" placeholder={t("sign.password-placeholder")} />
+                <Input
+                  type="password"
+                  id="password"
+                  placeholder={t("sign.password-placeholder")}
+                />
               </div>
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex  flex-col  gap-2 ">
           <Button variant="outline" className="w-full ">
-          {t("sign.signIn")}
+            {t("sign.signIn")}
           </Button>
           <div className="flex w-full justify-center items-center">
             <p className="text-sm">{t("sign.dont-have-account")}</p>

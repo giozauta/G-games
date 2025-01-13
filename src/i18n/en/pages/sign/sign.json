@@ -1,23 +1,19 @@
 {
-    "signIn": "Sign In",
-    "name":"Name",
-    "instruction": "login in to have access to your account",
-    "email": "Email",
-    "password": "Password",
+  "signIn": "Sign In",
+  "name": "Name",
+  "instruction": "login in to have access to your account",
+  "email": "Email",
+  "password": "Password",
 
-    "email-placeholder": "Enter your email giozautaa@gmail.com",
-    "password-placeholder": "Enter your password 123456",
-    "name-placeholder": "Enter your name",
-    "confirm-password-placeholder": "Confirm your password",
+  "email-placeholder": "Enter your email giozautaa@gmail.com",
+  "password-placeholder": "Enter your password 123456",
+  "name-placeholder": "Enter your name",
+  "confirm-password-placeholder": "Confirm your password",
 
-    "dont-have-account": "Don't have an account ?",
-    "signUp": "Sign Up",
+  "dont-have-account": "Don't have an account ?",
+  "signUp": "Sign Up",
 
-
-    "registerInstruction": "register if you don't have an account",
-    "confirmPassword": "Confirm Password",
-    "have-an-acount":"Have an account ?"
-
-
-
+  "registerInstruction": "register if you don't have an account",
+  "confirmPassword": "Confirm Password",
+  "have-an-acount": "Have an account ?"
 }

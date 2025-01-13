@@ -1,21 +1,19 @@
 {
-    "signIn": "ავტორიზაცია",
-    "name":"სახელი",
-    "instruction": "გაიარე ავტორიზაცია რომ შეხვიდეთ ",
-    "email": "მეილი",
-    "password": "პაროლი",
+  "signIn": "ავტორიზაცია",
+  "name": "სახელი",
+  "instruction": "გაიარე ავტორიზაცია რომ შეხვიდეთ ",
+  "email": "მეილი",
+  "password": "პაროლი",
 
-    "email-placeholder": "ჩაწერეთ  მეილი giozautaa@gmail.com",
-    "password-placeholder": "ჩაწერეთ თქვენი პაროლი 123456",
-    "name-placeholder": "ჩაწერეთ თქვენი სახელი",
-    "confirm-password-placeholder": "დაადასტურეთ თქვენი პაროლი",
+  "email-placeholder": "ჩაწერეთ  მეილი giozautaa@gmail.com",
+  "password-placeholder": "ჩაწერეთ თქვენი პაროლი 123456",
+  "name-placeholder": "ჩაწერეთ თქვენი სახელი",
+  "confirm-password-placeholder": "დაადასტურეთ თქვენი პაროლი",
 
-    "dont-have-account": "არ გაქვთ ექაუნთი ?",
-    "signUp": "რეგისტრაცია",
+  "dont-have-account": "არ გაქვთ ექაუნთი ?",
+  "signUp": "რეგისტრაცია",
 
-
-    "registerInstruction": "დარეგისტრილდი თუ არ არის ექაუნთი",
-    "confirmPassword": "დაადასტურე პაროლი",
-    "have-an-acount":"გაქვთ ექაუნთი ?"
-
+  "registerInstruction": "დარეგისტრილდი თუ არ არის ექაუნთი",
+  "confirmPassword": "დაადასტურე პაროლი",
+  "have-an-acount": "გაქვთ ექაუნთი ?"
 }

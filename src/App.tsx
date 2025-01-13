@@ -8,17 +8,20 @@ import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
 import NotFound from "./pages/404";
 import GamePage from "./pages/game-page";
+import LangGuard from "./components/lang-guard";
 
 function App() {
   return (
     <Routes>
-      <Route element={<DefaultLayout />}>
-        <Route path="home" element={<HomeListViews />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="addGame" element={<AddGame />} />
-        <Route path="sign-in" element={<SignIn />} />
-        <Route path="sign-up" element={<SignUp />} />
-        <Route path="gamePage/:id" element={<GamePage />} />
+      <Route path=":lang" element={<LangGuard/>}>
+        <Route element={<DefaultLayout />}>
+          <Route path="home" element={<HomeListViews />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="addGame" element={<AddGame />} />
+          <Route path="sign-in" element={<SignIn />} />
+          <Route path="sign-up" element={<SignUp />} />
+          <Route path="gamePage/:id" element={<GamePage />} />
+        </Route>
       </Route>
 
       <Route path="/" element={<Navigate to="/home" />} />

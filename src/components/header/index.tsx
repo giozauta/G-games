@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { HeaderButton, HeaderButtonX } from "./components/buttons/buttons";
 import Navbar from "./components/navbar/navbar";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ModeToggle } from "./components/mode-toggle";
 import LangSwitch from "./components/lang-switch";
 import { useTranslation } from "react-i18next";
@@ -10,6 +10,9 @@ const Header: React.FC = () => {
   const [buttonState, setButtonState] = React.useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
+  const lang = useParams();
+  const currentLang= lang.lang ?? "en";
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,9 +42,9 @@ const Header: React.FC = () => {
       <div className="logo  w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between  ">
         <div className="flex items-center gap-5 ">
           <img src="/public/images/logo.png" alt="logo" />
-          <p className="font-chakra-petch text-3xl font-bold ">
+          <Link to={`/${currentLang}/home`} className="font-chakra-petch text-3xl font-bold ">
             {t("navbar.logo")}
-          </p>
+          </Link>
         </div>
         <div className=" flex items-center gap-2 pr-4 ">
           <LangSwitch />

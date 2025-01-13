@@ -12,13 +12,13 @@ const Navbar: React.FC = () => {
 
   return (
     <div className=" py-10 sm:p-0 flex flex-col justify-center items-start sm:items-center sm:flex-row sm:gap-7 ">
-      <NavLink to="/home" className={handleActiveNav}>
+      <NavLink to="home" className={handleActiveNav}>
         {t("navbar.home")}
       </NavLink>
-      <NavLink to="/profile" className={handleActiveNav}>
+      <NavLink to="profile" className={handleActiveNav}>
         {t("navbar.profile")}
       </NavLink>
-      <NavLink to="/addGame" className={handleActiveNav}>
+      <NavLink to="addGame" className={handleActiveNav}>
         {t("navbar.eddGame")}
       </NavLink>
     </div>
