@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
                 href="https://github.com/giozauta"
                 target="_blank"
                 rel="noopener noreferrer"
+                className=" p-2 rounded-sm hover:bg-orange2 transition-all duration-300 ease-in"
               >
                 <Github />
               </a>
@@ -32,6 +33,7 @@ const Footer: React.FC = () => {
                 href="https://www.linkedin.com/in/giorgi-zautashvili-9779a7215/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className=" p-2 rounded-sm hover:bg-orange2 transition-all duration-300 ease-in"
               >
                 <Linkedin />
               </a>
@@ -40,6 +42,7 @@ const Footer: React.FC = () => {
                 href="https://x.com/zautashvil5392"
                 target="_blank"
                 rel="noopener noreferrer"
+                className=" p-2 rounded-sm hover:bg-orange2 transition-all duration-300 ease-in"
               >
                 <Twitter />
               </a>
@@ -53,7 +56,7 @@ const Footer: React.FC = () => {
             </div>
             <Link
               to={`/${currentLang}/profile`}
-              className="text-black  pt-10 dark:text-white"
+              className="text-black  pt-10 dark:text-white dark:hover:text-blue2 hover:text-blue2 transition-all duration-300 ease-in"
             >
               {t("footer.user-profile")}
             </Link>
@@ -69,8 +72,9 @@ const Footer: React.FC = () => {
                 href="https://github.com/giozauta"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-blue2 transition-all duration-300 ease-in"
               >
-                <div className="pb-2">{t("footer.github")}</div>
+                <div className="pb-2 footerLinksHover">{t("footer.github")}</div>
               </a>
               <div className="pb-2">
                 {" "}
@@ -78,16 +82,18 @@ const Footer: React.FC = () => {
                   href="https://www.linkedin.com/in/giorgi-zautashvili-9779a7215"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:text-blue2 transition-all duration-300 ease-in"
                 >
                   {t("footer.linkedIn")}
                 </a>
               </div>
-              <div className="pb-2">
+              <div className="pb-2 ">
                 {" "}
                 <a
                   href="https://x.com/zautashvil5392"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:text-blue2 transition-all duration-300 ease-in"
                 >
                   {t("footer.twitter")}{" "}
                 </a>
