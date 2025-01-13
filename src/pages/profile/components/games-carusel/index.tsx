@@ -53,7 +53,7 @@ const ProfileGameCarusel: React.FC = () => {
                 {/* image section */}
                 <div className="aspect-square dark:bg-black p-1 overflow-hidden flex items-center justify-center">
                   <img
-                    src="/public/images/ghostGame.webp"
+                    src="/images/ghostGame.webp"
                     alt="Game"
                     className="w-full h-full object-cover flex items-center justify-center"
                   />

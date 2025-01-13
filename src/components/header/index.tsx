@@ -11,8 +11,7 @@ const Header: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
   const lang = useParams();
-  const currentLang= lang.lang ?? "en";
-
+  const currentLang = lang.lang ?? "en";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,8 +40,11 @@ const Header: React.FC = () => {
     >
       <div className="logo  w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between  ">
         <div className="flex items-center gap-5 ">
-          <img src="/public/images/logo.png" alt="logo" />
-          <Link to={`/${currentLang}/home`} className="font-chakra-petch text-3xl font-bold ">
+          <img src="/images/logo.png" alt="logo" />
+          <Link
+            to={`/${currentLang}/home`}
+            className="font-chakra-petch text-3xl font-bold "
+          >
             {t("navbar.logo")}
           </Link>
         </div>

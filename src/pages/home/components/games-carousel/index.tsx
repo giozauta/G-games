@@ -21,7 +21,7 @@ const GameCarousel: React.FC = () => {
                 <CardContent className="rounded-3xl shadow-sm p-5 flex flex-col aspect-square items-center justify-center  border border-white hover:border-blue2 dark:border-black dark:hover:border-orange2 transition-all duration-500 ease-in">
                   <div className=" h-4/5 w-full flex items-center justify-center ">
                     <img
-                      src="/public/images/ghostGame.webp"
+                      src="/images/ghostGame.webp"
                       alt="call"
                       className="rounded-xl h-full w-full object-cover"
                     />

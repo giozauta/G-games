@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <div className=" w-full sm:w-[45%]  flex flex-col justify-center items-center   py-4 sm:py-0">
           <div className=" h-full w-full sm:w-1/2 flex flex-col  pl-4 ">
             <div className=" h-1/2  flex justify-start items-end ">
-              <img src="/public/images/footerLogo.png" alt="logo" />
+              <img src="/images/footerLogo.png" alt="logo" />
             </div>
             <div className=" dark:text-white h-1/3 py-4 sm:py-0 flex items-center text-5xl font-bold font-chakra-petch">
               {t("footer.games")}

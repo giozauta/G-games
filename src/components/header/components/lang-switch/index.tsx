@@ -18,7 +18,7 @@ const LangSwitch: React.FC = () => {
   const handleChangeLanguage = (language: string) => {
     i18n.changeLanguage(language);
 
-    const currentPath = location.pathname.split('/').slice(2).join('/');
+    const currentPath = location.pathname.split("/").slice(2).join("/");
     navigate(`/${language}/${currentPath}`);
   };
 

@@ -13,7 +13,7 @@ import LangGuard from "./components/lang-guard";
 function App() {
   return (
     <Routes>
-      <Route path=":lang" element={<LangGuard/>}>
+      <Route path=":lang" element={<LangGuard />}>
         <Route element={<DefaultLayout />}>
           <Route path="home" element={<HomeListViews />} />
           <Route path="profile" element={<Profile />} />

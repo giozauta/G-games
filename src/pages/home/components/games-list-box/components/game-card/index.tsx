@@ -4,14 +4,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import i18n from "i18next";
 
-
 interface GameData {
   id: string;
 }
 
 const GameCard: React.FC<{ gameData: GameData }> = ({ gameData }) => {
   const { t } = useTranslation();
-  const lang = i18n.language??"en"
+  const lang = i18n.language ?? "en";
 
   if (!gameData) {
     return null;

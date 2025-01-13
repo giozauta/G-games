@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
   return (
     <div className=" flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900]">
       <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
-        <img src="/public/images/bg-1.png" alt="bg" />
+        <img src="/images/bg-1.png" alt="bg" />
       </div>
 
       <div className=" relative gap-0 sm:gap-10 md:gap-0  z-10 flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
         </div>
         <div className="h-full w-[30%] hidden md:flex justify-center items-end ">
           <img
-            src="/public/images/call.webp"
+            src="/images/call.webp"
             alt="call"
             className=" w-[520px] h-[650px]"
           />
