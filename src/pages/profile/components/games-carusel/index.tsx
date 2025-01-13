@@ -6,11 +6,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const ProfileGameCarusel: React.FC = () => {
   const { t } = useTranslation();
+  const lang = i18next.language;
+  const currentLang = lang ?? "en";
 
   const data = [
     {
@@ -39,7 +42,7 @@ const ProfileGameCarusel: React.FC = () => {
               {/* transparent box with Delete Button */}
               <div className="absolute flex-col  inset-0 bg-black/50 flex items-center justify-center sm:justify-start gap-4 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Link
-                  to={`/gamePage/${data.id}`}
+                  to={`/${currentLang}/gamePage/${data.id}`}
                   className="flex justify-center items-center px-4 w-[80%] sm:w-[60%] py-2 bg-green2 text-white rounded-md hover:bg-green2/80"
                 >
                   {t("profile.enter")}
