@@ -42,6 +42,7 @@ const Header: React.FC = () => {
   };
 
   const handleLogout = () => {
+   
     logOut();
   };
 
@@ -79,7 +80,7 @@ const Header: React.FC = () => {
         {user && (
           <button
             onClick={handleLogout}
-            className="flex pb-5 sm:pb-0 w-20 sm:w-auto  items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in "
+            className="flex pb-5 sm:pb-0 w-20 sm:w-auto   items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in "
           >
             <img src="/images/user4.png" alt="user" className="w-5 h-5" />
             <div className="text-base pt-2 ">{t("navbar.logout")}</div>

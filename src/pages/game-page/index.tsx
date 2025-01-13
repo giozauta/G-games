@@ -6,7 +6,6 @@ import { userAtom } from "@/store/jotai";
 const GamePage: React.FC = () => {
   const [user] = useAtom(userAtom);
 
-
   return (
     <div className=" dark:bg-custom-gradient sm:h-[750px] flex justify-center items-center ">
       <Card className="w-[650px]   mx-auto p-6  sm:border-[1px]  border-none bg-[#fcfbf5] shadow-lg  dark:bg-custom-gradient2">
@@ -18,7 +17,7 @@ const GamePage: React.FC = () => {
               className="rounded-md"
             />
           </div>
-          {user&& (
+          {user && (
             <div className=" flex justify-center ">
               <GameEdit />
             </div>

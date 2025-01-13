@@ -15,7 +15,7 @@ export const useSignIn = () => {
         return;
       }
       alert("Sign-in successful and redirecting to home page");
-      navigate("/en/home");
+      navigate("/en/profile");
     },
   });
 };

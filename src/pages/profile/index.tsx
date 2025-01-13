@@ -2,8 +2,27 @@ import React from "react";
 import EditProfile from "./components/edit-profile";
 import ProfileGameCarusel from "./components/games-carusel";
 import UserInfo from "./components/user-info";
+import { useProfileInfo } from "@/react-query/query/profile";
+import { useAtom } from "jotai";
+import { Lang, userAtom } from "@/store/jotai";
 
 const Profile: React.FC = () => {
+const [user] = useAtom(userAtom);
+const userId = user?.user?.id;
+const currentLang = useAtom(Lang)[0];
+//
+const {data:userData} = useProfileInfo(userId);
+//user info
+const userFullNameEn = userData?.first_name_en + " " + userData?.last_name_en;
+const userFullNameKa = userData?.first_name_ka + " " + userData?.last_name_ka;
+//
+  if (!userData) {
+    return <div>Loading...</div>;
+  }
+  if(!user){
+    return <div>something went wrong...</div>
+  }
+
   return (
     <div>
       <div className="relative w-full h-[300px] sm:h-[400px] bg-bar bg-cover bg-center ">
@@ -11,7 +30,9 @@ const Profile: React.FC = () => {
 
         <div className=" relative z-20 flex  sm:flex-row justify-between items-end w-[90%] sm:w-[70%] mx-auto h-full">
           <div className=" text-white font-bold text-left text-3xl sm:text-4xl font-chakra-petch mb-4">
-            Giorgi Zautashvili
+            {
+              currentLang === "en" ? userFullNameEn.toUpperCase() : userFullNameKa
+            }
             <div className=" mt-4 ">
               <EditProfile />
             </div>
@@ -30,7 +51,7 @@ const Profile: React.FC = () => {
       <div className="dark:bg-custom-gradient  py-12   sm:mx-auto ">
         <div className=" items-center flex flex-col lg:flex-row justify-between h-auto lg:h-[400px] w-[90%] lg:w-[70%] mx-auto gap-8">
           <div className="flex-1 p-6 h-[250px] w-full bg-white dark:bg-gray-800/50 shadow-lg rounded-lg ">
-            <UserInfo />
+            <UserInfo userData={userData} currentLang={currentLang}/>
           </div>
 
           <div className="flex-1 p-7 h-[250px]   w-full bg-white dark:bg-gray-800/50 shadow-lg rounded-lg ">

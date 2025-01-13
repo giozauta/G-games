@@ -90,8 +90,8 @@ export type Database = {
         Row: {
           age: number | null;
           avatar_url: string | null;
-          full_name_en: string | null;
-          full_name_ka: string | null;
+          first_name_en: string | null;
+          first_name_ka: string | null;
           gender_en: string | null;
           gender_ka: string | null;
           id: string;
