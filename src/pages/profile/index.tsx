@@ -24,7 +24,7 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <div >
+    <div>
       <div className="relative lg:top-[-100px]  w-full h-[300px] sm:h-[400px] bg-bar bg-cover bg-center">
         <div className="absolute inset-0 bg-black opacity-50 z-10 "></div>
 

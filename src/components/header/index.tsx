@@ -53,7 +53,7 @@ const Header: React.FC = () => {
           <img src="/images/logo.png" alt="logo" />
           <Link
             to={`/${currentLang}/home`}
-            className="font-chakra-petch text-3xl font-bold border flex items-center justify-center"
+            className="font-chakra-petch text-3xl font-bold  flex items-center justify-center"
           >
             {t("navbar.logo")}
           </Link>
@@ -80,7 +80,9 @@ const Header: React.FC = () => {
             className="flex pb-5 sm:pb-0 w-20 sm:w-auto  h-full   items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in "
           >
             <img src="/images/user4.png" alt="user" className="w-5 h-5 " />
-            <div className="text-base   h-full flex justify-center items-center">{t("navbar.logout")}</div>
+            <div className="text-base   h-full flex justify-center items-center">
+              {t("navbar.logout")}
+            </div>
           </button>
         )}
 

@@ -18,13 +18,34 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { AddGameTypes } from "./types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { addGameSchema } from "./schema";
 
 const AddGame: React.FC = () => {
+  const { control, handleSubmit, formState } = useForm<AddGameTypes>({
+    resolver: zodResolver(addGameSchema),
+    defaultValues: {
+      nameEn: "",
+      nameKa: "",
+      descriptionEn: "",
+      descriptionKa: "",
+      platform: "",
+      releaseDate: "",
+      image: "",
+    },
+  });
+  //
   const { t } = useTranslation();
-
+  //
+  const handleAddGame = (formValues: AddGameTypes) => {
+    console.log(formValues);
+  };
+  //
   return (
-    <div className=" flex justify-center items-center font-chakra-petch min-h-[750px] dark:bg-custom-gradient">
+    <div className=" flex  py-10 justify-center items-center font-chakra-petch min-h-[750px] dark:bg-custom-gradient">
       <Card className="w-[500px] dark:bg-custom-gradient shadow-lg">
         <CardHeader>
           <CardTitle className="text-orange2 text-2xl">
@@ -53,11 +74,25 @@ const AddGame: React.FC = () => {
                   >
                     {t("addGame.name")} ({t("addGame.english")})
                   </Label>
-                  <Input
-                    id="name-en"
-                    placeholder={t("addGame.name-placeholderEn")}
+                  <Controller
+                    name="nameEn"
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <Input
+                          {...field}
+                          placeholder={t("addGame.name-placeholderEn")}
+                        />
+                      );
+                    }}
                   />
+                  {formState.errors?.nameEn?.message && (
+                    <p className="text-red-500">
+                      {formState.errors?.nameEn?.message}
+                    </p>
+                  )}
                 </div>
+
                 <div className="flex flex-col space-y-1.5">
                   <Label
                     htmlFor="description-en"
@@ -65,10 +100,22 @@ const AddGame: React.FC = () => {
                   >
                     {t("addGame.description")} ({t("addGame.english")})
                   </Label>
-                  <Textarea
-                    id="description-en"
-                    placeholder={t("addGame.description-placeholderEn")}
+
+                  <Controller
+                    name="descriptionEn"
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <Textarea
+                          {...field}
+                          placeholder={t("addGame.description-placeholderEn")}
+                        />
+                      );
+                    }}
                   />
+                  <p className="text-red-500">
+                    {formState.errors?.descriptionEn?.message}
+                  </p>
                 </div>
               </div>
             </TabsContent>
@@ -83,10 +130,22 @@ const AddGame: React.FC = () => {
                   >
                     {t("addGame.name")} ({t("addGame.georgian")})
                   </Label>
-                  <Input
-                    id="name-ka"
-                    placeholder={t("addGame.description-placeholderKa")}
+
+                  <Controller
+                    name="nameKa"
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <Input
+                          {...field}
+                          placeholder={t("addGame.description-placeholderKa")}
+                        />
+                      );
+                    }}
                   />
+                  <p className="text-red-500">
+                    {formState.errors?.nameKa?.message}
+                  </p>
                 </div>
                 <div className="flex flex-col space-y-1.5">
                   <Label
@@ -95,10 +154,21 @@ const AddGame: React.FC = () => {
                   >
                     {t("addGame.description")} ({t("addGame.georgian")})
                   </Label>
-                  <Textarea
-                    id="description-ka"
-                    placeholder={t("addGame.description-placeholderKa")}
+                  <Controller
+                    name="descriptionKa"
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <Textarea
+                          {...field}
+                          placeholder={t("addGame.description-placeholderKa")}
+                        />
+                      );
+                    }}
                   />
+                  <p className="text-red-500">
+                    {formState.errors?.descriptionKa?.message}
+                  </p>
                 </div>
               </div>
             </TabsContent>
@@ -110,44 +180,79 @@ const AddGame: React.FC = () => {
               <Label htmlFor="year" className="dark:text-green2 text-blue2">
                 {t("addGame.year")}
               </Label>
-              <Input
-                id="year"
-                type="number"
-                placeholder={t("addGame.year-placeholder")}
+
+              <Controller
+                name="releaseDate"
+                control={control}
+                render={({ field }) => {
+                  return (
+                    <Input
+                      {...field}
+                      type="date"
+                      placeholder={t("addGame.year-placeholder")}
+                    />
+                  );
+                }}
               />
+                                <p className="text-red-500">
+                    {formState.errors?.releaseDate?.message}
+                  </p>
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="platform" className="dark:text-green2 text-blue2">
                 {t("addGame.platform")}
               </Label>
-              <Select>
-                <SelectTrigger id="platform">
-                  <SelectValue
-                    placeholder={t("addGame.platform-placeholder")}
-                  />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="xbox">Xbox</SelectItem>
-                  <SelectItem value="playstation">Playstation</SelectItem>
-                  <SelectItem value="pc">PC</SelectItem>
-                </SelectContent>
-              </Select>
+
+              <Controller
+                name="platform"
+                control={control}
+                render={({ field }) => (
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger id="platform">
+                      <SelectValue
+                        placeholder={t("addGame.platform-placeholder")}
+                      />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="xbox">Xbox</SelectItem>
+                      <SelectItem value="playstation">Playstation</SelectItem>
+                      <SelectItem value="pc">PC</SelectItem>
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+            <p className="text-red-500">{formState.errors?.platform?.message}</p>
+
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="image" className="dark:text-green2 text-blue2">
                 {t("addGame.image")}
               </Label>
-              <Input
-                id="image"
-                type="file"
-                accept="image/*"
-                placeholder="Upload game image"
-              />
+
+              <Controller
+                name="image"
+                control={control}
+                render={({ field }) => (
+                  <Input
+                    required
+                    id="image"
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        field.onChange(e.target.files[0]);
+                      }
+                    }}
+                  />
+                )}
+              />             
+            <p className="text-red-500">{formState.errors?.image?.message}</p>
             </div>
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button
+            onClick={handleSubmit(handleAddGame)}
             variant="outline"
             className="w-full sm:w-auto bg-orange2 text-white"
           >

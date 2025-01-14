@@ -6,14 +6,11 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 const IsAuthLayout: React.FC = () => {
-
-
-
   return (
     <>
       <Header />
       <AuthGuard>
-       <Outlet /> 
+        <Outlet />
       </AuthGuard>
       <Footer />
     </>

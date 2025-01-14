@@ -8,22 +8,21 @@ import { Input } from "@/components/ui/input";
 import { useSearchParams } from "react-router-dom";
 
 const GamesListBox: React.FC = () => {
-  const [searchParams,] = useSearchParams();
+  const [searchParams, ] = useSearchParams();
   console.log(searchParams.toString());
   //
-  const { control,  } = useForm({
+  const { control } = useForm({
     defaultValues: {
       search: "",
     },
   });
-//
-
+  //
 
   const { t } = useTranslation();
 
   const {
     data: gamesList,
-    
+    // refetch,
     isLoading,
     isError,
   } = useGamesList("teken");

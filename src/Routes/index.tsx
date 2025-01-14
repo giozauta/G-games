@@ -12,10 +12,6 @@ import SignUp from "@/pages/sign-up";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const AppRoutes = () => {
-
-
-
-
   return (
     <Routes>
       <Route path=":lang" element={<LangGuard />}>
