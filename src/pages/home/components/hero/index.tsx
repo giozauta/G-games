@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
 
   return (
     <div className=" flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900]">
-      <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
+      <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center ">
         <img src="/images/bg-1.png" alt="bg" />
       </div>
 
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
               {t("hero.haven")}
             </div>
 
-            <button className="text-lg hover:scale-105 transition-all duration-300 ease-in rounded-md  mt-10 px-1 h-[50px]  border-r-2 border-l-2 border-[#F75A1D]  ">
+            <div className="text-lg flex justify-center items-center hover:scale-105 transition-all duration-300 ease-in rounded-md  mt-10 px-1 h-[50px]  border-r-2 border-l-2 border-[#F75A1D]  ">
               <Button
                 variant={"outline"}
                 className="bg-[#F75A1D]  dark:border-green2 rounded-md px-5 py-2 dark:hover:bg-orange2 flex justify-center items-center transition-all duration-300 ease-in"
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
                   {t("hero.sign-up")}
                 </Link>
               </Button>
-            </button>
+            </div>
           </div>
         </div>
         <div className="h-full w-[30%] hidden md:flex justify-center items-end ">

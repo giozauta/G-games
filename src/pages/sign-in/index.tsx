@@ -12,13 +12,20 @@ import { Label } from "@/components/ui/label";
 import i18next from "i18next";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FormValues } from "./types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "./schema";
 import { useSignIn } from "@/react-query/mutation/sign-in";
 
 const SignIn: React.FC = () => {
+  //
+  const location = useLocation();
+  const toNavigate =
+    location?.state?.from.pathname + location?.state?.from.search || "/en/home";
+
+    console.log(toNavigate);
+  //
   const { control, handleSubmit, formState } = useForm<FormValues>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -26,19 +33,24 @@ const SignIn: React.FC = () => {
       password: "",
     },
   });
+  //
   const { t } = useTranslation();
+  //
   const lang = i18next.language;
   const currentLang = lang ?? "en";
-
+  //
+  const navigate = useNavigate();
+  //
   const { mutate: handleSignIn } = useSignIn();
-
+  //
   const onSubmit = (fieldValues: FormValues) => {
     handleSignIn({
       email: fieldValues.email,
       password: fieldValues.password,
     });
+    navigate(toNavigate);
   };
-
+  //
   return (
     <div className="flex justify-center items-center font-chakra-petch h-[650px] dark:bg-custom-gradient">
       <Card className="w-[350px] dark:bg-custom-gradient">

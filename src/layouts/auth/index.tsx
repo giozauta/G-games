@@ -1,16 +1,23 @@
+import AuthGuard from "@/components/auth-guard";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-const DefaultLayout: React.FC = () => {
+const IsAuthLayout: React.FC = () => {
+
+
+
   return (
     <>
       <Header />
-      <Outlet />
+      <AuthGuard>
+       <Outlet /> 
+      </AuthGuard>
       <Footer />
     </>
   );
 };
 
-export default DefaultLayout;
+export default IsAuthLayout;

@@ -17,8 +17,6 @@ const Header: React.FC = () => {
   const currentLang = lang.lang ?? "en";
   const [user] = useAtom(userAtom);
 
-  console.log(user);
-
   const { mutate: logOut } = useLogOut();
 
   useEffect(() => {
@@ -48,14 +46,14 @@ const Header: React.FC = () => {
   return (
     <div
       ref={headerRef}
-      className="header  bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
+      className="header   bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
     >
-      <div className="logo  w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between  ">
-        <div className="flex items-center gap-5 ">
+      <div className="logo   w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between   ">
+        <div className="flex items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
           <img src="/images/logo.png" alt="logo" />
           <Link
             to={`/${currentLang}/home`}
-            className="font-chakra-petch text-3xl font-bold "
+            className="font-chakra-petch text-3xl font-bold border flex items-center justify-center"
           >
             {t("navbar.logo")}
           </Link>
@@ -63,9 +61,9 @@ const Header: React.FC = () => {
         <div className=" flex items-center gap-2 pr-4 ">
           <LangSwitch />
           <ModeToggle />
-          <div onClick={handleButtonState} className="sm:hidden">
+          <button onClick={handleButtonState} className="sm:hidden">
             {buttonState ? <HeaderButton /> : <HeaderButtonX />}
-          </div>
+          </button>
         </div>
       </div>
 
@@ -79,10 +77,10 @@ const Header: React.FC = () => {
         {user && (
           <button
             onClick={handleLogout}
-            className="flex pb-5 sm:pb-0 w-20 sm:w-auto   items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in "
+            className="flex pb-5 sm:pb-0 w-20 sm:w-auto  h-full   items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in "
           >
-            <img src="/images/user4.png" alt="user" className="w-5 h-5" />
-            <div className="text-base pt-2 ">{t("navbar.logout")}</div>
+            <img src="/images/user4.png" alt="user" className="w-5 h-5 " />
+            <div className="text-base   h-full flex justify-center items-center">{t("navbar.logout")}</div>
           </button>
         )}
 

@@ -24,11 +24,11 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <div>
-      <div className="relative w-full h-[300px] sm:h-[400px] bg-bar bg-cover bg-center ">
+    <div >
+      <div className="relative lg:top-[-100px]  w-full h-[300px] sm:h-[400px] bg-bar bg-cover bg-center">
         <div className="absolute inset-0 bg-black opacity-50 z-10 "></div>
 
-        <div className=" relative z-20 flex  sm:flex-row justify-between items-end w-[90%] sm:w-[70%] mx-auto h-full">
+        <div className=" relative z-20 flex  sm:flex-row justify-between items-end w-[90%] sm:w-[70%] mx-auto h-full ">
           <div className=" text-white font-bold text-left text-3xl sm:text-4xl font-chakra-petch mb-4">
             {currentLang === "en"
               ? userFullNameEn.toUpperCase()
@@ -38,7 +38,7 @@ const Profile: React.FC = () => {
             </div>
           </div>
 
-          <div className=" flex justify-center items-end">
+          <div className=" flex justify-center items-end ">
             <img
               src="/images/call-little.png"
               alt="man"

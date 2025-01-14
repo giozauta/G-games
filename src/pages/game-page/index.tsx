@@ -7,10 +7,10 @@ const GamePage: React.FC = () => {
   const [user] = useAtom(userAtom);
 
   return (
-    <div className=" dark:bg-custom-gradient sm:h-[750px] flex justify-center items-center ">
-      <Card className="w-[650px]   mx-auto p-6  sm:border-[1px]  border-none bg-[#fcfbf5] shadow-lg  dark:bg-custom-gradient2">
-        <CardContent className="gap-5 p-0 flex justify-between flex-col sm:flex-row">
-          <div className=" flex ">
+    <div className=" dark:bg-custom-gradient sm:h-[750px] flex justify-center items-center  w-[99%] mx-auto ">
+      <Card className="w-[650px]  mx-auto p-6  sm:border-[1px]  border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg  dark:bg-custom-gradient2">
+        <CardContent className="gap-5 p-0 flex justify-between flex-col sm:flex-row ">
+          <div className=" flex justify-center sm:justify-start">
             <img
               src="/images/ghostGame.webp"
               alt="game"

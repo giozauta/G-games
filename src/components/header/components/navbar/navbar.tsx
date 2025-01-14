@@ -5,13 +5,13 @@ import { NavLink } from "react-router-dom";
 const Navbar: React.FC = () => {
   const handleActiveNav = ({ isActive }: { isActive: boolean }) => {
     return isActive
-      ? " hover:text-[#64d100]  transition-colors duration-300 ease-in py-2 text-[#64d100] dark:text-[#64d100] "
-      : " hover:text-[#64d100]  transition-colors duration-300 ease-in py-2 ";
+      ? " hover:text-[#64d100]  transition-colors duration-300 ease-in py-2 text-[#64d100] dark:text-[#64d100] flex h-full items-center justify-center"
+      : " hover:text-[#64d100]  transition-colors duration-300 ease-in py-2   flex h-full items-center justify-center";
   };
   const { t } = useTranslation();
 
   return (
-    <div className=" py-10 sm:p-0 flex flex-col justify-center items-start sm:items-center sm:flex-row sm:gap-7 ">
+    <div className=" py-10 sm:p-0 flex flex-col justify-center items-start sm:items-center sm:flex-row sm:gap-7  h-full">
       <NavLink to="home" className={handleActiveNav}>
         {t("navbar.home")}
       </NavLink>
