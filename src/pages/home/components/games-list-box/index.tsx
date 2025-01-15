@@ -19,8 +19,6 @@ const GamesListBox: React.FC = () => {
   });
   //
   const searchText = watch("search");
-
-  console.log(searchText);
   //
   const [debouncedSearchText] = useDebounce(searchText, 1000);
   //
@@ -44,7 +42,7 @@ const GamesListBox: React.FC = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="border-[1px]  dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20  rounded-3xl gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-[82%] mx-auto h-[700px] sm:h-[800px] md:h-[900px]">Loading...</div>;
   }
   if (isError) {
     return <div>Error</div>;
@@ -66,12 +64,13 @@ const GamesListBox: React.FC = () => {
               return (
                 <Input
                   type="text"
-                  value={value}
+             
                   className="h-10 w-full rounded-lg dark:bg-black border  dark:border-[#60D600] border-[#6ec1e4] pl-10 pr-4"
                   placeholder={t("listBox.search")}
                   onChange={(e) => {
                     handleSearchChange(e, onChange);
                   }}
+                  value={value}
                 />
               );
             }}

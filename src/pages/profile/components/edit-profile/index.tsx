@@ -14,14 +14,43 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { FormValuesType } from "./types";
+import { profileSchema } from "./schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const SHEET_SIDES = ["right"] as const;
 
 type EditProfile = (typeof SHEET_SIDES)[number];
 
 const EditProfile: React.FC = () => {
+  const { control, handleSubmit } = useForm<FormValuesType>({
+    resolver: zodResolver(profileSchema),
+    defaultValues: {
+      // english tab fields
+      nameEn: "",
+      lastNameEn: "",
+      locationEn: "",
+      genderEn: "",
+
+      // georgian tab fields
+      nameKa: "",
+      lastNameKa: "",
+      locationKa: "",
+      genderKa: "",
+
+      // phone field
+      phone: "",
+      age: "",
+    },
+  });
+
   const { t } = useTranslation();
+
+  const handleEditProfile = (event: FormValuesType) => {
+    console.log(event);
+  };
 
   return (
     <div className="grid grid-cols-2 gap-2 ">
@@ -55,22 +84,40 @@ const EditProfile: React.FC = () => {
 
                 {/* ინგლისური Tab */}
                 <TabsContent value="english">
-                  <div className="grid gap-4">
-                    {["name", "location", "gender", "age"].map((field) => (
+                  <div className="grid gap-4 ">
+                    {["name", "lastName", "location", "gender"].map((names) => (
                       <div
-                        key={field}
-                        className="grid grid-cols-4 items-center gap-4"
+                        key={names}
+                        className="grid grid-cols-4 items-center gap-4 "
                       >
                         <Label
-                          htmlFor={`${field.toLowerCase()}-en`}
-                          className="text-right text-blue2 dark:text-orange2"
+                          htmlFor={`${names.toLowerCase()}En`}
+                          className="text-right text-blue2 dark:text-orange2  h-full pt-3"
                         >
-                          {t(`profile.${field}`)}
+                          {t(`profile.${names}`)}
                         </Label>
-                        <Input
-                          id={`${field.toLowerCase()}-en`}
-                          placeholder={t(`profilePlaceholder.${field}`)}
-                          className="col-span-3"
+
+                        <Controller
+                          control={control}
+                          name={`${names}En` as keyof FormValuesType}
+                          render={({ field, fieldState }) => {
+                            return (
+                              <div className="col-span-3">
+                                <Input
+                                  {...field}
+                                  id={`${names.toLowerCase()}En`}
+                                  placeholder={t(`profilePlaceholder.${names}`)}
+                                  value={field.value ?? ""}
+                                />
+
+                                {fieldState.error?.message && (
+                                  <span className="text-red-600 text-sm">
+                                    {fieldState.error?.message}
+                                  </span>
+                                )}
+                              </div>
+                            );
+                          }}
                         />
                       </div>
                     ))}
@@ -80,21 +127,41 @@ const EditProfile: React.FC = () => {
                 {/* ქართული Tab */}
                 <TabsContent value="georgian">
                   <div className="grid gap-4">
-                    {["name", "location", "gender", "age"].map((field) => (
+                    {["name", "lastName", "location", "gender"].map((names) => (
                       <div
-                        key={field}
+                        key={names}
                         className="grid grid-cols-4 items-center gap-4"
                       >
                         <Label
-                          htmlFor={`${field.toLowerCase()}-ka`}
-                          className="text-right text-blue2 dark:text-orange2"
+                          htmlFor={`${names.toLowerCase()}Ka`}
+                          className="text-right text-blue2 dark:text-orange2  h-full pt-3"
                         >
-                          {t(`profile.${field}`)}
+                          {t(`profile.${names}`)}
                         </Label>
-                        <Input
-                          id={`${field.toLowerCase()}-ka`}
-                          placeholder={t(`profilePlaceholderKa.${field}`)}
-                          className="col-span-3"
+
+                        <Controller
+                          control={control}
+                          name={`${names}Ka` as keyof FormValuesType}
+                          render={({ field, fieldState }) => {
+                            return (
+                              <div className="col-span-3">
+                                <Input
+                                  {...field}
+                                  id={`${names.toLowerCase()}Ka`}
+                                  placeholder={t(
+                                    `profilePlaceholderKa.${names}`,
+                                  )}
+                                  value={field.value ?? ""}
+                                />
+
+                                {fieldState.error?.message && (
+                                  <span className=" text-red-600 text-sm ">
+                                    {fieldState.error?.message}
+                                  </span>
+                                )}
+                              </div>
+                            );
+                          }}
                         />
                       </div>
                     ))}
@@ -103,25 +170,75 @@ const EditProfile: React.FC = () => {
               </Tabs>
 
               {/* Phone Field */}
-              <div className="grid grid-cols-4 items-center gap-4">
+              <div className="grid grid-cols-4 items-center gap-4 ">
                 <Label
                   htmlFor="phone"
                   className="text-right text-blue2 dark:text-orange2"
                 >
                   {t(`profile.phone`)}
                 </Label>
-                <Input
-                  id="phone"
-                  type="number"
-                  placeholder={t("profile.phone-placeholder")}
-                  className="col-span-3"
+
+                <Controller
+                  control={control}
+                  name="phone"
+                  render={({ field, fieldState }) => {
+                    return (
+                      <div className="col-span-3">
+                        <Input
+                          {...field}
+                          id="phone"
+                          placeholder={t("profilePlaceholder.phone")}
+                        />
+                        {fieldState.error?.message && (
+                          <span className=" text-red-600 text-sm">
+                            {fieldState.error?.message}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  }}
+                />
+              </div>
+              {/* Age Field */}
+              <div className="grid grid-cols-4 items-center gap-4 ">
+                <Label
+                  htmlFor="age"
+                  className="text-right text-blue2 dark:text-orange2  h-full pt-3"
+                >
+                  {t(`profile.age`)}
+                </Label>
+
+                <Controller
+                  control={control}
+                  name="age"
+                  render={({ field, fieldState }) => {
+                    return (
+                      <div className="col-span-3 ">
+                        <Input
+                          {...field}
+                          id="age"
+                          placeholder={t("profilePlaceholder.age")}
+                        />
+
+                        {fieldState.error?.message && (
+                          <span className=" text-red-600 text-sm">
+                            {fieldState.error?.message}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  }}
                 />
               </div>
             </div>
 
             <SheetFooter>
               <SheetClose asChild>
-                <Button type="submit" className="dark:bg-green2 bg-orange2">
+                <Button
+                  type="submit"
+                  className="dark:bg-green2 bg-orange2"
+                  onClick={handleSubmit(handleEditProfile)}
+                >
                   {t("profile.save")}
                 </Button>
               </SheetClose>

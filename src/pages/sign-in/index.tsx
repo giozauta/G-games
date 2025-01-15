@@ -23,8 +23,6 @@ const SignIn: React.FC = () => {
   const location = useLocation();
   const toNavigate =
     location?.state?.from.pathname + location?.state?.from.search || "/en/home";
-
-  console.log(toNavigate);
   //
   const { control, handleSubmit, formState } = useForm<FormValues>({
     resolver: zodResolver(signUpSchema),

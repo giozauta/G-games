@@ -1,8 +1,6 @@
 {
   "name": "name in georgian",
+  "lastName": "last name in georgian",
   "location": "location in georgian",
-  "gender": "gender in georgian",
-
-  "phone": "phone number",
-  "age": "age"
+  "gender": "gender in georgian"
 }

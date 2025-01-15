@@ -1,7 +1,8 @@
 {
   "edit-profile": "Edit Profile",
   "name": "Name",
-  "phone": "Phone Number",
+  "lastName": "Last Name",
+  "phone": "Phone ",
   "location": "Location",
   "gender": "Gender",
   "age": "Age",
