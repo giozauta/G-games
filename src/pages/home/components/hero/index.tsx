@@ -26,12 +26,12 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
   //
 
   return (
-    <div className="pt-10 sm:pt-0 flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900]">
-      <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center ">
+    <div className=" pb-20 sm:pb-0 pt-10 sm:pt-0 flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900]">
+      <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
         <img src="/images/bg-1.png" alt="bg" />
       </div>
 
-      <div className=" relative gap-0 sm:gap-10 md:gap-0  z-10 flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
+      <div className="  relative gap-0 sm:gap-10 md:gap-0  z-10 flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
         <div className="   h-[450px]  w-full sm:w-[35%] flex justify-start sm:justify-end ">
           <div className=" flex flex-col  gap-2 items-start pl-4 sm:pl-0 font-chakra-petch text-white font-bold ">
             <div className={heroTextSize({ lang: currentLanguage })}>
@@ -47,7 +47,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             <div className=" text-lg flex justify-center items-center hover:scale-105 transition-all duration-300 ease-in rounded-md  mt-10 px-1 h-[50px]  border-r-2 border-l-2 border-[#F75A1D]  ">
               <Button
                 variant={"outline"}
-                className="bg-[#F75A1D]  dark:border-green2 rounded-md px-5 py-2 dark:hover:bg-orange2 flex justify-center items-center transition-all duration-300 ease-in"
+                className="bg-[#F75A1D]   dark:border-green2 rounded-md px-5 py-2 dark:hover:bg-orange2 flex justify-center items-center transition-all duration-300 ease-in"
               >
                 <Link to={`/${currentLanguage}/sign-up`}>
                   {t("hero.sign-up")}
@@ -63,20 +63,20 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             className=" w-[520px] h-[650px]"
           />
         </div>
-        <div className=" h-[450px]  relative lg:top-[-30px] w-full  sm:w-[35%] flex justify-center sm:justify-start text-white ">
-          <div className=" bg-red w-96   flex flex-col  justify-start items-center  bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 ">
-            <div className="text-3xl font-bold  gap-5  w-full h-1/4  flex justify-start items-center  ">
-              <div className="bg-[#F75A1D] w-4 h-4 rounded-lg "></div>
+        <div className=" h-[450px]  relative  lg:top-[-30px] w-full  sm:w-[35%] flex justify-center sm:justify-start text-white ">
+          <div className="  w-[80%] sm:w-96   flex flex-col  justify-start items-center  bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  mx-auto ">
+            <div className="text-3xl font-bold  gap-5  w-full h-1/6  flex justify-start items-center  ">
+              <div className="bg-[#F75A1D] w-4 h-4 rounded-lg  "></div>
               {t("hero.top-games")}
             </div>
-            <div className="w-full h-3/4 flex flex-col justify-evenly gap-4 ">
+            <div className="w-full h-[80%] flex flex-col justify-evenly gap-4  ">
               {sortedGames?.map((game, index) => (
                 <div
                   key={index}
-                  className="flex justify-start  items-center gap-5 h-1/3 text-xl font-bold overflow-hidden hover:bg-white/10  transition-all duration-300 ease-in rounded-lg  p-4 "
+                  className="flex justify-start    items-center gap-5 h-1/3 text-xl font-bold overflow-hidden hover:border-orange2 transition-all duration-300 ease-in    border-b border-white/20 "
                 >
                   {/* ავატარი  */}
-                  <Avatar className="w-16 h-16  rounded-full shadow-lg">
+                  <Avatar className="w-16 h-16  shadow-lg ">
                     <AvatarImage src={imgUrl + game.image_url} />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
