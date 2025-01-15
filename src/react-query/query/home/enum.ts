@@ -1,3 +1,3 @@
 export enum HOME_QUERY_KEY {
-  GAMES = "games",
+  GAMES_BY_SEARCH = "gamesBySearch",
 }

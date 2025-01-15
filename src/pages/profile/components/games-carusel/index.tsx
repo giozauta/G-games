@@ -30,7 +30,7 @@ const ProfileGameCarusel: React.FC = () => {
   }
 
   return (
-    <Carousel className="w-full h-full max-w-md mx-auto">
+    <Carousel className="w-full h-full max-w-md mx-auto ">
       <CarouselContent className="h-full -ml-1 flex items-center">
         {gamesInfo?.map((data) => (
           <CarouselItem

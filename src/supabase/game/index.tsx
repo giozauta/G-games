@@ -9,16 +9,15 @@ export const getGamesById = async (
       .from("games")
       .select("*")
       .eq("id", gameId as number)
-      .single()
+      .single();
 
     if (error) {
       throw new Error(error.message);
     }
-console.log(data)
+    console.log(data);
     return data;
   } catch (err) {
     console.error("Error fetching game by ID:", err);
     throw new Error("Failed to fetch game. Please try again later.");
   }
 };
-

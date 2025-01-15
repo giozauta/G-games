@@ -3,18 +3,17 @@ import GameEdit from "./components/edit-game";
 import { useAtom } from "jotai";
 import { Lang, userAtom } from "@/store/jotai";
 import { useGamesById } from "@/react-query/query/profile";
-import {useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-
 
 const GamePage: React.FC = () => {
   const [user] = useAtom(userAtom);
   const gameId = useParams()?.id;
-  const lang =useAtom(Lang)[0];
+  const lang = useAtom(Lang)[0];
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
-//
-  const {data:gameInfo} = useGamesById(Number(gameId));
-//
+  //
+  const { data: gameInfo } = useGamesById(Number(gameId));
+  //
   if (!gameInfo) {
     return <div>Loading...</div>;
   }
@@ -37,22 +36,21 @@ const GamePage: React.FC = () => {
           )}
         </CardContent>
         <CardDescription className="p-0  pt-4  flex gap-2">
-          <Badge variant="default" className="py-1">{gameInfo?.platform}</Badge>
-          <Badge variant="default" className="py-1">{gameInfo?.release_date}</Badge>
-          <Badge variant="default" className="py-1">Likes:{gameInfo?.likes}</Badge>
-
+          <Badge variant="default" className="py-1">
+            {gameInfo?.platform}
+          </Badge>
+          <Badge variant="default" className="py-1">
+            {gameInfo?.release_date}
+          </Badge>
+          <Badge variant="default" className="py-1">
+            Likes:{gameInfo?.likes}
+          </Badge>
         </CardDescription>
         <CardContent className=" p-0 pt-4 text-3xl text-orange2">
-          {
-            lang === "en" ? gameInfo?.name_en : gameInfo?.name_ka
-          }
-
-
+          {lang === "en" ? gameInfo?.name_en : gameInfo?.name_ka}
         </CardContent>
         <CardContent className=" p-0 pt-4 ">
-          {
-            lang === "en" ? gameInfo?.description_en : gameInfo?.description_ka
-          }
+          {lang === "en" ? gameInfo?.description_en : gameInfo?.description_ka}
         </CardContent>
       </Card>
     </div>

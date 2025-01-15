@@ -12,7 +12,7 @@ export const useProfileInfo = (userId: string | undefined) => {
   });
 };
 
-//რომარა სუპაბეისის ერთი იუზერი სხვადასხვა იუზერის თამაშები წამოვიდოდა 
+//რომარა სუპაბეისის ერთი იუზერი სხვადასხვა იუზერის თამაშები წამოვიდოდა
 export const useGamesInfoByUserId = (userId: string | undefined) => {
   return useQuery({
     queryKey: [PROFILE_QUERY_KEY.USER_GAMES],
@@ -20,7 +20,6 @@ export const useGamesInfoByUserId = (userId: string | undefined) => {
     enabled: !!userId,
   });
 };
-
 
 export const useGamesById = (gameId: number | undefined) => {
   return useQuery({

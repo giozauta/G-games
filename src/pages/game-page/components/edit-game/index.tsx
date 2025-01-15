@@ -29,7 +29,7 @@ const GameEdit: React.FC = () => {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="w-full sm:w-auto bg-orange2 text-white dark:bg-orange2 dark:text-black"
+          className="w-full sm:w-auto bg-orange2 text-white dark:bg-orange2 dark:text-black "
         >
           {t("addGame.edditGame")}
         </Button>
