@@ -23,9 +23,12 @@ import { useTranslation } from "react-i18next";
 import { AddGameTypes } from "./types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { addGameSchema } from "./schema";
+import { useUpdateBlog } from "@/react-query/mutation/add-game";
+import { useAtom } from "jotai";
+import { userAtom } from "@/store/jotai";
 
 const AddGame: React.FC = () => {
-  const { control, handleSubmit, formState } = useForm<AddGameTypes>({
+  const { control, handleSubmit, formState, reset } = useForm<AddGameTypes>({
     resolver: zodResolver(addGameSchema),
     defaultValues: {
       nameEn: "",
@@ -38,10 +41,44 @@ const AddGame: React.FC = () => {
     },
   });
   //
+  const [user] = useAtom(userAtom);
+  const userId = user?.user?.id ?? "";
+  //
   const { t } = useTranslation();
   //
+  const { mutate: AddGame } = useUpdateBlog();
+  //
   const handleAddGame = (formValues: AddGameTypes) => {
-    console.log(formValues);
+    if (!formValues || !formValues.image || !formValues.image.name) {
+      console.error("Invalid form values or image data.");
+      return;
+    }
+
+    const sanitizedFileName = formValues.image.name.replace(
+      /[^a-zA-Z0-9.\-_]/g,
+      "_",
+    );
+    const fileName = `${sanitizedFileName}-${Date.now()}`;
+
+    const imageFile = formValues.image;
+
+    const newGameValues = {
+      description_en: formValues.descriptionEn,
+      description_ka: formValues.descriptionKa,
+      user_id: userId,
+      name_en: formValues.nameEn,
+      name_ka: formValues.nameKa,
+      platform: formValues.platform,
+      release_date: formValues.releaseDate,
+    };
+    // ვამატებთ სუპაბეისში
+    AddGame({
+      fileName: fileName,
+      file: imageFile,
+      newGameValues: newGameValues,
+    });
+    //იმისთვის რომ ფორმის მნიშვნელობები დავაბრუნოთ საწყისზე
+    reset();
   };
   //
   return (
@@ -194,9 +231,9 @@ const AddGame: React.FC = () => {
                   );
                 }}
               />
-                                <p className="text-red-500">
-                    {formState.errors?.releaseDate?.message}
-                  </p>
+              <p className="text-red-500">
+                {formState.errors?.releaseDate?.message}
+              </p>
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="platform" className="dark:text-green2 text-blue2">
@@ -221,8 +258,9 @@ const AddGame: React.FC = () => {
                   </Select>
                 )}
               />
-            <p className="text-red-500">{formState.errors?.platform?.message}</p>
-
+              <p className="text-red-500">
+                {formState.errors?.platform?.message}
+              </p>
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="image" className="dark:text-green2 text-blue2">
@@ -245,8 +283,8 @@ const AddGame: React.FC = () => {
                     }}
                   />
                 )}
-              />             
-            <p className="text-red-500">{formState.errors?.image?.message}</p>
+              />
+              <p className="text-red-500">{formState.errors?.image?.message}</p>
             </div>
           </div>
         </CardContent>

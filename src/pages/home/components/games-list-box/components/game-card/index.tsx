@@ -15,7 +15,8 @@ const GameCard: React.FC<{ gameData: GameDataType }> = ({ gameData }) => {
   const likes = gameData.likes;
   const Platform = gameData.platform;
   const releaseDate = gameData.release_date;
-  const imgUrl = gameData.image_url;
+  const imgUrl =
+    import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL + gameData.image_url;
 
   if (!gameData) {
     return null;
@@ -23,12 +24,12 @@ const GameCard: React.FC<{ gameData: GameDataType }> = ({ gameData }) => {
 
   return (
     <div className="px-4 bg-white text-black dark:text-white  w-96 h-full flex flex-col rounded-3xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-[#F75A1D] hover:border-[#6ec1e4] transition-all duration-500">
-      <div className=" overflow-hidden h-[50%] mt-5  flex justify-center items-center rounded-xl ">
+      <div className=" overflow-hidden h-[50%] mt-5  flex justify-center items-center rounded-xl  ">
         {imgUrl ? (
           <img
-            src={`{imgUrl}`}
+            src={imgUrl}
             alt="game"
-            className="transition-all duration-500 transform hover:scale-105 h-full"
+            className="transition-all duration-500 transform hover:scale-105  h-full w-full object-cover rounded-3xl"
           />
         ) : (
           <div className="border dark:border-white/10 rounded-2xl h-full w-full flex justify-center items-center">

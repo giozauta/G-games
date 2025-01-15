@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "prepare": "husky install",
-    "genSupabaseTypes": "npx @supabase/supabase-js-typescript"
+    "genSupabaseTypes": "npx supabase gen types typescript --project-id lphvmshtnpncjxpaiybr --schema public > src/supabase/supabase.types.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
