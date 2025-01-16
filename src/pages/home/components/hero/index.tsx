@@ -30,16 +30,15 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
       <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
         <img src="/images/bg-1.png" alt="bg" />
       </div>
-
+{/*this div is for style only to appear border boxes მხოლოდ სტილისთვის */}
       <div className="w-full z-20  h-screen grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute">
-          {[...Array(250)].map((_, i) => (
-            <div
-              key={i}
-              className="bg-black bg-transparent flex justify-center items-center border  border-white/5 "
-            ></div>
-          ))}
-        </div>
-
+        {[...Array(250)].map((_, i) => (
+          <div
+            key={i}
+            className="bg-black bg-transparent flex justify-center items-center border  border-white/5 "
+          ></div>
+        ))}
+      </div>
 
       <div className="  relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
         <div className="  z-20  h-[450px]  w-full sm:w-[35%] flex justify-start sm:justify-end ">
@@ -66,7 +65,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             </div>
           </div>
         </div>
-        <div className="h-full w-[30%] hidden md:flex justify-center items-end ">
+        <div className="z-20 h-full w-[30%] hidden md:flex justify-center items-end ">
           <img
             src="/images/call.webp"
             alt="call"
