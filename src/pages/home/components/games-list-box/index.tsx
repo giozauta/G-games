@@ -9,8 +9,9 @@ import { useSearchParams } from "react-router-dom";
 import qs from "qs";
 import { GamesFilterFormValues } from "./components/types";
 import { useDebounce } from "use-debounce";
+import { Refetch } from "./types";
 
-const GamesListBox: React.FC = () => {
+const GamesListBox: React.FC<{refetch:Refetch}> = ({refetch}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   //
 
@@ -29,7 +30,7 @@ const GamesListBox: React.FC = () => {
     isLoading,
     isError,
   } = useGamesListWithSearch(debouncedSearchText);
-
+  //
   const handleSearchChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     onChange: (value: string) => void,
@@ -82,7 +83,7 @@ const GamesListBox: React.FC = () => {
       </div>
       <div className=" gap-10 flex flex-wrap justify-center  sm:mt-10  overflow-y-scroll h-[500px]">
         {gamesList?.map((game) => {
-          return <GameCard key={game.id} gameData={game} />;
+          return <GameCard refetch={refetch} key={game.id} gameData={game} />;
         })}
       </div>
     </div>

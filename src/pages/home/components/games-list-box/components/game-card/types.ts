@@ -11,3 +11,5 @@ export type GameDataType = {
   platform: string | null;
   release_date: string | null;
 };
+
+export type Refetch = () => void;

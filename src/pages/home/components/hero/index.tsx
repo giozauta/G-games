@@ -14,23 +14,22 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
 
   //
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
-
+  //
   const sortedGames = games
     ?.slice()
-    .sort(
-      (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
-    )
+    .sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0))
     .slice(0, 3);
-
   //
+  if (!sortedGames) {
+    return <div>...error</div>;
+  }
 
   return (
     <div className=" pb-20 sm:pb-0 pt-10 sm:pt-0 flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900]">
       <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
         <img src="/images/bg-1.png" alt="bg" />
       </div>
-{/*this div is for style only to appear border boxes მხოლოდ სტილისთვის */}
+      {/*this div is for style only to appear border boxes მხოლოდ სტილისთვის */}
       <div className="w-full z-20  h-screen grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute">
         {[...Array(250)].map((_, i) => (
           <div
@@ -97,7 +96,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
                     </div>
                     {/* ლაიქები */}
                     <div className="text-sm text-green2">
-                      {t("hero.likes")}: {game.id}
+                      {t("hero.likes")}: {game.likes}
                     </div>
                   </div>
                 </div>

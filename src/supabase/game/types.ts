@@ -12,3 +12,5 @@ export type GameType = {
   release_date: string | null;
   user_id: string | null;
 };
+
+

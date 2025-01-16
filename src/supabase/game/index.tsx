@@ -21,3 +21,36 @@ export const getGamesById = async (
     throw new Error("Failed to fetch game. Please try again later.");
   }
 };
+
+export const updateLikes = async (gameId: number) => {
+  try {
+    const { data: game, error: fetchError } = await supabase
+      .from("games")
+      .select("likes")
+      .eq("id", gameId)
+      .single();
+
+    if (fetchError) {
+      console.error("Error fetching game:", fetchError);
+      return null;
+    }
+
+    const currentLikes = game.likes ?? 0;
+
+    const { data, error: updateError } = await supabase
+      .from("games")
+      .update({ likes: currentLikes + 1 })
+      .eq("id", gameId);
+
+    if (updateError) {
+      console.error("Error updating likes:", updateError);
+      return null;
+    }
+
+    console.log("Updated game:", data);
+    return data;
+  } catch (err) {
+    console.error("Unexpected error:", err);
+    return null;
+  }
+};
