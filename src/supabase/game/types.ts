@@ -12,3 +12,14 @@ export type GameType = {
   release_date: string | null;
   user_id: string | null;
 };
+
+export type GameNewDataType ={
+  description_en: string | null;
+  description_ka: string | null;
+  image_url: string | null;
+  name_en: string | null;
+  name_ka: string | null;
+  platform: string | null;
+  release_date: string | null;
+ 
+}

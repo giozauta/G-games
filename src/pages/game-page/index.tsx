@@ -31,7 +31,7 @@ const GamePage: React.FC = () => {
           </div>
           {user && (
             <div className=" flex justify-center ">
-              <GameEdit />
+              <GameEdit gameInfo={gameInfo} />
             </div>
           )}
         </CardContent>
