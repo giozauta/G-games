@@ -54,7 +54,7 @@ const ProfileGameCarusel: React.FC = () => {
           >
             <Card className="relative h-full flex flex-col">
               {/* transparent box with Delete Button */}
-              <div className="absolute flex-col  inset-0 bg-black/50 flex items-center justify-center sm:justify-start gap-4 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute  flex-col  inset-0 bg-black/50 flex items-center justify-center sm:justify-start gap-4 pt-16 lg:pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Link
                   to={`/${currentLang}/gamePage/${data.id}`}
                   className="flex justify-center items-center px-4 w-[80%] sm:w-[60%] py-2 bg-green2 text-white rounded-md hover:bg-green2/80"
@@ -63,7 +63,7 @@ const ProfileGameCarusel: React.FC = () => {
                 </Link>
                 <button
                   onClick={() => handleGameDelete(data.id)}
-                  className="px-4 w-[80%] sm:w-[60%] py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                  className=" px-4 w-[80%] sm:w-[60%] py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
                 >
                   {t("profile.delete")}
                 </button>
