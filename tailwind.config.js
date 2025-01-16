@@ -28,6 +28,16 @@ export default {
         green2: "#60D600",
         white2: "#ecece8",
       },
+      animation: {
+        "like-animation": "like 0.5s ease-in-out", //ანიმაცია
+      },
+      keyframes: {
+        like: {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.2)" }, // გაიზრდება
+          "100%": { transform: "scale(1)" }, // დაბრუნდება ორიგინალზე
+        },
+      },
     },
   },
   plugins: [

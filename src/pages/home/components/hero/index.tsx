@@ -26,7 +26,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
 
   return (
     <div className=" pb-20 sm:pb-0 pt-10 sm:pt-0 flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900]">
-      <div className="absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
+      <div className=" absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
         <img src="/images/bg-1.png" alt="bg" />
       </div>
       {/*this div is for style only to appear border boxes მხოლოდ სტილისთვის */}
@@ -52,7 +52,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
               {t("hero.haven")}
             </div>
 
-            <div className=" text-lg flex justify-center items-center hover:scale-105 transition-all duration-300 ease-in rounded-md  mt-10 px-1 h-[50px]  border-r-2 border-l-2 border-[#F75A1D]  ">
+            <div className=" text-lg flex justify-center items-center hover:scale-105 transition-all duration-300 ease-in rounded-md  mt-10 px-1 h-[40px]  border-r-2 border-l-2 border-orange2  ">
               <Button
                 variant={"outline"}
                 className="bg-[#F75A1D]   dark:border-green2 rounded-md px-5 py-2 dark:hover:bg-orange2 flex justify-center items-center transition-all duration-300 ease-in"

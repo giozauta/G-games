@@ -11,7 +11,7 @@ import { GamesFilterFormValues } from "./components/types";
 import { useDebounce } from "use-debounce";
 import { Refetch } from "./types";
 
-const GamesListBox: React.FC<{refetch:Refetch}> = ({refetch}) => {
+const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   //
 

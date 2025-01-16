@@ -4,7 +4,7 @@ import GamesListBox from "../games-list-box";
 import Hero from "../hero";
 
 const HomeList: React.FC = () => {
-  const { data: games ,refetch} = useGamesList();
+  const { data: games, refetch } = useGamesList();
 
   if (!games) {
     return null;

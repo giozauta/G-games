@@ -6,13 +6,17 @@ import i18n from "i18next";
 import { GameDataType, Refetch } from "./types";
 import { Image } from "lucide-react";
 import { useLikesUpdate } from "@/react-query/mutation/game";
+import { useState } from "react";
 
-const GameCard: React.FC<{ gameData: GameDataType;refetch:Refetch}> = ({ gameData,refetch }) => {
+const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
+  gameData,
+  refetch,
+}) => {
+  const [isAnimating, setIsAnimating] = useState(false); //ლაიქიცს ანიმაციისთვის
+  //
   const { t } = useTranslation();
   const lang = i18n.language ?? "en";
-
-
-
+  //
   const gameNameEn = gameData.name_en;
   const gameNameKa = gameData.name_ka;
   const likes = gameData.likes;
@@ -25,6 +29,11 @@ const GameCard: React.FC<{ gameData: GameDataType;refetch:Refetch}> = ({ gameDat
 
   // Handle like action
   const handleLikeClick = () => {
+    //ლაიქის ანიმაციისთვის
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 500);
+    }
     updateGameLikes(gameData.id);
     refetch();
   };
@@ -32,7 +41,6 @@ const GameCard: React.FC<{ gameData: GameDataType;refetch:Refetch}> = ({ gameDat
   if (!gameData) {
     return null;
   }
-
 
   return (
     <div className="px-4 bg-white text-black dark:text-white w-96 h-full flex flex-col rounded-3xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-[#F75A1D] hover:border-[#6ec1e4] transition-all duration-500">
@@ -68,8 +76,13 @@ const GameCard: React.FC<{ gameData: GameDataType;refetch:Refetch}> = ({ gameDat
       </div>
       <div className="h-[20%] flex justify-between items-center border-t dark:border-t-white/10">
         <Button
-          variant={"outline"}
+          variant="outline"
           onClick={handleLikeClick}
+          className={`transition-all duration-300 ${
+            isAnimating
+              ? "animate-like-animation"
+              : "hover:bg-blue2 dark:hover:bg-green2 hover:text-white2"
+          }`}
         >
           {t("listBox.like")}
         </Button>
