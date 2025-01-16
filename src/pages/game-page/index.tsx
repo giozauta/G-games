@@ -12,11 +12,17 @@ const GamePage: React.FC = () => {
   const lang = useAtom(Lang)[0];
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
   //
-  const { data: gameInfo } = useGamesById(Number(gameId));
+  const { data: gameInfo, isLoading, isError} = useGamesById(Number(gameId));
   //
-  if (!gameInfo) {
-    return <div>Loading...</div>;
-  }
+if(isLoading){
+  return <div>Loading...</div>
+}
+if(isError){
+  return <div>something went wrong...</div>
+}
+if (!gameInfo) {
+  return <div>Loading game information...</div>;
+}
 
   return (
     <div className=" dark:bg-custom-gradient sm:h-[800px] flex justify-center items-center   w-[99%] sm:w-full mx-auto  ">
@@ -29,7 +35,7 @@ const GamePage: React.FC = () => {
               className="rounded-md  w-full h-full"
             />
           </div>
-          {user && (
+          {user&& (
             <div className=" flex justify-center ">
               <GameEdit gameInfo={gameInfo} />
             </div>

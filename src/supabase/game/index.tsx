@@ -1,5 +1,5 @@
 import supabase from "..";
-import { GameNewDataType, GameType } from "./types";
+import {  GameNewDataType, GameType } from "./types";
 
 export const getGamesById = async (
   gameId: number | undefined,
@@ -50,10 +50,15 @@ export const updateLikes = async (gameId: number): Promise<number | null> => {
   }
 };
 
-//თამაშების ინფორმაცია რომ განვაახლოთ 
-export const updateBlogById = async ({id,gamesNewValues,image_file,old_image_url}:{id:number,gamesNewValues:GameNewDataType,image_file:File,old_image_url:string}):Promise<GameType | null|undefined> => {
+
+export const updateGameById = async (
+  id: number,
+  newGameValues: GameNewDataType,
+  image_file: File,
+  old_image_url: string,
+) => {
   try {
-    //იმისთვის რომ დავააფდეითოთ სუპაბეისში  სურათი
+    // Update the image in Supabase storage
     const imageResult = await supabase.storage
       .from("game_images")
       .update(old_image_url, image_file);
@@ -62,11 +67,15 @@ export const updateBlogById = async ({id,gamesNewValues,image_file,old_image_url
       throw new Error(imageResult.error.message);
     }
 
+    // Append a cache-busting query parameter to the image URL
+    const updatedImageUrl = `${imageResult.data?.path}?timestamp=${Date.now()}`;
+
     const gamesNewData = {
-      ...gamesNewValues,
-      image_url: imageResult.data?.path,
+      ...newGameValues,
+      image_url: updatedImageUrl,
     };
 
+    // Update the game data in the database
     const { data, error } = await supabase
       .from("games")
       .update(gamesNewData)
@@ -76,8 +85,10 @@ export const updateBlogById = async ({id,gamesNewValues,image_file,old_image_url
     if (error) {
       throw new Error(error.message);
     }
+
+    console.log(data);
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };

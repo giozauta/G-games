@@ -20,27 +20,56 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslation } from "react-i18next";
-import { GameNewDataType, GameType } from "./types";
+import { GameFormDataType, GameType } from "./types";
 import { Controller, useForm } from "react-hook-form";
+import { eddGameSchema } from "./schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useUpdateGame } from "@/react-query/mutation/game";
 
-const GameEdit: React.FC<{gameInfo: GameType}>= ({gameInfo}) => {
+const GameEdit: React.FC<{ gameInfo: GameType }> = ({ gameInfo, }) => {
   const { t } = useTranslation();
   //
-  const {control, handleSubmit} = useForm<GameNewDataType>({
+  const { control, handleSubmit } = useForm<GameFormDataType>({
+    resolver: zodResolver(eddGameSchema),
     defaultValues: {
-      name_en: gameInfo?.name_en??"",
-      name_ka: gameInfo?.name_ka??"",
-      description_en: gameInfo?.description_en??"",
-      description_ka: gameInfo?.description_ka??"",
-      platform: gameInfo?.platform??"",
-      release_date: gameInfo?.release_date??"",
+      name_en: gameInfo?.name_en ?? "",
+      name_ka: gameInfo?.name_ka ?? "",
+      description_en: gameInfo?.description_en ?? "",
+      description_ka: gameInfo?.description_ka ?? "",
+      platform: gameInfo?.platform ?? "",
+      release_date: gameInfo?.release_date ?? "",
+      image: null,
     },
-  })
-//
+  });
+  //
+const {mutate:updateGame} = useUpdateGame();
+  //
 
-const handleEditGame = (data: GameNewDataType) => {
-  console.log(data)
-}
+  const handleEditGame = (values: GameFormDataType) => {
+
+    if(!gameInfo.image_url){
+      return
+    }
+    if(!values.image){
+      return
+    }
+
+    updateGame({
+      id:gameInfo.id,
+      data:{
+        name_en:values.name_en,
+        name_ka:values.name_ka,
+        description_en:values.description_en,
+        description_ka:values.description_ka,
+        platform:values.platform,
+        release_date:values.release_date
+      },
+      image_file:values.image,
+      old_image_url:gameInfo.image_url
+    })
+
+    console.log(values.image)
+  };
 
   return (
     <Dialog>
@@ -86,17 +115,20 @@ const handleEditGame = (data: GameNewDataType) => {
                   <Controller
                     control={control}
                     name="name_en"
-                    render={({ field }) => (
-                      <Input
-                        {...field}
-                        id="name_en"
-                        placeholder={t("addGame.name-placeholderEn")}
-                      />
-                    )}
-                  
-                  />
- 
+                    render={({ field, fieldState }) => (
+                      <>
+                        <Input
+                          {...field}
+                          id="name_en"
+                          placeholder={t("addGame.name-placeholderEn")}
+                        />
 
+                        <div className="text-red-500 text-sm">
+                          {fieldState.error?.message}
+                        </div>
+                      </>
+                    )}
+                  />
                 </div>
                 <div className="flex flex-col space-y-1.5">
                   <Label
@@ -106,20 +138,22 @@ const handleEditGame = (data: GameNewDataType) => {
                     {t("addGame.description")}({t("addGame.english")})
                   </Label>
 
-                    <Controller
-                      name="description_en"
-                      control={control}
-                      render={({ field }) => (
+                  <Controller
+                    name="description_en"
+                    control={control}
+                    render={({ field, fieldState }) => (
+                      <>
                         <Textarea
                           {...field}
                           id="description_en"
                           placeholder={t("addGame.description-placeholderEn")}
                         />
-                      )}
-                    />
-
-
-
+                        <div className="text-red-500 text-sm">
+                          {fieldState.error?.message}
+                        </div>
+                      </>
+                    )}
+                  />
                 </div>
               </div>
             </TabsContent>
@@ -134,20 +168,22 @@ const handleEditGame = (data: GameNewDataType) => {
                   >
                     {t("addGame.name")}({t("addGame.georgian")})
                   </Label>
-<Controller
-  name="name_ka"
-  control={control}
-  render={({ field }) => (
-    <Input
-      {...field}
-      id="name-ka"
-      placeholder={t("addGame.name-placeholderKa")}
-    />
-  )}
-/>
-
-
-
+                  <Controller
+                    name="name_ka"
+                    control={control}
+                    render={({ field, fieldState }) => (
+                      <>
+                        <Input
+                          {...field}
+                          id="name-ka"
+                          placeholder={t("addGame.name-placeholderKa")}
+                        />
+                        <div className="text-red-500 text-sm">
+                          {fieldState.error?.message}
+                        </div>
+                      </>
+                    )}
+                  />
                 </div>
                 <div className="flex flex-col space-y-1.5">
                   <Label
@@ -156,19 +192,22 @@ const handleEditGame = (data: GameNewDataType) => {
                   >
                     {t("addGame.description")}({t("addGame.georgian")})
                   </Label>
-<Controller
-  name="description_ka"
-  control={control}
-  render={({ field }) => (
-    <Textarea
-      {...field}
-      id="description-ka"
-      placeholder={t("addGame.description-placeholderKa")}
-    />
-  )}
-/>
-
-
+                  <Controller
+                    name="description_ka"
+                    control={control}
+                    render={({ field, fieldState }) => (
+                      <>
+                        <Textarea
+                          {...field}
+                          id="description-ka"
+                          placeholder={t("addGame.description-placeholderKa")}
+                        />
+                        <div className="text-red-500 text-sm">
+                          {fieldState.error?.message}
+                        </div>
+                      </>
+                    )}
+                  />
                 </div>
               </div>
             </TabsContent>
@@ -181,20 +220,23 @@ const handleEditGame = (data: GameNewDataType) => {
                 {t("addGame.year")}
               </Label>
 
-  <Controller
-    name="release_date"
-    control={control}
-    render={({ field }) => (
-      <Input
-        {...field}
-        id="release_date"
-       
-        placeholder={t("addGame.year-placeholder")}
-      />
-    )}
-  />
-
-
+              <Controller
+                name="release_date"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <>
+                    <Input
+                      type="date"
+                      {...field}
+                      id="release_date"
+                      placeholder={t("addGame.year-placeholder")}
+                    />
+                    <div className="text-red-500 text-sm">
+                      {fieldState.error?.message}
+                    </div>
+                  </>
+                )}
+              />
             </div>
 
             <div className="flex flex-col space-y-1.5">
@@ -202,28 +244,32 @@ const handleEditGame = (data: GameNewDataType) => {
                 {t("addGame.platform")}
               </Label>
 
-
               <Controller
-  name="platform"
-  control={control}
-  render={({ field }) => (
-    <Select
-      onValueChange={(value) => field.onChange(value)}
-      value={field.value}
-    >
-      <SelectTrigger id="platform">
-        <SelectValue placeholder={t("addGame.platform-placeholder")} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="xbox">Xbox</SelectItem>
-        <SelectItem value="playstation">Playstation</SelectItem>
-        <SelectItem value="pc">PC</SelectItem>
-      </SelectContent>
-    </Select>
-  )}
-/>
-
-
+                name="platform"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <>
+                    <Select
+                      onValueChange={(value) => field.onChange(value)}
+                      value={field.value}
+                    >
+                      <SelectTrigger id="platform">
+                        <SelectValue
+                          placeholder={t("addGame.platform-placeholder")}
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="xbox">Xbox</SelectItem>
+                        <SelectItem value="playstation">Playstation</SelectItem>
+                        <SelectItem value="pc">PC</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <div className="text-red-500 text-sm">
+                      {fieldState.error?.message}
+                    </div>
+                  </>
+                )}
+              />
             </div>
 
             <div className="flex flex-col space-y-1.5">
@@ -231,19 +277,36 @@ const handleEditGame = (data: GameNewDataType) => {
                 {t("addGame.image")}
               </Label>
 
-              <Input
-                id="image"
-                type="file"
-                accept="image/*"
-                placeholder="Upload game image"
+              <Controller
+                name="image"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <>
+                    <Input
+                      id="image"
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0] || null;
+                        field.onChange(file);
+                      }}
+                    />
+                    <div className="text-red-500 text-sm">
+                      {fieldState.error?.message}
+                    </div>
+                  </>
+                )}
               />
-
             </div>
           </div>
         </div>
 
         <DialogFooter>
-          <Button type="submit" variant="outline" onClick={handleSubmit(handleEditGame)}>
+          <Button
+            type="submit"
+            variant="outline"
+            onClick={handleSubmit(handleEditGame)}
+          >
             {t("addGame.save")}
           </Button>
         </DialogFooter>
