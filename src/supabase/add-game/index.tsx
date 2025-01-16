@@ -37,7 +37,7 @@ export const uploadGameWithImage = async ({
 
     return gamesResult.data;
   } catch (error) {
-    console.error("Error uploading blog with image:", error);
+    console.error("Error uploading game with image:", error);
     return error;
   }
 };

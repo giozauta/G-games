@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useDeleteGame } from "@/react-query/mutation/profile-game-carusel";
 import { useGamesInfoByUserId } from "@/react-query/query/profile";
 import { userAtom } from "@/store/jotai";
 import i18next from "i18next";
@@ -23,8 +24,22 @@ const ProfileGameCarusel: React.FC = () => {
   const imageUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
   console.log(imageUrl);
   //
-  const { data: gamesInfo } = useGamesInfoByUserId(userId);
+  const { data: gamesInfo, refetch } = useGamesInfoByUserId(userId);
   //
+  const { mutate: deleteGame } = useDeleteGame();
+  //
+  const handleGameDelete = (id: number) => {
+    if (!confirm("Are you sure you want to delete this game?")) {
+      return;
+    }
+
+    deleteGame(id, {
+      onSuccess: () => {
+        refetch();
+      },
+    });
+  };
+
   if (!gamesInfo) {
     return <div>Loading...</div>;
   }
@@ -46,7 +61,10 @@ const ProfileGameCarusel: React.FC = () => {
                 >
                   {t("profile.enter")}
                 </Link>
-                <button className="px-4 w-[80%] sm:w-[60%] py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+                <button
+                  onClick={() => handleGameDelete(data.id)}
+                  className="px-4 w-[80%] sm:w-[60%] py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                >
                   {t("profile.delete")}
                 </button>
               </div>
@@ -67,18 +85,18 @@ const ProfileGameCarusel: React.FC = () => {
                   <div className="bg-gray-100 dark:bg-black text-center py-2 min-h-[48px] flex items-center justify-center">
                     <span
                       className="text-sm font-medium truncate w-full px-2"
-                      title={data.name_en || "No name available"}
+                      title={data.name_en ?? "No name available"}
                     >
-                      {data.name_en || "No Name"}
+                      {data.name_en ?? "No Name"}
                     </span>
                   </div>
                 ) : (
                   <div className="bg-gray-100 dark:bg-black text-center py-2 min-h-[48px] flex items-center justify-center">
                     <span
                       className="text-sm font-medium truncate w-full px-2"
-                      title={data.name_ka || "No name available"}
+                      title={data.name_ka ?? "No name available"}
                     >
-                      {data.name_ka || "No Name"}
+                      {data.name_ka ?? "No Name"}
                     </span>
                   </div>
                 )}

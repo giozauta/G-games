@@ -30,12 +30,17 @@ export default {
       },
       animation: {
         "like-animation": "like 0.5s ease-in-out", //ანიმაცია
+        "caret-blink": "caret-blink 1s ease-in-out infinite",
       },
       keyframes: {
         like: {
           "0%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.2)" }, // გაიზრდება
           "100%": { transform: "scale(1)" }, // დაბრუნდება ორიგინალზე
+        },
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
         },
       },
     },

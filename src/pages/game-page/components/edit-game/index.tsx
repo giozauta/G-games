@@ -27,7 +27,10 @@ import { eddGameSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUpdateGame } from "@/react-query/mutation/game";
 
-const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({ gameInfo, refetch }) => {
+const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
+  gameInfo,
+  refetch,
+}) => {
   const { t } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false); // State to control dialog visibility
 
@@ -71,9 +74,9 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({ gameI
       {
         onSuccess() {
           refetch();
-          setIsDialogOpen(false); // ფანჯარა დაიხურება როდესაც სურათი დააფდეითდება 
+          setIsDialogOpen(false); // ფანჯარა დაიხურება როდესაც სურათი დააფდეითდება
         },
-      }
+      },
     );
   };
 

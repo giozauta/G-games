@@ -22,6 +22,7 @@ const Profile: React.FC = () => {
   if (!user) {
     return <div>something went wrong...</div>;
   }
+  //
 
   return (
     <div>
