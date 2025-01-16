@@ -31,8 +31,18 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
         <img src="/images/bg-1.png" alt="bg" />
       </div>
 
-      <div className="  relative gap-0 sm:gap-10 md:gap-0  z-10 flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
-        <div className="   h-[450px]  w-full sm:w-[35%] flex justify-start sm:justify-end ">
+      <div className="w-full z-20  h-screen grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute">
+          {[...Array(250)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-black bg-transparent flex justify-center items-center border  border-white/5 "
+            ></div>
+          ))}
+        </div>
+
+
+      <div className="  relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
+        <div className="  z-20  h-[450px]  w-full sm:w-[35%] flex justify-start sm:justify-end ">
           <div className=" flex flex-col  gap-2 items-start pl-4 sm:pl-0 font-chakra-petch text-white font-bold ">
             <div className={heroTextSize({ lang: currentLanguage })}>
               {t("hero.ultimate")}
@@ -63,16 +73,16 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             className=" w-[520px] h-[650px]"
           />
         </div>
-        <div className=" h-[450px]  relative  lg:top-[-30px] w-full  sm:w-[35%] flex justify-center sm:justify-start text-white ">
-          <div className="  w-[80%] sm:w-96   flex flex-col  justify-start items-center  bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  mx-auto ">
+        <div className=" h-[450px]  relative  lg:top-[-30px] w-full  sm:w-[35%] flex justify-center  sm:justify-start text-white ">
+          <div className="  w-[80%] sm:w-96   flex flex-col  justify-start items-center   bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  ">
             <div className="text-3xl font-bold  gap-5  w-full h-1/6  flex justify-start items-center  ">
               <div className="bg-[#F75A1D] w-4 h-4 rounded-lg  "></div>
               {t("hero.top-games")}
             </div>
             <div className="w-full h-[80%] flex flex-col justify-evenly gap-4  ">
-              {sortedGames?.map((game, index) => (
+              {sortedGames?.map((game) => (
                 <div
-                  key={index}
+                  key={game.id}
                   className="flex justify-start    items-center gap-5 h-1/3 text-xl font-bold overflow-hidden hover:border-orange2 transition-all duration-300 ease-in    border-b border-white/20 "
                 >
                   {/* ავატარი  */}
