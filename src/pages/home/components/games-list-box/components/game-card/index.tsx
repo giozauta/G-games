@@ -78,10 +78,10 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
         <Button
           variant="outline"
           onClick={handleLikeClick}
-          className={`transition-all duration-300 ${
+          className={`transition-all duration-300 ease-in ${
             isAnimating
               ? "animate-like-animation"
-              : "hover:bg-blue2 dark:hover:bg-green2 hover:text-white2"
+              : "hover:bg-blue2 dark:hover:bg-green2 hover:text-white2 hover:dark:text-black"
           }`}
         >
           {t("listBox.like")}
