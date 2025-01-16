@@ -10,11 +10,10 @@ export type FormValuesType = {
   genderKa: string;
 
   phone: string;
-  age: string|number;
+  age: number;
 };
 
-
-export type ProfileInfoType = {
+export type UserDataPropType = {
   age: number | null;
   avatar_url: string | null;
   first_name_en: string | null;
@@ -28,4 +27,4 @@ export type ProfileInfoType = {
   location_ka: string | null;
   phoneNumber: string | null;
   updated_at: string | null;
-}
+};

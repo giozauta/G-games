@@ -16,40 +16,69 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { FormValuesType, ProfileInfoType } from "./types";
+import { FormValuesType, UserDataPropType } from "./types";
 import { profileSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEditProfile } from "@/react-query/mutation/profile";
 
 const SHEET_SIDES = ["right"] as const;
 
 type EditProfile = (typeof SHEET_SIDES)[number];
 
-const EditProfile: React.FC<{userData:ProfileInfoType}>= ({userData}) => {
+const EditProfile: React.FC<{
+  userData: UserDataPropType;
+  refetch: () => void;
+}> = ({ userData, refetch }) => {
   const { control, handleSubmit } = useForm<FormValuesType>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
       // english tab fields
-      nameEn:userData?.first_name_en??"",
-      lastNameEn:userData?.last_name_en??"",
-      locationEn:userData?.location_en??"",
-      genderEn:userData?.gender_en??"",
-
+      nameEn: userData?.first_name_en ?? "",
+      lastNameEn: userData?.last_name_en ?? "",
+      locationEn: userData?.location_en ?? "",
+      genderEn: userData?.gender_en ?? "",
       // georgian tab fields
-      nameKa:userData?.first_name_ka??"",
-      lastNameKa:userData?.last_name_ka??"",
-      locationKa:userData?.location_ka??"",
-      genderKa: userData?.gender_ka??"",
-
+      nameKa: userData?.first_name_ka ?? "",
+      lastNameKa: userData?.last_name_ka ?? "",
+      locationKa: userData?.location_ka ?? "",
+      genderKa: userData?.gender_ka ?? "",
       // phone field
-      phone: userData?.phoneNumber??"",
-      age:userData?.age??""
+      phone: userData?.phoneNumber ?? "",
+      age: userData?.age ?? 0,
     },
   });
+
+  const { mutate: editProfile } = useEditProfile();
 
   const { t } = useTranslation();
 
   const handleEditProfile = (event: FormValuesType) => {
-    console.log(event);
+    const newData = {
+      first_name_en: event.nameEn,
+      last_name_en: event.lastNameEn,
+      location_en: event.locationEn,
+      gender_en: event.genderEn,
+      //
+      first_name_ka: event.nameKa,
+      last_name_ka: event.lastNameKa,
+      location_ka: event.locationKa,
+      gender_ka: event.genderKa,
+      //
+      phoneNumber: event.phone,
+      age: event.age,
+    };
+
+    if (!userData?.id) {
+      return;
+    }
+    editProfile(
+      { userId: userData?.id, updates: newData },
+      {
+        onSuccess: () => {
+          refetch();
+        },
+      },
+    );
   };
 
   return (
@@ -213,15 +242,18 @@ const EditProfile: React.FC<{userData:ProfileInfoType}>= ({userData}) => {
                   name="age"
                   render={({ field, fieldState }) => {
                     return (
-                      <div className="col-span-3 ">
+                      <div className="col-span-3">
                         <Input
                           {...field}
                           id="age"
+                          type="number"
                           placeholder={t("profilePlaceholder.age")}
+                          onChange={(e) =>
+                            field.onChange(e.target.valueAsNumber)
+                          }
                         />
-
                         {fieldState.error?.message && (
-                          <span className=" text-red-600 text-sm">
+                          <span className="text-red-600 text-sm">
                             {fieldState.error?.message}
                           </span>
                         )}

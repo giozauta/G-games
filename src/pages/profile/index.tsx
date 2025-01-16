@@ -11,7 +11,7 @@ const Profile: React.FC = () => {
   const userId = user?.user?.id;
   const currentLang = useAtom(Lang)[0];
   //
-  const { data: userData } = useProfileInfo(userId);
+  const { data: userData, refetch } = useProfileInfo(userId);
   //user info
   const userFullNameEn = userData?.first_name_en + " " + userData?.last_name_en;
   const userFullNameKa = userData?.first_name_ka + " " + userData?.last_name_ka;
@@ -34,7 +34,7 @@ const Profile: React.FC = () => {
               ? userFullNameEn.toUpperCase()
               : userFullNameKa}
             <div className=" mt-4 ">
-              <EditProfile userData={userData} />
+              <EditProfile userData={userData} refetch={refetch} />
             </div>
           </div>
 
