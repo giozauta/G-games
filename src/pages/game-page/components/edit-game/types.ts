@@ -23,8 +23,6 @@ export type GameFormDataType = {
   image: File | null | "";
 };
 
-
-
 export type GameNewDataType = {
   description_en: string;
   description_ka: string;

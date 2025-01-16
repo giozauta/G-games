@@ -24,6 +24,5 @@ export const useUpdateGame = () => {
       image_file: File;
       old_image_url: string;
     }) => updateGameById(id, data, image_file, old_image_url),
-  
   });
 };

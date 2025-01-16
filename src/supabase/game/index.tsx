@@ -1,5 +1,5 @@
 import supabase from "..";
-import {  GameNewDataType, GameType } from "./types";
+import { GameNewDataType, GameType } from "./types";
 
 export const getGamesById = async (
   gameId: number | undefined,
@@ -49,7 +49,6 @@ export const updateLikes = async (gameId: number): Promise<number | null> => {
     return null;
   }
 };
-
 
 export const updateGameById = async (
   id: number,

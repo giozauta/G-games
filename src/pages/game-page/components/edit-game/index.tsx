@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -26,9 +27,10 @@ import { eddGameSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUpdateGame } from "@/react-query/mutation/game";
 
-const GameEdit: React.FC<{ gameInfo: GameType }> = ({ gameInfo, }) => {
+const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({ gameInfo, refetch }) => {
   const { t } = useTranslation();
-  //
+  const [isDialogOpen, setIsDialogOpen] = useState(false); // State to control dialog visibility
+
   const { control, handleSubmit } = useForm<GameFormDataType>({
     resolver: zodResolver(eddGameSchema),
     defaultValues: {
@@ -41,42 +43,47 @@ const GameEdit: React.FC<{ gameInfo: GameType }> = ({ gameInfo, }) => {
       image: null,
     },
   });
-  //
-const {mutate:updateGame} = useUpdateGame();
-  //
+
+  const { mutate: updateGame } = useUpdateGame();
 
   const handleEditGame = (values: GameFormDataType) => {
-
-    if(!gameInfo.image_url){
-      return
+    if (!gameInfo.image_url) {
+      return;
     }
-    if(!values.image){
-      return
+    if (!values.image) {
+      return;
     }
 
-    updateGame({
-      id:gameInfo.id,
-      data:{
-        name_en:values.name_en,
-        name_ka:values.name_ka,
-        description_en:values.description_en,
-        description_ka:values.description_ka,
-        platform:values.platform,
-        release_date:values.release_date
+    updateGame(
+      {
+        id: gameInfo.id,
+        data: {
+          name_en: values.name_en,
+          name_ka: values.name_ka,
+          description_en: values.description_en,
+          description_ka: values.description_ka,
+          platform: values.platform,
+          release_date: values.release_date,
+        },
+        image_file: values.image,
+        old_image_url: gameInfo.image_url,
       },
-      image_file:values.image,
-      old_image_url:gameInfo.image_url
-    })
-
-    console.log(values.image)
+      {
+        onSuccess() {
+          refetch();
+          setIsDialogOpen(false); // ფანჯარა დაიხურება როდესაც სურათი დააფდეითდება 
+        },
+      }
+    );
   };
 
   return (
-    <Dialog>
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
         <Button
           variant="outline"
           className="w-full sm:w-auto bg-orange2 text-white dark:bg-orange2 dark:text-black "
+          onClick={() => setIsDialogOpen(true)}
         >
           {t("addGame.edditGame")}
         </Button>
@@ -102,7 +109,7 @@ const {mutate:updateGame} = useUpdateGame();
               </TabsTrigger>
             </TabsList>
 
-            {/* ინგლისური Tab */}
+            {/* English Tab */}
             <TabsContent value="english">
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
@@ -122,7 +129,6 @@ const {mutate:updateGame} = useUpdateGame();
                           id="name_en"
                           placeholder={t("addGame.name-placeholderEn")}
                         />
-
                         <div className="text-red-500 text-sm">
                           {fieldState.error?.message}
                         </div>
@@ -158,7 +164,7 @@ const {mutate:updateGame} = useUpdateGame();
               </div>
             </TabsContent>
 
-            {/* ქართული Tab */}
+            {/* Georgian Tab */}
             <TabsContent value="georgian">
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
@@ -213,13 +219,12 @@ const {mutate:updateGame} = useUpdateGame();
             </TabsContent>
           </Tabs>
 
-          {/* საერთო  */}
+          {/* General */}
           <div className="grid w-full items-center gap-4 mt-6">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="year" className="dark:text-green2 text-blue2">
                 {t("addGame.year")}
               </Label>
-
               <Controller
                 name="release_date"
                 control={control}
@@ -238,12 +243,10 @@ const {mutate:updateGame} = useUpdateGame();
                 )}
               />
             </div>
-
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="platform" className="dark:text-green2 text-blue2">
                 {t("addGame.platform")}
               </Label>
-
               <Controller
                 name="platform"
                 control={control}
@@ -271,12 +274,10 @@ const {mutate:updateGame} = useUpdateGame();
                 )}
               />
             </div>
-
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="image" className="dark:text-green2 text-blue2">
                 {t("addGame.image")}
               </Label>
-
               <Controller
                 name="image"
                 control={control}
