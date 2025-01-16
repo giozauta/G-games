@@ -28,9 +28,9 @@ const GameCarousel: React.FC<{ games: GameType[] | undefined }> = ({
         new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
     )
     .slice(0, 10);
-
+//
   return (
-    <Carousel className="w-[70%]  mx-auto mt-20  sm:mt-[600px] z-40 ">
+    <Carousel className="w-[70%]  mx-auto mt-20  sm:mt-[670px] z-40 ">
       <div className="w-full  flex justify-center items-center mt-4 text-4xl font-semibold text-white/80 font-chakra-petch">
         {t("hero.new-games")}
       </div>

@@ -49,7 +49,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
           <img
             src={imgUrl}
             alt="game"
-            className="transition-all duration-500 transform hover:scale-105 h-full w-full object-cover rounded-3xl"
+            className="transition-all duration-500 transform hover:scale-105 h-full w-full object-cover rounded-2xl"
           />
         ) : (
           <div className="border dark:border-white/10 rounded-2xl h-full w-full flex justify-center items-center">

@@ -34,7 +34,7 @@ const Profile: React.FC = () => {
               ? userFullNameEn.toUpperCase()
               : userFullNameKa}
             <div className=" mt-4 ">
-              <EditProfile />
+              <EditProfile userData={userData} />
             </div>
           </div>
 

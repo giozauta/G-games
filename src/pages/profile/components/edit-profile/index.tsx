@@ -16,7 +16,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { FormValuesType } from "./types";
+import { FormValuesType, ProfileInfoType } from "./types";
 import { profileSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -24,25 +24,25 @@ const SHEET_SIDES = ["right"] as const;
 
 type EditProfile = (typeof SHEET_SIDES)[number];
 
-const EditProfile: React.FC = () => {
+const EditProfile: React.FC<{userData:ProfileInfoType}>= ({userData}) => {
   const { control, handleSubmit } = useForm<FormValuesType>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
       // english tab fields
-      nameEn: "",
-      lastNameEn: "",
-      locationEn: "",
-      genderEn: "",
+      nameEn:userData?.first_name_en??"",
+      lastNameEn:userData?.last_name_en??"",
+      locationEn:userData?.location_en??"",
+      genderEn:userData?.gender_en??"",
 
       // georgian tab fields
-      nameKa: "",
-      lastNameKa: "",
-      locationKa: "",
-      genderKa: "",
+      nameKa:userData?.first_name_ka??"",
+      lastNameKa:userData?.last_name_ka??"",
+      locationKa:userData?.location_ka??"",
+      genderKa: userData?.gender_ka??"",
 
       // phone field
-      phone: "",
-      age: "",
+      phone: userData?.phoneNumber??"",
+      age:userData?.age??""
     },
   });
 

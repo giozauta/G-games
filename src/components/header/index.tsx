@@ -10,7 +10,7 @@ import { userAtom } from "@/store/jotai";
 import { useLogOut } from "@/react-query/mutation/log-out";
 
 const Header: React.FC = () => {
-  const [buttonState, setButtonState] = React.useState(false);
+  const [buttonState, setButtonState] = React.useState(true);
   const headerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
   const lang = useParams();
