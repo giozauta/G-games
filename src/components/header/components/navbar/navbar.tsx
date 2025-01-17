@@ -1,3 +1,5 @@
+import { AUTH_LAYOUT_PATHS } from "@/Routes/auth/index.enum";
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
@@ -12,13 +14,13 @@ const Navbar: React.FC = () => {
 
   return (
     <div className=" py-10 sm:p-0 flex flex-col justify-center items-start sm:items-center sm:flex-row sm:gap-7  h-full">
-      <NavLink to="home" className={handleActiveNav}>
+      <NavLink to={DEFAULT_LAYOUT_PATH.HOME} className={handleActiveNav}>
         {t("navbar.home")}
       </NavLink>
-      <NavLink to="profile" className={handleActiveNav}>
+      <NavLink to={AUTH_LAYOUT_PATHS.PROFILE} className={handleActiveNav}>
         {t("navbar.profile")}
       </NavLink>
-      <NavLink to="addGame" className={handleActiveNav}>
+      <NavLink to={AUTH_LAYOUT_PATHS.ADD_GAME} className={handleActiveNav}>
         {t("navbar.eddGame")}
       </NavLink>
     </div>
