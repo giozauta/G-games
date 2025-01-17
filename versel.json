@@ -1,43 +1,12 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "server.cjs",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "db.json",
-          "images/**/*",
-          "public/images/**/*",
-          "public/icons/**/*"
-        ]
-      }
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist",
-        "buildCommand": "npm run build"
-      }
+      "src": "index.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server.cjs"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
-      "src": "/icons/(.*)",
-      "dest": "/public/icons/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "/index.html"

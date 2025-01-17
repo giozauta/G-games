@@ -29,14 +29,14 @@ const ProfileGameCarusel: React.FC = () => {
   const { mutate: deleteGame } = useDeleteGame();
   //
   const handleGameDelete = (id: number) => {
-    //:D :D 
+    //:D :D
     if (!confirm("Are you sure you want to delete this game?")) {
       return;
     }
-    if(!confirm("Pleas don't")){
+    if (!confirm("Pleas don't")) {
       return;
     }
-    if(!confirm("ნუწამიშლი :დ. რთულია ახლიდან დამატება")) {
+    if (!confirm("ნუწამიშლი :დ. რთულია ახლიდან დამატება")) {
       return;
     }
 

@@ -1,5 +1,1 @@
-export const DEFAULT_LAYOUT_ROUTES = [
-
-    
-
-];
+export const DEFAULT_LAYOUT_ROUTES = [];
