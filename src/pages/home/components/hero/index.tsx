@@ -30,11 +30,11 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
         <img src="/images/bg-1.png" alt="bg" />
       </div>
       {/*this div is for style only to appear border boxes მხოლოდ სტილისთვის */}
-      <div className="w-full z-20  h-screen grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute">
-        {[...Array(250)].map((_, i) => (
+      <div className="  w-full z-20  h-full grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute">
+        {[...Array(180)].map((_, i) => (
           <div
             key={i}
-            className="bg-black bg-transparent flex justify-center items-center border  border-white/5 "
+            className=" bg-black bg-transparent flex justify-center items-center border  border-white/5 "
           ></div>
         ))}
       </div>
