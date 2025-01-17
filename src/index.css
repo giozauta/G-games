@@ -45,3 +45,26 @@
     background: #e44a1c; /* Darker orange when hovered */
   }
 }
+
+
+@layer utilities {
+  /* Hide Scrollbar */
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+
+  /* Show Scrollbar */
+  .visible-scrollbar {
+    scrollbar-width: auto; /* Firefox */
+    -ms-overflow-style: auto; /* IE and Edge */
+  }
+
+  .visible-scrollbar::-webkit-scrollbar {
+    display: block; /* Ensures scrollbar is shown in Chrome, Safari, Edge */
+  }
+}

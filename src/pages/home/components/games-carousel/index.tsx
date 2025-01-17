@@ -35,27 +35,29 @@ const GameCarousel: React.FC<{ games: GameType[] | undefined }> = ({
         {t("hero.new-games")}
       </div>
 
-      <CarouselContent className="-ml-0 -mr-0 py-5 pr-1">
+      <CarouselContent className="-ml-0 -mr-0 py-5 pr-1 ">
         {sortedGames?.map((_, index) => (
           <CarouselItem
             key={index}
             className=" pl-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 "
           >
             <div className="p-1 ">
-              <Card className="rounded-3xl hover:scale-105 transition-all duration-200 ease-in ">
-                <CardContent className="rounded-3xl shadow-sm p-5 flex flex-col aspect-square items-center justify-center  border border-white hover:border-blue2 dark:border-black dark:hover:border-orange2 transition-all duration-500 ease-in">
+              <Card className="rounded-2xl hover:scale-105 transition-all duration-200 ease-in ">
+                <CardContent className="rounded-2xl shadow-sm p-5 flex flex-col aspect-square items-center justify-center  border border-white hover:border-blue2 dark:border-black dark:hover:border-orange2 transition-all duration-500 ease-in">
                   <div className=" h-4/5 w-full flex items-center justify-center ">
                     <img
                       src={imgUrl + sortedGames[index].image_url}
                       alt="call"
-                      className="rounded-xl h-full w-full object-cover"
+                      className="rounded-2xl h-full w-full object-cover "
                     />
                   </div>
-                  <div className=" h-1/5 w-full flex items-center justify-center text-xl font-bold">
-                    {lang === "en"
-                      ? sortedGames[index].name_en
-                      : sortedGames[index].name_ka}
-                  </div>
+                  <div
+  className="h-1/5 w-full text-md sm:text-xl md:text-xl flex items-center justify-center  font-bold overflow-hidden text-ellipsis whitespace-nowrap"
+>
+  {lang === "en"
+    ? sortedGames[index].name_en
+    : sortedGames[index].name_ka}
+</div>
                 </CardContent>
               </Card>
             </div>

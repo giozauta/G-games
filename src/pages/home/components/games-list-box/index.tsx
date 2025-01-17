@@ -10,6 +10,7 @@ import qs from "qs";
 import { GamesFilterFormValues } from "./components/types";
 import { useDebounce } from "use-debounce";
 import { Refetch } from "./types";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -54,9 +55,9 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
   }
 
   return (
-    <div className="border-none sm:border-[1px]  dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20  rounded-3xl gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-full  sm:w-[82%] mx-auto h-[700px] sm:h-[800px] md:h-[900px] ">
+    <div className="py-10 sm:py-0 border rounded-none sm:rounded-xl dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20   gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-full  sm:w-[82%] mx-auto h-[700px] sm:h-[800px] md:h-[900px] ">
       <div className=" flex flex-col gap-4 items-start sm:flex-row sm:items-center  justify-center ">
-        <div className=" flex justify-center sm:justify-start w-full text-6xl sm:w-2/3 font-chakra-petch ">
+        <div className="text-5xl sm:text-6xl pb-4 sm:pb-0 flex justify-center sm:justify-start w-full sm:w-2/3 font-chakra-petch ">
           {t("listBox.all-games")}
         </div>
         <div className="relative w-[70%] mx-auto sm:w-1/3 ">
@@ -81,11 +82,17 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
           />
         </div>
       </div>
-      <div className=" gap-10 flex flex-wrap justify-center  sm:mt-10  overflow-y-scroll h-[500px]">
-        {gamesList?.map((game) => {
-          return <GameCard refetch={refetch} key={game.id} gameData={game} />;
-        })}
-      </div>
+
+      
+      <ScrollArea
+  className="gap-10 flex flex-wrap justify-center sm:mt-10 overflow-y-scroll h-[500px] hide-scrollbar sm:visible-scrollbar"
+>
+  {gamesList?.map((game) => (
+    <GameCard refetch={refetch} key={game.id} gameData={game} />
+  ))}
+</ScrollArea>
+
+
     </div>
   );
 };
