@@ -42,11 +42,17 @@ const SignIn: React.FC = () => {
   const { mutate: handleSignIn } = useSignIn();
   //
   const onSubmit = (fieldValues: FormValues) => {
-    handleSignIn({
-      email: fieldValues.email,
-      password: fieldValues.password,
-    });
-    navigate(toNavigate);
+    handleSignIn(
+      {
+        email: fieldValues.email,
+        password: fieldValues.password,
+      },
+      {
+        onSuccess: () => {
+          navigate(toNavigate);
+        },
+      },
+    );
   };
   //
   return (

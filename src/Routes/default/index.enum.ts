@@ -1,6 +1,6 @@
-export enum Default_Layout_Paths {
+export enum DEFAULT_LAYOUT_PATH {
   HOME = "home",
   SIGN_IN = "sign-in",
   SIGN_UP = "sign-up",
-  GAME_PAGE = "gamePage/:id",
+  GAME_PAGE = "gamePage",
 }

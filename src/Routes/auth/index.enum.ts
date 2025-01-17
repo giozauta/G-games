@@ -1,4 +1,4 @@
-export enum Auth_Layout_Paths {
+export enum AUTH_LAYOUT_PATHS {
   PROFILE = "profile",
   ADD_GAME = "addGame",
 }
