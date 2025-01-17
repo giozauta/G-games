@@ -34,8 +34,11 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
       setIsAnimating(true);
       setTimeout(() => setIsAnimating(false), 500);
     }
-    updateGameLikes(gameData.id);
-    refetch();
+    updateGameLikes(gameData.id,{
+      onSuccess: () => {
+        refetch();
+      },
+    });
   };
 
   if (!gameData) {

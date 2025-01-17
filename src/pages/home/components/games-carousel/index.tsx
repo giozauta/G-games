@@ -51,13 +51,11 @@ const GameCarousel: React.FC<{ games: GameType[] | undefined }> = ({
                       className="rounded-2xl h-full w-full object-cover "
                     />
                   </div>
-                  <div
-  className="h-1/5 w-full text-md sm:text-xl md:text-xl flex items-center justify-center  font-bold overflow-hidden text-ellipsis whitespace-nowrap"
->
-  {lang === "en"
-    ? sortedGames[index].name_en
-    : sortedGames[index].name_ka}
-</div>
+                  <div className="h-1/5 w-full text-md sm:text-xl md:text-xl flex items-center justify-center  font-bold overflow-hidden text-ellipsis whitespace-nowrap">
+                    {lang === "en"
+                      ? sortedGames[index].name_en
+                      : sortedGames[index].name_ka}
+                  </div>
                 </CardContent>
               </Card>
             </div>
