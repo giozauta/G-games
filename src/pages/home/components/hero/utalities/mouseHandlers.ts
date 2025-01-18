@@ -5,8 +5,8 @@ export const calculateMouseStyle = (e: React.MouseEvent, box: DOMRect) => {
   const x = e.clientX - centerX; // X დისტანცია ცენტრიდან
   const y = e.clientY - centerY; // Y დისტანცია ცენტრიდან
 
-  const rotateX = (y / box.height) * 20; // ვერტიკალური დახრა
-  const rotateY = -(x / box.width) * 20; // ჰორიზონტალური დახრა
+  const rotateX = (y / box.height) * 40; // ვერტიკალური დახრა
+  const rotateY = -(x / box.width) * 40; // ჰორიზონტალური დახრა
 
   return {
     transform: `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,

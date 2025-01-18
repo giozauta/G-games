@@ -21,12 +21,16 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
 
   //
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
-  //ვიყენებ მემოს რომ არ მოხდეს გამეორებით დასორთვა, თუ ცვლილება არარის 
-  const sortedGames = useMemo(() => 
-    games?.slice().sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0)).slice(0, 3),
-    [games]
+  //ვიყენებ მემოს რომ არ მოხდეს გამეორებით დასორთვა, თუ ცვლილება არარის
+  const sortedGames = useMemo(
+    () =>
+      games
+        ?.slice()
+        .sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0))
+        .slice(0, 3),
+    [games],
   );
-  //მაუსის ჰოვერის ფუნქციონალი ტოპ 3 ყუთზე 
+  //მაუსის ჰოვერის ფუნქციონალი ტოპ 3 ყუთზე
   const handleMouseMove = (e: React.MouseEvent) => {
     const box = e.currentTarget.getBoundingClientRect();
     setStyle(calculateMouseStyle(e, box));
@@ -80,7 +84,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             </div>
           </div>
         </div>
-        <div className="z-20 h-full w-[30%] hidden md:flex justify-center items-end ">
+        <div className="z-20  h-full w-[30%] hidden md:flex justify-center items-end ">
           <img
             src="/images/call.webp"
             alt="call"
@@ -92,9 +96,9 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             style={style}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="z-20  w-[95%] sm:w-96   flex flex-col  justify-start items-center   bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  "
+            className="z-20  w-[95%] sm:w-96   flex flex-col  justify-start items-center   bg-white/5 border border-white/20 rounded-3xl p-6  "
           >
-            <div className="text-3xl font-bold  gap-5  w-full h-1/6  flex justify-start items-center  ">
+            <div className="text-3xl font-bold   gap-5  w-full h-1/6  flex justify-start items-center  ">
               <div className="bg-[#F75A1D] w-4 h-4 rounded-lg  "></div>
               {t("hero.top-games")}
             </div>
