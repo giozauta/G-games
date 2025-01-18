@@ -50,18 +50,18 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
         <img src="/images/bg-1.png" alt="bg" />
       </div>
       {/*this div is for style only to appear border boxes მხოლოდ სტილისთვის */}
-      <div className="  w-full z-20  h-full grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute">
+      <div className="  w-full z-20  h-full grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute ">
         {[...Array(180)].map((_, i) => (
           <div
             key={i}
-            className=" bg-black bg-transparent flex justify-center items-center border  border-white/5 "
+            className=" bg-black bg-transparent flex justify-center items-center border  border-white/5  "
           ></div>
         ))}
       </div>
 
-      <div className=" relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
-        <div className="  z-20  h-[450px]  w-[92%] sm:w-[35%] flex  justify-start sm:justify-end ">
-          <div className=" flex flex-col  gap-2 items-start   sm:pl-0 font-chakra-petch text-white font-bold ">
+      <div className=" relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center  items-center w-full h-full px-0 sm:px-7 ">
+        <div className="  z-20  h-[450px]  w-[92%] sm:w-[50%]  md:w-[35%] flex  justify-start md:justify-end  ">
+          <div className=" flex flex-col  gap-2 items-start   sm:pl-0 font-chakra-petch text-white font-bold w-full sm:w-full md:w-full lg:w-full xl:w-auto ">
             <div className={heroTextSize({ lang: currentLanguage })}>
               {t("hero.ultimate")}
             </div>
@@ -84,14 +84,14 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             </div>
           </div>
         </div>
-        <div className="z-10   h-full w-[30%] hidden md:flex justify-end items-end ">
+        <div className="z-10   h-full w-[30%] hidden md:flex justify-end items-end relative top-[-30px] ">
           <img
             src="/images/call.webp"
             alt="call"
-            className=" w-[500px] h-[650px] "
+            className=" w-[500px] h-[650px]  "
           />
         </div>
-        <div className=" h-[450px]  relative  lg:top-[-30px] w-full  sm:w-[35%] flex justify-center  sm:justify-start text-white ">
+        <div className=" h-[450px]  relative  lg:top-[-30px] w-full sm:w-[50%]   md:w-[35%] flex justify-center  sm:justify-start text-white ">
           <div
             style={style}
             onMouseMove={handleMouseMove}
