@@ -59,7 +59,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
         ))}
       </div>
 
-      <div className="  relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
+      <div className=" relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
         <div className="  z-20  h-[450px]  w-[92%] sm:w-[35%] flex  justify-start sm:justify-end ">
           <div className=" flex flex-col  gap-2 items-start   sm:pl-0 font-chakra-petch text-white font-bold ">
             <div className={heroTextSize({ lang: currentLanguage })}>
@@ -84,11 +84,11 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
             </div>
           </div>
         </div>
-        <div className="z-20  h-full w-[30%] hidden md:flex justify-center items-end ">
+        <div className="z-10   h-full w-[30%] hidden md:flex justify-end items-end ">
           <img
             src="/images/call.webp"
             alt="call"
-            className=" w-[520px] h-[650px]"
+            className=" w-[500px] h-[650px] "
           />
         </div>
         <div className=" h-[450px]  relative  lg:top-[-30px] w-full  sm:w-[35%] flex justify-center  sm:justify-start text-white ">
