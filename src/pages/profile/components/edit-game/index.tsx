@@ -82,10 +82,10 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger asChild >
         <Button
           variant="orange"
-          className="w-[60%]"
+          className="w-[60%] "
           onClick={() => setIsDialogOpen(true)}
         >
           {t("profile.eddit")}
@@ -102,7 +102,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
-          <Tabs defaultValue="english" className="w-full">
+          <Tabs defaultValue="english" className="w-full ">
             <TabsList className="flex justify-center mb-4">
               <TabsTrigger className="w-1/2" value="english">
                 {t("profile.english")}
@@ -132,13 +132,11 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                           id="name_en"
                           placeholder={t("profile.name-placeholderEn")}
                         />
-                        {
-                          fieldState.error?.message &&
+                        {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
-                          {t(`addGameErrors.${fieldState.error?.message}`)}
-                        </div>
-                        }
-
+                            {t(`addGameErrors.${fieldState.error?.message}`)}
+                          </div>
+                        )}
                       </>
                     )}
                   />
@@ -161,12 +159,11 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                           id="description_en"
                           placeholder={t("profile.description-placeholderEn")}
                         />
-                        {
-                          fieldState.error?.message &&
+                        {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
-                          {t(`addGameErrors.${fieldState.error?.message}`)}
-                        </div>
-                        }
+                            {t(`addGameErrors.${fieldState.error?.message}`)}
+                          </div>
+                        )}
                       </>
                     )}
                   />
@@ -194,12 +191,11 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                           id="name-ka"
                           placeholder={t("profile.name-placeholderKa")}
                         />
-                        {
-                          fieldState.error?.message &&
+                        {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
-                          {t(`addGameErrors.${fieldState.error?.message}`)}
-                        </div>
-                        }
+                            {t(`addGameErrors.${fieldState.error?.message}`)}
+                          </div>
+                        )}
                       </>
                     )}
                   />
@@ -221,12 +217,11 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                           id="description-ka"
                           placeholder={t("profile.description-placeholderKa")}
                         />
-                        {
-                          fieldState.error?.message &&
+                        {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
-                          {t(`addGameErrors.${fieldState.error?.message}`)}
-                        </div>
-                        }
+                            {t(`addGameErrors.${fieldState.error?.message}`)}
+                          </div>
+                        )}
                       </>
                     )}
                   />
@@ -252,12 +247,11 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                       id="release_date"
                       placeholder={t("profile.year-placeholder")}
                     />
-                        {
-                          fieldState.error?.message &&
-                          <div className="text-red-500 text-sm">
-                          {t(`addGameErrors.${fieldState.error?.message}`)}
-                        </div>
-                        }
+                    {fieldState.error?.message && (
+                      <div className="text-red-500 text-sm">
+                        {t(`addGameErrors.${fieldState.error?.message}`)}
+                      </div>
+                    )}
                   </>
                 )}
               />
@@ -286,12 +280,11 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <SelectItem value="pc">PC</SelectItem>
                       </SelectContent>
                     </Select>
-                    {
-                          fieldState.error?.message &&
-                          <div className="text-red-500 text-sm">
-                          {t(`addGameErrors.${fieldState.error?.message}`)}
-                        </div>
-                        }
+                    {fieldState.error?.message && (
+                      <div className="text-red-500 text-sm">
+                        {t(`addGameErrors.${fieldState.error?.message}`)}
+                      </div>
+                    )}
                   </>
                 )}
               />
@@ -314,12 +307,11 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         field.onChange(file);
                       }}
                     />
-                        {
-                          fieldState.error?.message &&
-                          <div className="text-red-500 text-sm">
-                          {t(`addGameErrors.${fieldState.error?.message}`)}
-                        </div>
-                        }
+                    {fieldState.error?.message && (
+                      <div className="text-red-500 text-sm">
+                        {t(`addGameErrors.${fieldState.error?.message}`)}
+                      </div>
+                    )}
                   </>
                 )}
               />

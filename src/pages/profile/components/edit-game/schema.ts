@@ -7,7 +7,7 @@ export const addEditGameSchema = z.object({
     .string()
     .min(6, { message: "min" })
     .max(400, { message: "max" }),
-    description_ka: z
+  description_ka: z
     .string()
     .min(6, { message: "min" })
     .max(400, { message: "max" }),

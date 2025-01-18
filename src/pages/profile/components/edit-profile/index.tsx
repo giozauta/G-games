@@ -92,7 +92,7 @@ const EditProfile: React.FC<{
           </SheetTrigger>
           <SheetContent
             side={side}
-            className="bg-custom-gradient2 bg-[white] border-[#1f1f1f] text-black w-[91%] px-1 sm:px-6"
+            className="bg-custom-gradient2 bg-[white] dark:bg-custom-gradient border-[#1f1f1f] text-black w-[91%] px-1 sm:px-6 b"
           >
             <SheetHeader>
               <SheetTitle className="dark:text-green2 text-orange2 ">
@@ -141,7 +141,8 @@ const EditProfile: React.FC<{
 
                                 {fieldState.error?.message && (
                                   <span className="text-red-600 text-sm">
-                                    {fieldState.error?.message}
+      
+                                    {t(`editProfileErrors.${fieldState.error?.message}${names}`)}
                                   </span>
                                 )}
                               </div>
@@ -185,8 +186,8 @@ const EditProfile: React.FC<{
 
                                 {fieldState.error?.message && (
                                   <span className=" text-red-600 text-sm ">
-                                    {fieldState.error?.message}
-                                  </span>
+                                    {t(`editProfileErrors.${fieldState.error?.message}${names}`)}
+                                    </span>
                                 )}
                               </div>
                             );
@@ -220,7 +221,7 @@ const EditProfile: React.FC<{
                         />
                         {fieldState.error?.message && (
                           <span className=" text-red-600 text-sm">
-                            {fieldState.error?.message}
+                            {t(`editProfileErrors.${fieldState.error?.message}`)}
                           </span>
                         )}
                       </div>
@@ -254,8 +255,8 @@ const EditProfile: React.FC<{
                         />
                         {fieldState.error?.message && (
                           <span className="text-red-600 text-sm">
-                            {fieldState.error?.message}
-                          </span>
+                            {t(`editProfileErrors.${fieldState.error?.message}`)}
+                            </span>
                         )}
                       </div>
                     );
