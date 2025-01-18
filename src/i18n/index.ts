@@ -22,6 +22,8 @@ import signInEn from "./en/pages/sign/sign.json";
 import signInKa from "./ka/pages/sign/sign.json";
 import signErrorsEn from "./en/form-errors/sign-errors.json";
 import signErrorsKa from "./ka/form-errors/sign-errors.json";
+import addGameErrorsEn from "./en/form-errors/add-game-errors.json";
+import addGameErrorsKa from "./ka/form-errors/add-game-errors.json";
 
 i18next.use(initReactI18next).init({
   lng: "en",
@@ -41,6 +43,7 @@ i18next.use(initReactI18next).init({
         addGame: addGameEn, //using in : add game and edit game page
         sign: signInEn,
         signErrors: signErrorsEn,
+        addGameErrors: addGameErrorsEn,
       },
     },
     ka: {
@@ -56,6 +59,7 @@ i18next.use(initReactI18next).init({
         addGame: addGameKa, //using in : add game and edit game page
         sign: signInKa,
         signErrors: signErrorsKa,
+        addGameErrors: addGameErrorsKa,
       },
     },
   },

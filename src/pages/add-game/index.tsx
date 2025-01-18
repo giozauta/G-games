@@ -125,7 +125,7 @@ const AddGame: React.FC = () => {
                   />
                   {formState.errors?.nameEn?.message && (
                     <p className="text-red-500">
-                      {formState.errors?.nameEn?.message}
+                      {t(`addGameErrors.${formState.errors?.nameEn?.message}`)}
                     </p>
                   )}
                 </div>
@@ -150,9 +150,13 @@ const AddGame: React.FC = () => {
                       );
                     }}
                   />
-                  <p className="text-red-500">
-                    {formState.errors?.descriptionEn?.message}
-                  </p>
+                  {formState.errors?.descriptionEn?.message && (
+                    <p className="text-red-500">
+                      {t(
+                        `addGameErrors.${formState.errors?.descriptionEn?.message}`,
+                      )}
+                    </p>
+                  )}
                 </div>
               </div>
             </TabsContent>
@@ -180,9 +184,11 @@ const AddGame: React.FC = () => {
                       );
                     }}
                   />
-                  <p className="text-red-500">
-                    {formState.errors?.nameKa?.message}
-                  </p>
+                  {formState.errors?.nameEn?.message && (
+                    <p className="text-red-500">
+                      {t(`addGameErrors.${formState.errors?.nameEn?.message}`)}
+                    </p>
+                  )}
                 </div>
                 <div className="flex flex-col space-y-1.5">
                   <Label
@@ -203,9 +209,13 @@ const AddGame: React.FC = () => {
                       );
                     }}
                   />
-                  <p className="text-red-500">
-                    {formState.errors?.descriptionKa?.message}
-                  </p>
+                  {formState.errors?.descriptionKa?.message && (
+                    <p className="text-red-500">
+                      {t(
+                        `addGameErrors.${formState.errors?.descriptionKa?.message}`,
+                      )}
+                    </p>
+                  )}
                 </div>
               </div>
             </TabsContent>
@@ -231,9 +241,12 @@ const AddGame: React.FC = () => {
                   );
                 }}
               />
-              <p className="text-red-500">
-                {formState.errors?.releaseDate?.message}
-              </p>
+
+              {formState.errors?.releaseDate?.message && (
+                <p className="text-red-500">
+                  {t(`addGameErrors.${formState.errors?.releaseDate?.message}`)}
+                </p>
+              )}
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="platform" className="dark:text-green2 text-blue2">
@@ -258,9 +271,12 @@ const AddGame: React.FC = () => {
                   </Select>
                 )}
               />
-              <p className="text-red-500">
-                {formState.errors?.platform?.message}
-              </p>
+
+              {formState.errors?.platform?.message && (
+                <p className="text-red-500">
+                  {t(`addGameErrors.${formState.errors?.platform?.message}`)}
+                </p>
+              )}
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="image" className="dark:text-green2 text-blue2">
@@ -284,7 +300,12 @@ const AddGame: React.FC = () => {
                   />
                 )}
               />
-              <p className="text-red-500">{formState.errors?.image?.message}</p>
+
+              {formState.errors?.image?.message && (
+                <p className="text-red-500">
+                  {t(`addGameErrors.${formState.errors?.image?.message}`)}
+                </p>
+              )}
             </div>
           </div>
         </CardContent>
