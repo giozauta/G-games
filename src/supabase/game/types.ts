@@ -21,3 +21,16 @@ export type GameNewDataType = {
   platform: string;
   release_date: string;
 };
+
+export type NewProfileValuesType = {
+  first_name_en: string;
+  last_name_en: string;
+  location_en: string;
+  gender_en: string;
+  first_name_ka: string;
+  last_name_ka: string;
+  location_ka: string;
+  gender_ka: string;
+  phoneNumber: string;
+  age: number;
+};

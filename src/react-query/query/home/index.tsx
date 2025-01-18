@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { HOME_QUERY_KEY } from "./enum";
-import { getGames, getGamesWithSearch } from "@/supabase/home";
+import { getGames, getGamesWithSearch } from "@/supabase/game";
 
 export const useGamesListWithSearch = (
   debounceSearchText: string | number | null,

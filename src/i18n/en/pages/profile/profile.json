@@ -13,5 +13,19 @@
   "save": "Save changes",
 
   "enter": "Enter",
-  "delete": "Delete"
+  "eddit": "Eddit",
+  "delete": "Delete",
+
+
+  "name-placeholderEn": "Name of your game  (English)",
+  "description-placeholderEn": "Description of your game (English)",
+  "year-placeholder": "Releas year",
+  "platform-placeholder": "Select a platform",
+
+  "name-placeholderKa": "Name of your game  (Georgian)",
+  "description-placeholderKa": "Description of your game (Georgian)",
+
+  "edditGame": "Edit Game",
+  "edditGameInstruction": "Make changes to your Game Info here. Click save when you're done."
+
 }

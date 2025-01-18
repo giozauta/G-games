@@ -25,7 +25,7 @@ import { GameFormDataType, GameType } from "./types";
 import { Controller, useForm } from "react-hook-form";
 import { eddGameSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useUpdateGame } from "@/react-query/mutation/game";
+import { useUpdateGame } from "@/react-query/mutation/profile-game-carusel";
 
 const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
   gameInfo,
@@ -84,20 +84,20 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
         <Button
-          variant="outline"
-          className="w-full sm:w-auto bg-orange2 text-white dark:bg-orange2 dark:text-black "
+                  variant="orange"
+                  className="w-[60%]"
           onClick={() => setIsDialogOpen(true)}
         >
-          {t("addGame.edditGame")}
+          {t("profile.eddit")}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="text-orange2">
-            {t("addGame.edditGame")}
+            {t("profile.edditGame")}
           </DialogTitle>
           <DialogDescription>
-            {t("addGame.edditGameInstruction")}
+            {t("profile.edditGameInstruction")}
           </DialogDescription>
         </DialogHeader>
 
@@ -105,10 +105,10 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
           <Tabs defaultValue="english" className="w-full">
             <TabsList className="flex justify-center mb-4">
               <TabsTrigger className="w-1/2" value="english">
-                {t("addGame.english")}
+                {t("profile.english")}
               </TabsTrigger>
               <TabsTrigger className="w-1/2" value="georgian">
-                {t("addGame.georgian")}
+                {t("profile.georgian")}
               </TabsTrigger>
             </TabsList>
 
@@ -120,7 +120,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     htmlFor="name-en"
                     className="dark:text-green2 text-blue2"
                   >
-                    {t("addGame.name")}({t("addGame.english")})
+                    {t("profile.name")}({t("profile.english")})
                   </Label>
                   <Controller
                     control={control}
@@ -130,7 +130,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Input
                           {...field}
                           id="name_en"
-                          placeholder={t("addGame.name-placeholderEn")}
+                          placeholder={t("profile.name-placeholderEn")}
                         />
                         <div className="text-red-500 text-sm">
                           {fieldState.error?.message}
@@ -144,7 +144,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     htmlFor="description-en"
                     className="dark:text-green2 text-blue2"
                   >
-                    {t("addGame.description")}({t("addGame.english")})
+                    {t("profile.description")}({t("profile.english")})
                   </Label>
 
                   <Controller
@@ -155,7 +155,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Textarea
                           {...field}
                           id="description_en"
-                          placeholder={t("addGame.description-placeholderEn")}
+                          placeholder={t("profile.description-placeholderEn")}
                         />
                         <div className="text-red-500 text-sm">
                           {fieldState.error?.message}
@@ -175,7 +175,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     htmlFor="name-ka"
                     className="dark:text-green2 text-blue2"
                   >
-                    {t("addGame.name")}({t("addGame.georgian")})
+                    {t("profile.name")}({t("profile.georgian")})
                   </Label>
                   <Controller
                     name="name_ka"
@@ -185,7 +185,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Input
                           {...field}
                           id="name-ka"
-                          placeholder={t("addGame.name-placeholderKa")}
+                          placeholder={t("profile.name-placeholderKa")}
                         />
                         <div className="text-red-500 text-sm">
                           {fieldState.error?.message}
@@ -199,7 +199,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     htmlFor="description-ka"
                     className="dark:text-green2 text-blue2"
                   >
-                    {t("addGame.description")}({t("addGame.georgian")})
+                    {t("profile.description")}({t("profile.georgian")})
                   </Label>
                   <Controller
                     name="description_ka"
@@ -209,7 +209,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Textarea
                           {...field}
                           id="description-ka"
-                          placeholder={t("addGame.description-placeholderKa")}
+                          placeholder={t("profile.description-placeholderKa")}
                         />
                         <div className="text-red-500 text-sm">
                           {fieldState.error?.message}
@@ -226,7 +226,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
           <div className="grid w-full items-center gap-4 mt-6">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="year" className="dark:text-green2 text-blue2">
-                {t("addGame.year")}
+                {t("profile.year")}
               </Label>
               <Controller
                 name="release_date"
@@ -237,7 +237,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                       type="date"
                       {...field}
                       id="release_date"
-                      placeholder={t("addGame.year-placeholder")}
+                      placeholder={t("profile.year-placeholder")}
                     />
                     <div className="text-red-500 text-sm">
                       {fieldState.error?.message}
@@ -248,7 +248,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="platform" className="dark:text-green2 text-blue2">
-                {t("addGame.platform")}
+                {t("profile.platform")}
               </Label>
               <Controller
                 name="platform"
@@ -261,7 +261,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     >
                       <SelectTrigger id="platform">
                         <SelectValue
-                          placeholder={t("addGame.platform-placeholder")}
+                          placeholder={t("profile.platform-placeholder")}
                         />
                       </SelectTrigger>
                       <SelectContent>
@@ -279,7 +279,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="image" className="dark:text-green2 text-blue2">
-                {t("addGame.image")}
+                {t("profile.image")}
               </Label>
               <Controller
                 name="image"
@@ -311,7 +311,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
             variant="outline"
             onClick={handleSubmit(handleEditGame)}
           >
-            {t("addGame.save")}
+            {t("profile.save")}
           </Button>
         </DialogFooter>
       </DialogContent>

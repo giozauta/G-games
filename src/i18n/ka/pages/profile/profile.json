@@ -13,5 +13,20 @@
   "save": "შენახვა",
 
   "enter": "შესვლა",
-  "delete": "წაშლა"
+  "eddit": "რედაქტი",
+  "delete": "წაშლა",
+
+
+
+  "name-placeholderEn": "შენი თამაშის სახელი  (ინგლისურად)",
+  "description-placeholderEn": "შენი თამაშის აღწერა (ინგლისურად)",
+  "year-placeholder": "გამოშვების წელი",
+  "platform-placeholder": "აირჩიე პლატფორმა",
+
+  "name-placeholderKa": "შენი  თამაშის სახელი (ქართულად)",
+  "description-placeholderKa": "შენი თამაშის აღწერა (ქართულად)",
+
+  "edditGame": "შეასწორე",
+  "edditGameInstruction": "შეიტანეთ ცვლილებები თქვენი თამაშის ინფორმაციაში აქ"
+
 }

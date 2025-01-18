@@ -1,13 +1,11 @@
 import { Card, CardContent, CardDescription } from "@/components/ui/card";
-import GameEdit from "./components/edit-game";
 import { useAtom } from "jotai";
-import { Lang, userAtom } from "@/store/jotai";
+import { Lang } from "@/store/jotai";
 import { useGamesById } from "@/react-query/query/profile";
 import { useParams } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 
 const GamePage: React.FC = () => {
-  const [user] = useAtom(userAtom);
   const gameId = useParams()?.id;
   const lang = useAtom(Lang)[0];
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
@@ -16,7 +14,7 @@ const GamePage: React.FC = () => {
     data: gameInfo,
     isLoading,
     isError,
-    refetch,
+
   } = useGamesById(Number(gameId));
   //
   if (isLoading) {
@@ -48,11 +46,7 @@ const GamePage: React.FC = () => {
               }
             />
           </div>
-          {user && (
-            <div className=" flex justify-center ">
-              <GameEdit gameInfo={gameInfo} refetch={refetch} />
-            </div>
-          )}
+
         </CardContent>
         <CardDescription className="p-0  pt-4  flex gap-2">
           <Badge variant="default" className="py-1">

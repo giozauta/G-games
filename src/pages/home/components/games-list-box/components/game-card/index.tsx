@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import i18n from "i18next";
 import { GameDataType, Refetch } from "./types";
 import { Image } from "lucide-react";
-import { useLikesUpdate } from "@/react-query/mutation/game";
+import { useLikesUpdate } from "@/react-query/mutation/game-card";
 import { useState } from "react";
 
 const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({

@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -13,6 +14,7 @@ import i18next from "i18next";
 import { useAtom } from "jotai";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import GameEdit from "../edit-game";
 
 const ProfileGameCarusel: React.FC = () => {
   const { t } = useTranslation();
@@ -47,6 +49,7 @@ const ProfileGameCarusel: React.FC = () => {
     });
   };
 
+  
   if (!gamesInfo) {
     return <div>Loading...</div>;
   }
@@ -60,20 +63,21 @@ const ProfileGameCarusel: React.FC = () => {
             className="pl-1 md:basis-1/2 lg:basis-1/3 group relative h-full"
           >
             <Card className="relative h-full flex flex-col">
-              {/* transparent box with Delete Button */}
-              <div className="absolute  flex-col  inset-0 bg-black/50 flex items-center justify-center sm:justify-start gap-4 pt-16 lg:pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link
-                  to={`/${currentLang}/gamePage/${data.id}`}
-                  className="flex justify-center items-center px-4 w-[80%] sm:w-[60%] py-2 bg-green2 text-white rounded-md hover:bg-green2/80"
-                >
-                  {t("profile.enter")}
-                </Link>
-                <button
+              {/* transparent box with Delete,enter,edit, Buttons */}
+              <div className="absolute  flex-col  inset-0 bg-black/50 flex items-center justify-center  gap-4   opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Button variant="green" className="w-[60%]">
+                  <Link to={`/${currentLang}/gamePage/${data.id}`}>
+                    {t("profile.enter")}
+                  </Link>
+                </Button>
+                <GameEdit gameInfo={data} refetch={refetch} />
+                <Button
                   onClick={() => handleGameDelete(data.id)}
-                  className=" px-4 w-[80%] sm:w-[60%] py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                  variant="red"
+                  className="w-[60%]"
                 >
                   {t("profile.delete")}
-                </button>
+                </Button>
               </div>
 
               <CardContent className="p-0 border-[1px] dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col h-full">
