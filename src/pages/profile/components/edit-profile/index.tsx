@@ -112,7 +112,7 @@ const EditProfile: React.FC<{
                 </TabsList>
 
                 {/* ინგლისური Tab */}
-                <TabsContent value="english" >
+                <TabsContent value="english">
                   <div className="grid gap-4 ">
                     {["name", "lastName", "location", "gender"].map((names) => (
                       <div

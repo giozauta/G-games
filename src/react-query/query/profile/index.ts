@@ -22,7 +22,7 @@ export const useGamesInfoByUserId = (userId: string | undefined) => {
 
 export const useGamesById = (gameId: number | undefined) => {
   return useQuery({
-    queryKey: [PROFILE_QUERY_KEY.GAMES, gameId ],
+    queryKey: [PROFILE_QUERY_KEY.GAMES, gameId],
     queryFn: () => getGamesById(gameId),
     enabled: !!gameId,
   });

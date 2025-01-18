@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { heroTextSize, heroMiddleTextSize } from "./schema";
 import { Button } from "@/components/ui/button";
 import { GameType } from "./types";
+import {
+  calculateMouseStyle,
+  resetMouseStyle,
+} from "./utalities/mouseHandlers";
 
 const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
+  //
+  const [style, setStyle] = useState({}); //რომ შევცვალოთ ყუთზე ჰოვერი
+  //
   const { t } = useTranslation();
   const { i18n } = useTranslation();
   const currentLanguage =
@@ -14,11 +21,20 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
 
   //
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
-  //
-  const sortedGames = games
-    ?.slice()
-    .sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0))
-    .slice(0, 3);
+  //ვიყენებ მემოს რომ არ მოხდეს გამეორებით დასორთვა, თუ ცვლილება არარის 
+  const sortedGames = useMemo(() => 
+    games?.slice().sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0)).slice(0, 3),
+    [games]
+  );
+  //მაუსის ჰოვერის ფუნქციონალი ტოპ 3 ყუთზე 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const box = e.currentTarget.getBoundingClientRect();
+    setStyle(calculateMouseStyle(e, box));
+  };
+
+  const handleMouseLeave = () => {
+    setStyle(resetMouseStyle());
+  };
   //
   if (!sortedGames) {
     return <div>...error</div>;
@@ -72,11 +88,17 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
           />
         </div>
         <div className=" h-[450px]  relative  lg:top-[-30px] w-full  sm:w-[35%] flex justify-center  sm:justify-start text-white ">
-          <div className="  w-[95%] sm:w-96   flex flex-col  justify-start items-center   bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  ">
+          <div
+            style={style}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            className="z-20  w-[95%] sm:w-96   flex flex-col  justify-start items-center   bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  "
+          >
             <div className="text-3xl font-bold  gap-5  w-full h-1/6  flex justify-start items-center  ">
               <div className="bg-[#F75A1D] w-4 h-4 rounded-lg  "></div>
               {t("hero.top-games")}
             </div>
+
             <div className="w-full h-[80%] flex flex-col justify-evenly gap-4  ">
               {sortedGames?.map((game) => (
                 <div
