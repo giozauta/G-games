@@ -16,7 +16,6 @@
   "eddit": "Eddit",
   "delete": "Delete",
 
-
   "name-placeholderEn": "Name of your game  (English)",
   "description-placeholderEn": "Description of your game (English)",
   "year-placeholder": "Releas year",
@@ -27,5 +26,4 @@
 
   "edditGame": "Edit Game",
   "edditGameInstruction": "Make changes to your Game Info here. Click save when you're done."
-
 }

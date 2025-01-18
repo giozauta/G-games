@@ -1,7 +1,6 @@
 import supabase from "..";
 import { NewProfileValuesType } from "./types";
 
-
 export const updateUserById = async ({
   userId,
   updates,
@@ -23,5 +22,3 @@ export const updateUserById = async ({
     throw new Error("Failed to update user. Please try again later.");
   }
 };
-
-

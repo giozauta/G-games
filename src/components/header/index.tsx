@@ -49,16 +49,16 @@ const Header: React.FC = () => {
       className="header   bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
     >
       <div className="logo   w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between   ">
-        <div className="flex items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
+        <div className="flex  items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
           <img src="/images/logo.png" alt="logo" />
           <Link
             to={`/${currentLang}/home`}
-            className="font-chakra-petch text-3xl font-bold  flex items-center justify-center"
+            className="font-chakra-petch  text-2xl sm:text-3xl font-bold  flex items-center justify-center"
           >
             {t("navbar.logo")}
           </Link>
         </div>
-        <div className=" flex items-center gap-2 pr-4 ">
+        <div className=" flex items-center  gap-2 pr-4 ">
           <LangSwitch />
           <ModeToggle />
           <button onClick={handleButtonState} className="sm:hidden">

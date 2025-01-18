@@ -16,8 +16,6 @@
   "eddit": "რედაქტი",
   "delete": "წაშლა",
 
-
-
   "name-placeholderEn": "შენი თამაშის სახელი  (ინგლისურად)",
   "description-placeholderEn": "შენი თამაშის აღწერა (ინგლისურად)",
   "year-placeholder": "გამოშვების წელი",
@@ -28,5 +26,4 @@
 
   "edditGame": "შეასწორე",
   "edditGameInstruction": "შეიტანეთ ცვლილებები თქვენი თამაშის ინფორმაციაში აქ"
-
 }

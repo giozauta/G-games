@@ -40,8 +40,8 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
       </div>
 
       <div className="  relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center items-center w-full h-full ">
-        <div className="  z-20  h-[450px]  w-full sm:w-[35%] flex justify-start sm:justify-end ">
-          <div className=" flex flex-col  gap-2 items-start pl-4 sm:pl-0 font-chakra-petch text-white font-bold ">
+        <div className="  z-20  h-[450px]  w-[92%] sm:w-[35%] flex  justify-start sm:justify-end ">
+          <div className=" flex flex-col  gap-2 items-start   sm:pl-0 font-chakra-petch text-white font-bold ">
             <div className={heroTextSize({ lang: currentLanguage })}>
               {t("hero.ultimate")}
             </div>
@@ -72,7 +72,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
           />
         </div>
         <div className=" h-[450px]  relative  lg:top-[-30px] w-full  sm:w-[35%] flex justify-center  sm:justify-start text-white ">
-          <div className="  w-[80%] sm:w-96   flex flex-col  justify-start items-center   bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  ">
+          <div className="  w-[95%] sm:w-96   flex flex-col  justify-start items-center   bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-6  ">
             <div className="text-3xl font-bold  gap-5  w-full h-1/6  flex justify-start items-center  ">
               <div className="bg-[#F75A1D] w-4 h-4 rounded-lg  "></div>
               {t("hero.top-games")}

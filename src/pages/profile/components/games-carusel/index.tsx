@@ -49,7 +49,6 @@ const ProfileGameCarusel: React.FC = () => {
     });
   };
 
-  
   if (!gamesInfo) {
     return <div>Loading...</div>;
   }

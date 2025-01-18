@@ -10,12 +10,7 @@ const GamePage: React.FC = () => {
   const lang = useAtom(Lang)[0];
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
   //
-  const {
-    data: gameInfo,
-    isLoading,
-    isError,
-
-  } = useGamesById(Number(gameId));
+  const { data: gameInfo, isLoading, isError } = useGamesById(Number(gameId));
   //
   if (isLoading) {
     return (
@@ -46,7 +41,6 @@ const GamePage: React.FC = () => {
               }
             />
           </div>
-
         </CardContent>
         <CardDescription className="p-0  pt-4  flex gap-2">
           <Badge variant="default" className="py-1">

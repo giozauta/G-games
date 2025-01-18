@@ -28,7 +28,7 @@ const LangSwitch: React.FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className=" bg-transparent dark:bg-transparent border-none hover:bg-transparent hover:dark:bg-transparent hover:text-[#64d100] dark:hover:text-[#64d100] focus:outline-none focus:ring-0 shadow-none"
+        className=" bg-transparent dark:bg-transparent border-none p-0 hover:bg-transparent hover:dark:bg-transparent hover:text-[#64d100] dark:hover:text-[#64d100] focus:outline-none focus:ring-0 shadow-none "
         asChild
       >
         <Button className="bg-transparent dark:bg-transparent hover:bg-transparent hover:dark:bg-transparent hover:text-[#64d100] dark:hover:text-[#64d100] shadow-none">

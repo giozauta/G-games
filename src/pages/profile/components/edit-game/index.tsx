@@ -84,8 +84,8 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
         <Button
-                  variant="orange"
-                  className="w-[60%]"
+          variant="orange"
+          className="w-[60%]"
           onClick={() => setIsDialogOpen(true)}
         >
           {t("profile.eddit")}

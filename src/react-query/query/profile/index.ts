@@ -1,8 +1,7 @@
 import { getProfileInfo } from "@/supabase/account";
 import { useQuery } from "@tanstack/react-query";
 import { PROFILE_QUERY_KEY } from "./enum";
-import { getGamesById,getGamesByUserId} from "@/supabase/game";
-import { useParams } from "react-router-dom";
+import { getGamesById, getGamesByUserId } from "@/supabase/game";
 
 export const useProfileInfo = (userId: string | undefined) => {
   return useQuery({
@@ -15,16 +14,15 @@ export const useProfileInfo = (userId: string | undefined) => {
 //რომარა სუპაბეისის ერთი იუზერი სხვადასხვა იუზერის თამაშები წამოვიდოდა
 export const useGamesInfoByUserId = (userId: string | undefined) => {
   return useQuery({
-    queryKey: [PROFILE_QUERY_KEY.USER_GAMES],
+    queryKey: [PROFILE_QUERY_KEY.USER_GAMES, userId],
     queryFn: () => getGamesByUserId(userId),
     enabled: !!userId,
   });
 };
 
 export const useGamesById = (gameId: number | undefined) => {
-  const { id } = useParams();
   return useQuery({
-    queryKey: [PROFILE_QUERY_KEY.GAMES + id],
+    queryKey: [PROFILE_QUERY_KEY.GAMES, gameId ],
     queryFn: () => getGamesById(gameId),
     enabled: !!gameId,
   });

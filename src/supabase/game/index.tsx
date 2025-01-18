@@ -1,9 +1,7 @@
 import supabase from "..";
 import { GameNewDataType, GameType } from "./types";
 
-
-
-//for home page 
+//for home page
 export const getGamesWithSearch = async (
   search?: string | number | null,
 ): Promise<GameType[]> => {
@@ -43,10 +41,7 @@ export const getGames = async (): Promise<GameType[]> => {
   }
 };
 
-
-
-
-//for profile page 
+//for profile page
 export const getGamesById = async (
   gameId: number | undefined,
 ): Promise<GameType | null> => {
@@ -159,7 +154,6 @@ export const getGamesByUserId = async (
     throw new Error("Failed to fetch game. Please try again later.");
   }
 };
-
 
 export const deleteGamesById = async (id: number) => {
   try {

@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { PROFILE_GAME_CARUSEL_MUTATION_KEY } from "./enum";
 import { GameNewInfoType } from "./type";
-import { updateGameById,deleteGamesById } from "@/supabase/game";
+import { updateGameById, deleteGamesById } from "@/supabase/game";
 
 export const useDeleteGame = () => {
   return useMutation({
@@ -9,8 +9,6 @@ export const useDeleteGame = () => {
     mutationFn: deleteGamesById,
   });
 };
-
-
 
 export const useUpdateGame = () => {
   return useMutation({

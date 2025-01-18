@@ -92,15 +92,15 @@ const EditProfile: React.FC<{
           </SheetTrigger>
           <SheetContent
             side={side}
-            className="bg-custom-gradient2 bg-[white] border-[#1f1f1f] text-black"
+            className="bg-custom-gradient2 bg-[white] border-[#1f1f1f] text-black w-[91%] px-1 sm:px-6"
           >
             <SheetHeader>
-              <SheetTitle className="dark:text-green2 text-orange2">
+              <SheetTitle className="dark:text-green2 text-orange2 ">
                 {t("profile.edit-profile")}
               </SheetTitle>
               <SheetDescription>{t("profile.description")}</SheetDescription>
             </SheetHeader>
-            <div className="grid gap-4 py-4 dark:text-white">
+            <div className="grid gap-4 py-4 dark:text-white  ">
               <Tabs defaultValue="english" className="w-full">
                 <TabsList className="flex justify-center mb-4">
                   <TabsTrigger className="w-1/2" value="english">
@@ -112,7 +112,7 @@ const EditProfile: React.FC<{
                 </TabsList>
 
                 {/* ინგლისური Tab */}
-                <TabsContent value="english">
+                <TabsContent value="english" >
                   <div className="grid gap-4 ">
                     {["name", "lastName", "location", "gender"].map((names) => (
                       <div

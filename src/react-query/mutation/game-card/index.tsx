@@ -8,4 +8,3 @@ export const useLikesUpdate = () => {
     mutationFn: (gameId: number) => updateLikes(gameId),
   });
 };
-
