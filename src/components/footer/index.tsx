@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
   const currentLang = lang ?? "en";
 
   return (
-    <div className="flex flex-col bg-[#fcfbf5] dark:bg-black  h-auto sm:h-[594px] dark:bg-custom-gradient2">
+    <div className=" flex flex-col bg-[#fcfbf5] dark:bg-black  h-auto sm:h-[594px] dark:bg-custom-gradient2">
       <div className="sm:border-t   dark:border-white/10 sm:flex-row flex-col h-auto  sm:h-[494px] mx-auto flex w-full">
         <div className=" w-full sm:w-[45%]  flex flex-col justify-center items-center   py-4 sm:py-0">
           <div className=" h-full w-full sm:w-1/2 flex flex-col  pl-4 ">

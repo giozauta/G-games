@@ -159,7 +159,9 @@ const SignUp: React.FC = () => {
           <div className="flex w-full justify-center items-center">
             <p className="text-sm"> {t("sign.have-an-acount")}</p>
             <Button variant="link" className="text-[#6EC1E4]">
-              <Link to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`}>{t("sign.signIn")}</Link>
+              <Link to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`}>
+                {t("sign.signIn")}
+              </Link>
             </Button>
           </div>
         </CardFooter>

@@ -55,7 +55,7 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
   }
 
   return (
-    <div className="py-10 sm:py-0 border rounded-none sm:rounded-xl dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20   gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-full  sm:w-[82%] mx-auto h-[700px] sm:h-[800px] md:h-[900px] ">
+    <div className=" py-10  border  rounded-none sm:rounded-xl dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20   gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-full  sm:w-[82%] mx-auto h-[700px] sm:h-[800px] md:h-[900px] ">
       <div className=" flex flex-col gap-4 items-start sm:flex-row sm:items-center  justify-center ">
         <div className="text-5xl sm:text-6xl pb-4 sm:pb-0 flex justify-center sm:justify-start w-full sm:w-2/3 font-chakra-petch ">
           {t("listBox.all-games")}

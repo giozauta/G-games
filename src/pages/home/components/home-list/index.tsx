@@ -12,7 +12,7 @@ const HomeList: React.FC = () => {
   }
 
   return (
-    <div className="h-full mb-40 sm:mb-80 ">
+    <div className="h-full pb-40 sm:pb-80  ">
       <Hero games={games} />
       <GameCarousel games={games} />
       <GamesListBox refetch={refetch} />

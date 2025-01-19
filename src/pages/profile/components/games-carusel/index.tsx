@@ -66,7 +66,9 @@ const ProfileGameCarusel: React.FC = () => {
               {/* transparent box with Delete,enter,edit, Buttons */}
               <div className="absolute  flex-col  inset-0 bg-black/50 flex items-center justify-center  gap-4   opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Button variant="green" className="w-[60%]">
-                  <Link to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${data.id}`}>
+                  <Link
+                    to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${data.id}`}
+                  >
                     {t("profile.enter")}
                   </Link>
                 </Button>
