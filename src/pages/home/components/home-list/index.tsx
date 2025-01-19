@@ -2,6 +2,7 @@ import { useGamesList } from "@/react-query/query/home";
 import GameCarousel from "../games-carousel";
 import GamesListBox from "../games-list-box";
 import Hero from "../hero";
+import SwordJoystickImageBox from "../sword-joystick-image-box";
 
 const HomeList: React.FC = () => {
   const { data: games, refetch } = useGamesList();
@@ -15,6 +16,7 @@ const HomeList: React.FC = () => {
       <Hero games={games} />
       <GameCarousel games={games} />
       <GamesListBox refetch={refetch} />
+      <SwordJoystickImageBox/>{/*ჯოესტიკის და ხმლის ანიმაცია ეს კომპონენტი გამოიყენება მხოლოდ სტილისთვის */}
     </div>
   );
 };

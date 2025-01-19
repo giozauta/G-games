@@ -50,8 +50,8 @@ export default {
           "100%": { transform: "rotateY(360deg)" },
         },
         scalePulse: {
-          "0%, 100%": { transform: "scale(1.4)" },
-          "50%": { transform: "scale(1)" },
+          "0%, 100%": { transform: "scale(1.2)" },
+          "50%": { transform: "scale(0.9)" },
         },
       },
     },
