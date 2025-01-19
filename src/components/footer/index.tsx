@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import i18next from "i18next";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { AUTH_LAYOUT_PATHS } from "@/Routes/auth/index.enum";
@@ -9,9 +9,12 @@ const Footer: React.FC = () => {
   const { t } = useTranslation();
   const lang = i18next.language;
   const currentLang = lang ?? "en";
+  const  location = useLocation().pathname;
+  const homeLocation = location.slice(4,);
+  console.log(homeLocation)
 
   return (
-    <div className=" flex flex-col bg-[#fcfbf5] dark:bg-black  h-auto sm:h-[594px] dark:bg-custom-gradient2">
+    <div className={` flex flex-col bg-[#fcfbf5] dark:bg-black  h-auto sm:h-[594px] dark:${homeLocation==="home"?"bg-custom-gradient":"bg-custom-gradient2"}`}>
       <div className="sm:border-t   dark:border-white/10 sm:flex-row flex-col h-auto  sm:h-[494px] mx-auto flex w-full">
         <div className=" w-full sm:w-[45%]  flex flex-col justify-center items-center   py-4 sm:py-0">
           <div className=" h-full w-full sm:w-1/2 flex flex-col  pl-4 ">
