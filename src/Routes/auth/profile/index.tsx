@@ -5,5 +5,5 @@ import { AUTH_LAYOUT_PATHS } from "../index.enum";
 const ProfileLazy = lazy(() => import("@/pages/profile"));
 
 export const PROFILE_ROUTES = [
-  <Route path={AUTH_LAYOUT_PATHS.PROFILE} element={<ProfileLazy />} />,
+  <Route key={AUTH_LAYOUT_PATHS.PROFILE} path={AUTH_LAYOUT_PATHS.PROFILE} element={<ProfileLazy />} />,
 ];
