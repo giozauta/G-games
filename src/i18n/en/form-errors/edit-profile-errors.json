@@ -1,15 +1,15 @@
 {
-    "minname": "Name is required",
-    "maxname": "Name is too long",
-    "minlastName": "Last name is required",
-    "maxlastName": "Last name is too long",
-    "minlocation": "Location is required",
-    "maxlocation": "Location is too long",
-    "mingender": "Gender is required",
-    "maxgender": "Gender is too long",
-    "minPhone": "Phone number is required",
-    "maxPhone": "Phone number is too long",
-    "minAge": "Age can't be 0",
-    "maxAge": "Age is too long",
-    "receivedNan": "Age is required"
+  "minname": "Name is required",
+  "maxname": "Name is too long",
+  "minlastName": "Last name is required",
+  "maxlastName": "Last name is too long",
+  "minlocation": "Location is required",
+  "maxlocation": "Location is too long",
+  "mingender": "Gender is required",
+  "maxgender": "Gender is too long",
+  "minPhone": "Phone number is required",
+  "maxPhone": "Phone number is too long",
+  "minAge": "Age can't be 0",
+  "maxAge": "Age is too long",
+  "receivedNan": "Age is required"
 }

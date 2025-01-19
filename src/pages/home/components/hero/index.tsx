@@ -9,6 +9,7 @@ import {
   calculateMouseStyle,
   resetMouseStyle,
 } from "./utalities/mouseHandlers";
+import StarAwardImagesBox from "./components/star-img";
 
 const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
   //
@@ -49,6 +50,8 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
       <div className=" absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center">
         <img src="/images/bg-1.png" alt="bg" />
       </div>
+      {/*this is for style only to appear star */}
+      <StarAwardImagesBox />
       {/*this div is for style only to appear border boxes მხოლოდ სტილისთვის */}
       <div className="  w-full z-20  h-full grid grid-cols-[repeat(15,1fr)] grid-rows-[repeat(10,1fr)] gap-0 top-0  absolute ">
         {[...Array(180)].map((_, i) => (

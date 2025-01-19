@@ -3,7 +3,6 @@ import { useAtom } from "jotai";
 import { Lang } from "@/store/jotai";
 import { useGamesById } from "@/react-query/query/profile";
 import { useParams } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
 
 const GamePage: React.FC = () => {
   const gameId = useParams()?.id;
@@ -27,10 +26,10 @@ const GamePage: React.FC = () => {
   }
 
   return (
-    <div className=" dark:bg-custom-gradient sm:h-[800px] flex justify-center items-center   w-[99%] sm:w-full mx-auto  ">
+    <div className=" dark:bg-custom-gradient h-auto py-0 sm:py-20 flex justify-center items-center   w-[99%] sm:w-full mx-auto  ">
       <Card className="w-[650px]  mx-auto p-6  sm:border-[1px]  border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg  dark:bg-custom-gradient2 border">
-        <CardContent className=" gap-5 p-0 flex justify-between flex-col sm:flex-row ">
-          <div className=" flex justify-center items-center    sm:w-[270px] sm:h-[355px]  ">
+        <CardContent className=" gap-5 p-0 flex justify-start flex-col sm:flex-row ">
+          <div className=" flex justify-center items-center   sm:w-[270px] sm:h-[355px]  ">
             <img
               src={imgUrl + gameInfo?.image_url}
               alt="game"
@@ -40,19 +39,17 @@ const GamePage: React.FC = () => {
                 (e.currentTarget.src = "/path/to/placeholder-image.jpg")
               }
             />
-          </div>
+          </div>{" "}
+          <CardDescription className="p-0    flex sm:flex-col  gap-2 ">
+            <div className="p-2 ">Release Date: {gameInfo?.release_date}</div>
+
+            <div className="p-2 ">
+              Platform: {gameInfo?.platform?.toUpperCase()}
+            </div>
+            <div className="p-2 ">Likes:{gameInfo?.likes ?? " 0"}</div>
+          </CardDescription>
         </CardContent>
-        <CardDescription className="p-0  pt-4  flex gap-2">
-          <Badge variant="default" className="py-1">
-            {gameInfo?.platform}
-          </Badge>
-          <Badge variant="default" className="py-1">
-            {gameInfo?.release_date}
-          </Badge>
-          <Badge variant="default" className="py-1">
-            Likes:{gameInfo?.likes}
-          </Badge>
-        </CardDescription>
+
         <CardContent className=" p-0 pt-4 text-3xl text-orange2">
           {lang === "en" ? gameInfo?.name_en : gameInfo?.name_ka}
         </CardContent>

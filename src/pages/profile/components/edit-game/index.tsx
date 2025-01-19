@@ -82,7 +82,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogTrigger asChild >
+      <DialogTrigger asChild>
         <Button
           variant="orange"
           className="w-[60%] "

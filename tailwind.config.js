@@ -31,6 +31,8 @@ export default {
       animation: {
         "like-animation": "like 0.5s ease-in-out", //ანიმაცია
         "caret-blink": "caret-blink 1s ease-in-out infinite",
+        rotate3d: "rotate3d 4s infinite linear", //ჯილდოს 3d ეფექტისთვის ანიმაცია
+        scalePulse: "scalePulse 2s infinite ease-in-out", //ვარსკვლავის 3დ ეფექტის ანიმაცია
       },
       keyframes: {
         like: {
@@ -41,6 +43,15 @@ export default {
         "caret-blink": {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
+        },
+        rotate3d: {
+          "0%": { transform: "rotateY(0deg)" },
+          "50%": { transform: "rotateY(180deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
+        scalePulse: {
+          "0%, 100%": { transform: "scale(1.4)" },
+          "50%": { transform: "scale(1)" },
         },
       },
     },

@@ -12,5 +12,5 @@ export const profileSchema = z.object({
   genderKa: z.string().min(1, "min").max(10, "max"),
 
   phone: z.string().min(1, "minPhone").max(15, "maxPhone"),
-  age: z.number({message: "receivedNan"}).min(1, "minAge").max(100, "maxAge"),
+  age: z.number({ message: "receivedNan" }).min(1, "minAge").max(100, "maxAge"),
 });

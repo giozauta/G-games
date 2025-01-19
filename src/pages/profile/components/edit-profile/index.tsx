@@ -141,8 +141,9 @@ const EditProfile: React.FC<{
 
                                 {fieldState.error?.message && (
                                   <span className="text-red-600 text-sm">
-      
-                                    {t(`editProfileErrors.${fieldState.error?.message}${names}`)}
+                                    {t(
+                                      `editProfileErrors.${fieldState.error?.message}${names}`,
+                                    )}
                                   </span>
                                 )}
                               </div>
@@ -186,8 +187,10 @@ const EditProfile: React.FC<{
 
                                 {fieldState.error?.message && (
                                   <span className=" text-red-600 text-sm ">
-                                    {t(`editProfileErrors.${fieldState.error?.message}${names}`)}
-                                    </span>
+                                    {t(
+                                      `editProfileErrors.${fieldState.error?.message}${names}`,
+                                    )}
+                                  </span>
                                 )}
                               </div>
                             );
@@ -221,7 +224,9 @@ const EditProfile: React.FC<{
                         />
                         {fieldState.error?.message && (
                           <span className=" text-red-600 text-sm">
-                            {t(`editProfileErrors.${fieldState.error?.message}`)}
+                            {t(
+                              `editProfileErrors.${fieldState.error?.message}`,
+                            )}
                           </span>
                         )}
                       </div>
@@ -255,8 +260,10 @@ const EditProfile: React.FC<{
                         />
                         {fieldState.error?.message && (
                           <span className="text-red-600 text-sm">
-                            {t(`editProfileErrors.${fieldState.error?.message}`)}
-                            </span>
+                            {t(
+                              `editProfileErrors.${fieldState.error?.message}`,
+                            )}
+                          </span>
                         )}
                       </div>
                     );
