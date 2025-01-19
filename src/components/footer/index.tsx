@@ -11,15 +11,15 @@ const Footer: React.FC = () => {
   const lang = i18next.language;
   const currentLang = lang ?? "en";
   const location = useLocation().pathname;
-  const isHome = location.slice(4)===DEFAULT_LAYOUT_PATH.HOME;//დინამიურად რომ შევცვალოთ bg-სტილი როცა home გვერძზე ვართ
-
+  const isHome = location.slice(4) === DEFAULT_LAYOUT_PATH.HOME; //დინამიურად რომ შევცვალოთ bg-სტილი როცა home გვერძზე ვართ
 
   return (
     <div
-      className={` flex flex-col bg-[#fcfbf5]  dark:bg-black  h-auto  sm:h-[594px] dark:${isHome? "bg-custom-gradient" : "bg-custom-gradient2"}`}
+      className={` flex flex-col bg-[#fcfbf5]  dark:bg-black  h-auto  sm:h-[594px] dark:${isHome ? "bg-custom-gradient" : "bg-custom-gradient2"}`}
     >
       <div className=" sm:border-t  dark:border-white/10 sm:flex-row flex-col h-auto  sm:h-[494px] mx-auto flex w-full ">
-        <div className="   flex flex-col justify-center items-start lg:items-center   w-full sm:w-[28%] md:w-[30%] lg:w-[40%]   ">{/*პროცენტიანი ყუთი*/}
+        <div className="   flex flex-col justify-center items-start lg:items-center   w-full sm:w-[28%] md:w-[30%] lg:w-[40%]   ">
+          {/*პროცენტიანი ყუთი*/}
           <div className=" h-full w-full sm:w-1/2 flex flex-col  pl-4 ">
             <div className=" h-1/2  flex justify-start items-end  ">
               <img src="/images/footerLogo.png" alt="logo" />
@@ -56,22 +56,23 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className=" border-t sm:border-t-0  sm:border-l   dark:border-white/10  flex  justify-start items-center w-full py-5 sm:py-0  sm:w-[22%] md:w-[22%] lg:w-[20%] ">{/*პროცენტიანი ყუთი*/}
+        <div className=" border-t sm:border-t-0  sm:border-l   dark:border-white/10  flex  justify-start items-center w-full py-5 sm:py-0  sm:w-[22%] md:w-[22%] lg:w-[20%] ">
+          {/*პროცენტიანი ყუთი*/}
           <div className=" flex flex-col pl-4 w-full h-full ">
             <span className=" h-1/3 dark:text-[#F75A1D]  flex justify-start pt-0 sm:pt-[84px] items-end  font-bold text-3xl font-chakra-petch pb-5">
               {t("footer.explore")}
             </span>
-            
+
             <Link
               to={`/${currentLang}/${AUTH_LAYOUT_PATHS.PROFILE}`}
               className=" h-2/3 text-black   dark:text-white dark:hover:text-blue2 hover:text-blue2 transition-all duration-300 ease-in "
             >
               {t("footer.user-profile")}
             </Link>
-
           </div>
         </div>
-        <div className="border-t sm:border-t-0  sm:border-l  dark:border-white/10   flex justify-between items-center w-full py-5 sm:py-0 sm:w-[50%] md:w-[48%] lg:w-[40%] ">{/*პროცენტიანი ყუთი*/}
+        <div className="border-t sm:border-t-0  sm:border-l  dark:border-white/10   flex justify-between items-center w-full py-5 sm:py-0 sm:w-[50%] md:w-[48%] lg:w-[40%] ">
+          {/*პროცენტიანი ყუთი*/}
           <div className="pl-4 h-full  w-full sm:w-1/2 flex flex-col ">
             <div className="  dark:text-[#F75A1D]    h-1/3 flex items-end text-3xl font-bold font-chakra-petch transition-all duration-300 ease-in  pb-5 ">
               {t("footer.follow")}
