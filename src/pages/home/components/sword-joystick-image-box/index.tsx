@@ -10,21 +10,21 @@ const SwordJoystickImageBox: React.FC = () => {
       const swordStart = 600; // when animation starts
       const swordEnd = 2000; // when animation ends
 
-      const joystickStart =1500; 
-      const joystickEnd = 2400; 
+      const joystickStart = 1500;
+      const joystickEnd = 2400;
       console.log(currentScroll);
 
       setIsMovingLeft(currentScroll > swordStart && currentScroll < swordEnd);
-      setIsMovingRight(currentScroll> joystickStart && currentScroll < joystickEnd);
+      setIsMovingRight(
+        currentScroll > joystickStart && currentScroll < joystickEnd,
+      );
     };
-
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
 
   return (
     <div className="hidden   2xl:flex justify-end absolute top-[1240px] h-[1300px] w-full z-[-1] ">
@@ -40,9 +40,9 @@ const SwordJoystickImageBox: React.FC = () => {
 
       <div
         className={` absolute bottom-[220px]  right-[175px] w-60 flex justify-center items-end transition-transform duration-500 ${
-            isMovingRight?`translate-x-[140px] translate-y-[140px] `:"translate-x-0 translate-y-0"
-           
-      
+          isMovingRight
+            ? `translate-x-[140px] translate-y-[140px] `
+            : "translate-x-0 translate-y-0"
         }`}
       >
         <img src="/images/joystick.webp" alt="joystick" />

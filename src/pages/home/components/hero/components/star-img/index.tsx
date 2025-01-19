@@ -6,7 +6,11 @@ const StarAwardImagesBox: React.FC = () => {
         alt="star"
         className="animate-scalePulse "
       />
-      <img src="/images/award.png" alt="award" className="animate-rotate3d  px-3" />
+      <img
+        src="/images/award.png"
+        alt="award"
+        className="animate-rotate3d  px-3"
+      />
     </div>
   );
 };

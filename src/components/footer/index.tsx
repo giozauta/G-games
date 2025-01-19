@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import i18next from "i18next";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { AUTH_LAYOUT_PATHS } from "@/Routes/auth/index.enum";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -55,7 +56,7 @@ const Footer: React.FC = () => {
               {t("footer.explore")}
             </div>
             <Link
-              to={`/${currentLang}/profile`}
+              to={`/${currentLang}/${AUTH_LAYOUT_PATHS.PROFILE}`}
               className="text-black  pt-10 dark:text-white dark:hover:text-blue2 hover:text-blue2 transition-all duration-300 ease-in"
             >
               {t("footer.user-profile")}

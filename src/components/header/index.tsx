@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useAtom } from "jotai";
 import { userAtom } from "@/store/jotai";
 import { useLogOut } from "@/react-query/mutation/log-out";
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 
 const Header: React.FC = () => {
   const [buttonState, setButtonState] = React.useState(true);
@@ -52,7 +53,7 @@ const Header: React.FC = () => {
         <div className="flex  items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
           <img src="/images/logo.png" alt="logo" />
           <Link
-            to={`/${currentLang}/home`}
+            to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.HOME}`}
             className="font-chakra-petch  text-2xl sm:text-3xl font-bold  flex items-center justify-center"
           >
             {t("navbar.logo")}
@@ -88,7 +89,7 @@ const Header: React.FC = () => {
 
         {!user && (
           <Link
-            to="sign-in"
+            to={DEFAULT_LAYOUT_PATH.SIGN_IN}
             className="flex pb-5 sm:pb-0 w-20 sm:w-auto  items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in"
           >
             <img src="/images/user4.png" alt="user" className="w-5 h-5" />

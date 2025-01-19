@@ -7,6 +7,7 @@ import { GameDataType, Refetch } from "./types";
 import { Image } from "lucide-react";
 import { useLikesUpdate } from "@/react-query/mutation/game-card";
 import { useState } from "react";
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 
 const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
   gameData,
@@ -90,7 +91,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
           {t("listBox.like")}
         </Button>
 
-        <Link to={`/${lang}/gamePage/${gameData.id}`}>
+        <Link to={`/${lang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${gameData.id}`}>
           <Button
             variant="outline"
             className="rounded-[50%] w-12 h-12 dark:bg-[#60D600] bg-[#6ec1e4] flex items-center justify-center hover:rotate-[-45deg] hover:bg-[#60D600] dark:hover:bg-[#F75A1D] transition-all duration-500"

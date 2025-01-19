@@ -17,6 +17,7 @@ import { FormValues } from "./types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "./schema";
 import { useSignIn } from "@/react-query/mutation/sign-in";
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 
 const SignIn: React.FC = () => {
   //
@@ -123,7 +124,7 @@ const SignIn: React.FC = () => {
           <div className="flex w-full justify-center items-center">
             <p className="text-sm">{t("sign.dont-have-account")}</p>
             <Button variant="link" className="text-[#6EC1E4] ">
-              <Link to={`/${currentLang}/sign-up`}>{t("sign.signUp")}</Link>
+              <Link to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_UP}`}>{t("sign.signUp")}</Link>
             </Button>
           </div>
         </CardFooter>

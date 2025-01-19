@@ -17,6 +17,7 @@ import { signUpSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 
 const SignUp: React.FC = () => {
   const { control, handleSubmit, formState } = useForm<FormValues>({
@@ -158,7 +159,7 @@ const SignUp: React.FC = () => {
           <div className="flex w-full justify-center items-center">
             <p className="text-sm"> {t("sign.have-an-acount")}</p>
             <Button variant="link" className="text-[#6EC1E4]">
-              <Link to={`/${currentLang}/sign-in`}>{t("sign.signIn")}</Link>
+              <Link to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`}>{t("sign.signIn")}</Link>
             </Button>
           </div>
         </CardFooter>

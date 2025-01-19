@@ -16,7 +16,8 @@ const HomeList: React.FC = () => {
       <Hero games={games} />
       <GameCarousel games={games} />
       <GamesListBox refetch={refetch} />
-      <SwordJoystickImageBox/>{/*ჯოესტიკის და ხმლის ანიმაცია ეს კომპონენტი გამოიყენება მხოლოდ სტილისთვის */}
+      <SwordJoystickImageBox />
+      {/*ჯოესტიკის და ხმლის ანიმაცია ეს კომპონენტი გამოიყენება მხოლოდ სტილისთვის */}
     </div>
   );
 };

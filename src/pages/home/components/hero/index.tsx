@@ -10,6 +10,7 @@ import {
   resetMouseStyle,
 } from "./utalities/mouseHandlers";
 import StarAwardImagesBox from "./components/star-img";
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 
 const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
   //
@@ -19,7 +20,6 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
   const { i18n } = useTranslation();
   const currentLanguage =
     (i18n.language as "en" | "ka" | null | undefined) ?? "en"; //იმისთვის რომ შევძლოთ ტექსტის ზომის ცვლა იმის მიხედვით თუ რა ენაზეა
-
   //
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
   //ვიყენებ მემოს რომ არ მოხდეს გამეორებით დასორთვა, თუ ცვლილება არარის
@@ -80,7 +80,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
                 variant={"outline"}
                 className="bg-[#F75A1D]   dark:border-green2 rounded-md px-5 py-2 dark:hover:bg-orange2 flex justify-center items-center transition-all duration-300 ease-in"
               >
-                <Link to={`/${currentLanguage}/sign-up`}>
+                <Link to={`/${currentLanguage}/${DEFAULT_LAYOUT_PATH.SIGN_UP}`}>
                   {t("hero.sign-up")}
                 </Link>
               </Button>
@@ -108,9 +108,10 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
 
             <div className="w-full h-[80%] flex flex-col justify-evenly gap-4  ">
               {sortedGames?.map((game) => (
-                <div
+                <Link
+                  to={`/${currentLanguage}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${game.id}`}
                   key={game.id}
-                  className="flex justify-start    items-center gap-5 h-1/3 text-xl font-bold overflow-hidden hover:border-orange2 transition-all duration-300 ease-in    border-b border-white/20 "
+                  className="flex justify-start hover:scale-105 transition-all duration-300 ease-in   items-center gap-5 h-1/3 text-xl font-bold overflow-hidden hover:border-orange2    border-b border-white/20 "
                 >
                   {/* ავატარი  */}
                   <Avatar className="w-16 h-16  shadow-lg ">
@@ -128,7 +129,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
                       {t("hero.likes")}: {game.likes}
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
