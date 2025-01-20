@@ -50,6 +50,48 @@ export type Database = {
           },
         ];
       };
+      comments: {
+        Row: {
+          comment: string | null;
+          created_at: string;
+          game_id: number | null;
+          id: number;
+          user_id: string | null;
+          user_name: string | null;
+        };
+        Insert: {
+          comment?: string | null;
+          created_at?: string;
+          game_id?: number | null;
+          id?: number;
+          user_id?: string | null;
+          user_name?: string | null;
+        };
+        Update: {
+          comment?: string | null;
+          created_at?: string;
+          game_id?: number | null;
+          id?: number;
+          user_id?: string | null;
+          user_name?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "comments_game_id_fkey";
+            columns: ["game_id"];
+            isOneToOne: false;
+            referencedRelation: "games";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "comments_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       games: {
         Row: {
           created_at: string;
@@ -109,6 +151,7 @@ export type Database = {
           avatar_url: string | null;
           first_name_en: string | null;
           first_name_ka: string | null;
+          full_name: string | null;
           gender_en: string | null;
           gender_ka: string | null;
           id: string;
@@ -124,6 +167,7 @@ export type Database = {
           avatar_url?: string | null;
           first_name_en?: string | null;
           first_name_ka?: string | null;
+          full_name?: string | null;
           gender_en?: string | null;
           gender_ka?: string | null;
           id: string;
@@ -139,6 +183,7 @@ export type Database = {
           avatar_url?: string | null;
           first_name_en?: string | null;
           first_name_ka?: string | null;
+          full_name?: string | null;
           gender_en?: string | null;
           gender_ka?: string | null;
           id?: string;

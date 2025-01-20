@@ -3,6 +3,7 @@ import { useAtom } from "jotai";
 import { Lang } from "@/store/jotai";
 import { useGamesById } from "@/react-query/query/profile";
 import { useParams } from "react-router-dom";
+import CommentSection from "./components/comments";
 
 const GamePage: React.FC = () => {
   const gameId = useParams()?.id;
@@ -26,8 +27,8 @@ const GamePage: React.FC = () => {
   }
 
   return (
-    <div className=" dark:bg-custom-gradient h-auto py-0 sm:py-20 flex justify-center items-center   w-[99%] sm:w-full mx-auto  ">
-      <Card className="w-[650px]  mx-auto p-6  sm:border-[1px]  border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg  dark:bg-custom-gradient2 border">
+    <div className=" dark:bg-custom-gradient gap-4  h-auto pb-20  py-0 sm:py-20 flex flex-col lg:flex-row justify-center  items-center   w-full mx-auto  ">
+      <Card className="w-full md:w-[90%] lg:w-[700px] lg:px-10 min-h-[600px] p-6 ml-2 sm:border  border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg  dark:bg-custom-gradient2  ">
         <CardContent className=" gap-5 p-0 flex justify-start flex-col sm:flex-row ">
           <div className=" flex justify-center items-center   sm:w-[270px] sm:h-[355px]  ">
             <img
@@ -57,6 +58,8 @@ const GamePage: React.FC = () => {
           {lang === "en" ? gameInfo?.description_en : gameInfo?.description_ka}
         </CardContent>
       </Card>
+
+      <CommentSection gameInfo={gameInfo} />
     </div>
   );
 };

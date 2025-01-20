@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
       <div className=" sm:border-t  dark:border-white/10 sm:flex-row flex-col h-auto  sm:h-[494px] mx-auto flex w-full ">
         <div className="   flex flex-col justify-center items-start lg:items-center   w-full sm:w-[28%] md:w-[30%] lg:w-[40%]   ">
           {/*პროცენტიანი ყუთი*/}
-          <div className=" h-full w-full sm:w-1/2 flex flex-col  pl-4 ">
+          <div className=" h-full w-full sm:w-1/2 flex flex-col  pl-4 pt-5 sm:pt-0">
             <div className=" h-1/2  flex justify-start items-end  ">
               <img src="/images/footerLogo.png" alt="logo" />
             </div>
