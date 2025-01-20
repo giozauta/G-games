@@ -20,7 +20,7 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
   //
   const [user] = useAtom(userAtom);
   const isUserLogin = !!user;
-  const userImail = user?.user?.email
+  const userImail = user?.user?.email;
 
   //
   const { control, handleSubmit, reset } = useForm({
@@ -40,7 +40,6 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
   const { mutate: addComment } = useEddGameComment();
   //
   const handleCommentAdd = (formValue: { comment: string }) => {
-
     if (!isUserLogin) {
       alert("Please login to add comment");
       return;
@@ -49,12 +48,12 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
       alert("Please add comment");
       return;
     }
-    if(!userImail){
+    if (!userImail) {
       alert("Please login to add comment");
       return;
     }
     addComment(
-      { id: gameInfo.id, comment: formValue.comment ,user_email:userImail },
+      { id: gameInfo.id, comment: formValue.comment, user_email: userImail },
       {
         onSuccess: () => {
           refetch();
@@ -63,13 +62,13 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
     );
     reset();
   };
-//
-const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    handleSubmit(handleCommentAdd)();
-  }
-};
+  //
+  const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSubmit(handleCommentAdd)();
+    }
+  };
 
   if (isLoading) {
     return (

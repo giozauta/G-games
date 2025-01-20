@@ -9,7 +9,7 @@ export const uploadGameWithImage = async ({
   fileName: string;
   file: File;
   newGameValues: AddGameType;
-}) => {
+}): Promise<AddGameType | null|false> => {
   try {
     const imageResult = await supabase.storage
       .from("game_images")
@@ -38,6 +38,6 @@ export const uploadGameWithImage = async ({
     return gamesResult.data;
   } catch (error) {
     console.error("Error uploading game with image:", error);
-    return error;
+    return false;
   }
 };

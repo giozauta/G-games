@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const heroTextSize = cva([""], {
+export const heroTextSize = cva(["hover:scale-110 transition-all duration-500  ease-in-out"], {
   variants: {
     lang: {
       en: ["text-6xl  sm:text-6xl lg:text-7xl xl:text-8xl "],
@@ -14,7 +14,7 @@ export const heroTextSize = cva([""], {
   },
 });
 
-export const heroMiddleTextSize = cva(["text-orange2 "], {
+export const heroMiddleTextSize = cva(["text-orange2 hover:scale-110 transition-all duration-500 ease-in-out"], {
   variants: {
     lang: {
       en: ["text-6xl  sm:text-6xl lg:text-7xl xl:text-8xl"],

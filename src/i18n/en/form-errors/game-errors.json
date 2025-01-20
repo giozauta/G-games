@@ -2,6 +2,8 @@
   "min": "String must contain at least 6 character(s)",
   "max": "String must contain at most 50 character(s)",
 
+  "maxDescription": "Description must contain at most 900 character(s)",
+
   "Invalid date": "Date must be a valid date",
   "platform": "Platform must be Xbox, PlayStation, or PC",
   "image": "Please upload a valid file"

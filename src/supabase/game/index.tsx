@@ -96,7 +96,7 @@ export const updateGameById = async (
   newGameValues: GameNewDataType,
   image_file: File,
   old_image_url: string,
-)=> {
+) => {
   try {
     // Update the image in Supabase storage
     const imageResult = await supabase.storage

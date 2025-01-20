@@ -7,7 +7,7 @@ export const register = async ({
 }: {
   email: string;
   password: string;
-}):Promise<RegisterType>=> {
+}): Promise<RegisterType> => {
   try {
     const { data, error } = await supabase.auth.signUp({ email, password });
     if (error) {
@@ -28,7 +28,7 @@ export const login = async ({
 }: {
   email: string;
   password: string;
-}): Promise<UserType|false> => {
+}): Promise<UserType | false> => {
   try {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,

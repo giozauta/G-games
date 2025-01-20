@@ -6,11 +6,11 @@ export const addGameSchema = z.object({
   descriptionEn: z
     .string()
     .min(6, { message: "min" })
-    .max(400, { message: "max" }),
+    .max(900, { message: "maxDescription" }),
   descriptionKa: z
     .string()
     .min(6, { message: "min" })
-    .max(400, { message: "max" }),
+    .max(900, { message: "maxDescription" }),
   platform: z.enum(["xbox", "playstation", "pc"], {
     message: "platform",
   }),

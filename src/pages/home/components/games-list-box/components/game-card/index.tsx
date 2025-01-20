@@ -47,7 +47,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
   }
 
   return (
-    <div className="px-4 bg-white text-black dark:text-white w-96 h-full flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-[#F75A1D] hover:border-[#6ec1e4] transition-all duration-500">
+    <div className="  px-4 bg-white text-black dark:text-white  flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-[#F75A1D] hover:border-[#6ec1e4] transition-all duration-500 h-[400px] w-[300px] ">
       <div className="rounded-xl overflow-hidden h-[50%] mt-5 flex justify-center items-center ">
         {imgUrl ? (
           <img
