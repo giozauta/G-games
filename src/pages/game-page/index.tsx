@@ -4,11 +4,14 @@ import { Lang } from "@/store/jotai";
 import { useGamesById } from "@/react-query/query/profile";
 import { useParams } from "react-router-dom";
 import CommentSection from "./components/comments";
+import { useTranslation } from "react-i18next";
 
 const GamePage: React.FC = () => {
   const gameId = useParams()?.id;
   const lang = useAtom(Lang)[0];
   const imgUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
+  //
+  const { t } = useTranslation();
   //
   const { data: gameInfo, isLoading, isError } = useGamesById(Number(gameId));
   //
@@ -42,12 +45,16 @@ const GamePage: React.FC = () => {
             />
           </div>{" "}
           <CardDescription className="p-4 pl-0 sm:pl-4    flex sm:flex-col  gap-5 sm:gap-2 ">
-            <div >Release Date: {gameInfo?.release_date}</div>
-
-            <div >
-              Platform: {gameInfo?.platform?.toUpperCase()}
+            <div>
+              {t("gamePage.releas")}: {gameInfo?.release_date}
             </div>
-            <div >Likes:{gameInfo?.likes ?? " 0"}</div>
+
+            <div>
+              {t("gamePage.platform")}: {gameInfo?.platform?.toUpperCase()}
+            </div>
+            <div>
+              {t("gamePage.likes")}:{gameInfo?.likes ?? " 0"}
+            </div>
           </CardDescription>
         </CardContent>
 
@@ -56,7 +63,6 @@ const GamePage: React.FC = () => {
         </CardContent>
         <CardContent className=" p-0  overflow-y-auto hide-scrollbar lg:hover:visible-scrollbar h-[200px] md:h-[100px] ">
           {lang === "en" ? gameInfo?.description_en : gameInfo?.description_ka}
-
         </CardContent>
       </Card>
 

@@ -26,6 +26,8 @@ import addGameErrorsEn from "./en/form-errors/game-errors.json";
 import addGameErrorsKa from "./ka/form-errors/game-errors.json";
 import editProfileErrorsEn from "./en/form-errors/edit-profile-errors.json";
 import editProfileErrorsKa from "./ka/form-errors/edit-profile-errors.json";
+import gamePageEn from "./en/pages/game-page/game-page.json";
+import gamePageKa from "./ka/pages/game-page/game-page.json";
 
 i18next.use(initReactI18next).init({
   lng: "en",
@@ -47,6 +49,7 @@ i18next.use(initReactI18next).init({
         signErrors: signErrorsEn,
         addGameErrors: addGameErrorsEn,
         editProfileErrors: editProfileErrorsEn,
+        gamePage: gamePageEn,
       },
     },
     ka: {
@@ -64,6 +67,7 @@ i18next.use(initReactI18next).init({
         signErrors: signErrorsKa,
         addGameErrors: addGameErrorsKa,
         editProfileErrors: editProfileErrorsKa,
+        gamePage: gamePageKa,
       },
     },
   },
