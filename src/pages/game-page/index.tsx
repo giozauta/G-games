@@ -28,7 +28,7 @@ const GamePage: React.FC = () => {
 
   return (
     <div className=" dark:bg-custom-gradient gap-4  h-auto pb-20  py-0 sm:py-20 flex flex-col lg:flex-row justify-center  items-center   w-full mx-auto  ">
-      <Card className="w-full md:w-[90%] lg:w-[700px] lg:px-10 min-h-[600px] p-6 ml-2 sm:border  border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg  dark:bg-custom-gradient2  ">
+      <Card className="w-full md:w-[90%] lg:w-[700px] lg:px-10 min-h-[600px] p-6 ml-2 sm:border  border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg  dark:bg-custom-gradient  ">
         <CardContent className=" gap-5 p-0 flex justify-start flex-col sm:flex-row ">
           <div className=" flex justify-center items-center   sm:w-[270px] sm:h-[355px]  ">
             <img

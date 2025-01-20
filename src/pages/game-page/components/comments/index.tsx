@@ -1,53 +1,49 @@
 import {
-    Card,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card";
-  import { GameInfoType } from "../../types";
-  import { Button } from "@/components/ui/button";
-  import { Textarea } from "@/components/ui/textarea";
-  import { ScrollArea } from "@radix-ui/react-scroll-area";
-  
-  const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
-    return (
-      <Card className="w-full md:w-[90%] lg:w-[400px] lg:px-10 min-h-[600px] p-6 mr-2 sm:border border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg dark:bg-custom-gradient lg:dark:bg-custom-gradient2 flex flex-col shadow-none">
-        {/* Game Info Section */}
-        <div className="flex flex-col flex-grow w-full border">
-          <CardHeader className="p-0 py-4 dark:text-orange2 text-blue2">
-            <CardTitle>Game comments</CardTitle>
-            <CardDescription>
-              You can add a comment if you are registered
-            </CardDescription>
-          </CardHeader>
-  
-          {/* Scrollable Comment Area */}
-          <ScrollArea className=" overflow-y-scroll flex-grow mb-4 h-[300px]">
-            {/* Here, you can map over an array of comments */}
-            <div>{gameInfo.id}</div>
-            <div>komentarebi</div>
-            <div>komentarebi</div>
-            <div>komentarebi</div>
-            <div>komentarebi</div>
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { GameInfoType } from "../../types";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 
-          </ScrollArea>
+const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
+  console.log(gameInfo)
+  return (
+    <Card className="w-full md:w-[90%] lg:w-[400px] lg:px-10 min-h-[600px] p-6 mr-2 sm:border border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg dark:bg-custom-gradient lg:dark:bg-custom-gradient flex flex-col shadow-none">
+      <div className="flex flex-col flex-grow  w-full  ">
+        <CardHeader className=" dark:text-orange2 text-blue2 h-16 p-0 flex justify-center items-start ">
+          <CardTitle>Game comments</CardTitle>
+          <CardDescription>
+            You can add a comment if you are registered
+          </CardDescription>
+        </CardHeader>
+
+        <ScrollArea className="overflow-y-scroll flex-grow h-60 mt-4 border dark:bg-black dark:border-white/10 p-5  rounded-md hide-scrollbar hover:visible-scrollbar">
   
-          {/* Comment Textarea */}
+        <div className="border p-2 rounded-sm dark:border-white/10 mb-2 h-auto">
+              <p>gio</p>
+              <p className="text-sm ">kargi tamashia  tamashia a</p>
+            </div>
+        </ScrollArea>
+
+        <div className="w-full flex justify-center items-center h-28 my-4">
           <Textarea
             placeholder="Comment here"
-            className="dark:bg-custom-gradient2 dark:text-orange2 bg-blue2 text-white"
+            className="dark:bg-custom-gradient2 dark:text-orange2 dark:bg-black  h-full resize-none"
           />
         </div>
-  
-        {/* Comment Section (Send button) */}
-        <div className="h-16 border">
-          <Button className="w-full dark:text-black bg-blue2 dark:bg-orange2/80 hover:dark:bg-orange2/60">
-            Send comment
-          </Button>
-        </div>
-      </Card>
-    );
-  };
-  
-  export default CommentSection;
-  
+      </div>
+
+      <div className="w-full  flex  justify-center items-end ">
+        <Button className="w-full dark:text-black bg-blue2 dark:bg-orange2/80 hover:dark:bg-orange2/60">
+          Send comment
+        </Button>
+      </div>
+    </Card>
+  );
+};
+
+export default CommentSection;
