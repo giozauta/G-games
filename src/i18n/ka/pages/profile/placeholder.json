@@ -4,5 +4,15 @@
   "location": "ლოკაცია ინგლისურად",
   "gender": "სქესი ინგლისურად",
   "phone": "ტელეფონის ნომერი",
-  "age": "ასაკი"
+  "age": "ასაკი",
+
+
+
+
+
+  "name-placeholderEn": "შენი თამაშის სახელი  (ინგლისურად)",
+  "description-placeholderEn": "შენი თამაშის აღწერა (ინგლისურად)",
+
+  "year-placeholder": "გამოშვების წელი",
+  "platform-placeholder": "აირჩიე პლატფორმა"
 }

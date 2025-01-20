@@ -8,7 +8,7 @@ import { GameType } from "./types";
 import {
   calculateMouseStyle,
   resetMouseStyle,
-} from "./utalities/mouseHandlers";
+} from "../../utalities/mouseHandlers";
 import StarAwardImagesBox from "./components/star-img";
 import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 

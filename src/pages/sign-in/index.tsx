@@ -60,14 +60,14 @@ const SignIn: React.FC = () => {
     <div className="flex justify-center items-center font-chakra-petch h-[650px] dark:bg-custom-gradient">
       <Card className="w-[350px] dark:bg-custom-gradient">
         <CardHeader>
-          <CardTitle>{t("sign.signIn")}</CardTitle>
+          <CardTitle className="text-orange2 text-2xl">{t("sign.signIn")}</CardTitle>
           <CardDescription>{t("sign.instruction")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid w-full items-center gap-5 ">
-              <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">{t("sign.email")}</Label>
+              <div className="flex flex-col space-y-3.5 ">
+                <Label className="text-blue2 dark:text-green2" htmlFor="framework">{t("sign.email")}</Label>
                 <Controller
                   name="email"
                   control={control}
@@ -87,8 +87,8 @@ const SignIn: React.FC = () => {
                   </Label>
                 )}
               </div>
-              <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">{t("sign.password")}</Label>
+              <div className="flex flex-col space-y-3.5 ">
+                <Label className="text-blue2 dark:text-green2" htmlFor="framework">{t("sign.password")}</Label>
                 <Controller
                   name="password"
                   control={control}
@@ -123,8 +123,8 @@ const SignIn: React.FC = () => {
           </Button>
           <div className="flex w-full justify-center items-center">
             <p className="text-sm">{t("sign.dont-have-account")}</p>
-            <Button variant="link" className="text-[#6EC1E4] ">
-              <Link to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_UP}`}>
+            <Button variant="link" >
+              <Link className="text-orange2" to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_UP}`}>
                 {t("sign.signUp")}
               </Link>
             </Button>

@@ -8,12 +8,16 @@ import { Image } from "lucide-react";
 import { useLikesUpdate } from "@/react-query/mutation/game-card";
 import { useState } from "react";
 import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
+import { calculateMouseStyle, resetMouseStyle } from "../../../../utalities/mouseHandlers";
 
 const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
   gameData,
   refetch,
 }) => {
   const [isAnimating, setIsAnimating] = useState(false); //ლაიქიცს ანიმაციისთვის
+  //
+  const [style, setStyle] = useState({}); //რომ შევცვალოთ ყუთზე ჰოვერი
+
   //
   const { t } = useTranslation();
   const lang = i18n.language ?? "en";
@@ -25,7 +29,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
   const releaseDate = gameData.release_date;
   const imgUrl =
     import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL + gameData.image_url;
-
+  //
   const { mutate: updateGameLikes } = useLikesUpdate();
 
   // Handle like action
@@ -42,12 +46,27 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
     });
   };
 
+//
+
+
+const handleMouseMove = (e: React.MouseEvent) => {
+  const box = e.currentTarget.getBoundingClientRect();
+  setStyle(calculateMouseStyle(e, box));
+};
+
+const handleMouseLeave = () => {
+  setStyle(resetMouseStyle());
+};
+  //
+
   if (!gameData) {
     return null;
   }
 
   return (
-    <div className="  px-4 bg-white text-black dark:text-white  flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-[#F75A1D] hover:border-[#6ec1e4] transition-all duration-500 h-[400px] w-[300px] ">
+    <div             style={style}
+    onMouseMove={handleMouseMove}
+    onMouseLeave={handleMouseLeave} className="  px-4 bg-white text-black dark:text-white  flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-orange2 hover:border-blue2 transition-all duration-500 h-[420px] w-[310px] ">
       <div className="rounded-xl overflow-hidden h-[50%] mt-5 flex justify-center items-center ">
         {imgUrl ? (
           <img
@@ -78,11 +97,11 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
           {releaseDate ? releaseDate.toString() : ""}
         </Badge>
       </div>
-      <div className="h-[20%] flex justify-between items-center border-t dark:border-t-white/10">
+      <div className=" h-[20%] flex justify-between items-center border-t dark:border-t-white/10">
         <Button
           variant="outline"
           onClick={handleLikeClick}
-          className={`transition-all duration-300 ease-in ${
+          className={` transition-all duration-300 ease-in ${
             isAnimating
               ? "animate-like-animation"
               : "hover:bg-blue2 dark:hover:bg-green2 hover:text-white2 hover:dark:text-black"
@@ -91,10 +110,10 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
           {t("listBox.like")}
         </Button>
 
-        <Link to={`/${lang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${gameData.id}`}>
+        <Link  to={`/${lang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${gameData.id}`}>
           <Button
             variant="outline"
-            className="rounded-[50%] w-12 h-12 dark:bg-[#60D600] bg-[#6ec1e4] flex items-center justify-center hover:rotate-[-45deg] hover:bg-[#60D600] dark:hover:bg-[#F75A1D] transition-all duration-500"
+            className="rounded-[50%] p-3  w-10 h-10 dark:bg-[#60D600] bg-[#6ec1e4] flex items-center justify-center hover:rotate-[-45deg] hover:bg-[#60D600] dark:hover:bg-[#F75A1D] transition-all duration-500"
           >
             <img src="/images/right-up.png" alt="arrow" />
           </Button>

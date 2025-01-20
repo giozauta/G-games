@@ -130,7 +130,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Input
                           {...field}
                           id="name_en"
-                          placeholder={t("profile.name-placeholderEn")}
+                          placeholder={t("profilePlaceholder.name-placeholderEn")}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -146,7 +146,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     htmlFor="description-en"
                     className="dark:text-green2 text-blue2"
                   >
-                    {t("profile.description")}({t("profile.english")})
+                    {t("profile.game-description")}({t("profile.english")})
                   </Label>
 
                   <Controller
@@ -157,7 +157,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Textarea
                           {...field}
                           id="description_en"
-                          placeholder={t("profile.description-placeholderEn")}
+                          placeholder={t("profilePlaceholder.description-placeholderEn")}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -189,7 +189,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Input
                           {...field}
                           id="name-ka"
-                          placeholder={t("profile.name-placeholderKa")}
+                          placeholder={t("profilePlaceholderKa.name-placeholderKa")}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -205,7 +205,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     htmlFor="description-ka"
                     className="dark:text-green2 text-blue2"
                   >
-                    {t("profile.description")}({t("profile.georgian")})
+                    {t("profile.game-description")}({t("profile.georgian")})
                   </Label>
                   <Controller
                     name="description_ka"
@@ -215,7 +215,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Textarea
                           {...field}
                           id="description-ka"
-                          placeholder={t("profile.description-placeholderKa")}
+                          placeholder={t("profilePlaceholderKa.description-placeholderKa")}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -245,7 +245,8 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                       type="date"
                       {...field}
                       id="release_date"
-                      placeholder={t("profile.year-placeholder")}
+                      placeholder={t("profilePlaceholder.year-placeholder")}
+                      
                     />
                     {fieldState.error?.message && (
                       <div className="text-red-500 text-sm">
@@ -271,7 +272,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     >
                       <SelectTrigger id="platform">
                         <SelectValue
-                          placeholder={t("profile.platform-placeholder")}
+                          placeholder={t("profilePlaceholder.platform-placeholder")}
                         />
                       </SelectTrigger>
                       <SelectContent>

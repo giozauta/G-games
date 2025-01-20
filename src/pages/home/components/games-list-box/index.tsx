@@ -43,6 +43,10 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
     onChange(newSearchText);
   };
 
+
+
+  //
+
   if (isLoading) {
     return (
       <div className="border-[1px]  dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20  rounded-3xl gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-[82%] mx-auto h-[700px] sm:h-[800px] md:h-[900px]">
@@ -83,7 +87,7 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
         </div>
       </div>
 
-      <ScrollArea className="gap-10 flex flex-wrap justify-center sm:mt-10 overflow-y-scroll h-[1050px] hide-scrollbar sm:hover:visible-scrollbar ">
+      <ScrollArea className="gap-5  pt-4 flex flex-wrap justify-center sm:mt-10 overflow-y-scroll h-[1050px] hide-scrollbar sm:hover:visible-scrollbar ">
         {gamesList?.map((game) => (
           <GameCard refetch={refetch} key={game.id} gameData={game} />
         ))}

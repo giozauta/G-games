@@ -46,14 +46,14 @@ const SignUp: React.FC = () => {
     <div className="flex justify-center items-center font-chakra-petch h-[750px] dark:bg-custom-gradient">
       <Card className="w-[350px] dark:bg-custom-gradient">
         <CardHeader>
-          <CardTitle>{t("sign.signUp")}</CardTitle>
+          <CardTitle className="text-2xl text-orange2">{t("sign.signUp")}</CardTitle>
           <CardDescription>{t("sign.instruction")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid w-full items-center gap-5 ">
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">{t("sign.name")}</Label>
+                <Label className="text-blue2 dark:text-green2 "  htmlFor="framework">{t("sign.name")}</Label>
                 <Controller
                   name="name"
                   control={control}
@@ -76,7 +76,7 @@ const SignUp: React.FC = () => {
               </div>
 
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">{t("sign.email")}</Label>
+                <Label className="text-blue2 dark:text-green2 " htmlFor="framework">{t("sign.email")}</Label>
                 <Controller
                   name="email"
                   control={control}
@@ -99,7 +99,7 @@ const SignUp: React.FC = () => {
               </div>
 
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">{t("sign.password")}</Label>
+                <Label className="text-blue2 dark:text-green2 " htmlFor="framework">{t("sign.password")}</Label>
 
                 <Controller
                   name="password"
@@ -122,7 +122,7 @@ const SignUp: React.FC = () => {
               </div>
 
               <div className="flex flex-col space-y-3.5">
-                <Label htmlFor="framework">{t("sign.confirmPassword")}</Label>
+                <Label className="text-blue2 dark:text-green2 " htmlFor="framework">{t("sign.confirmPassword")}</Label>
 
                 <Controller
                   name="confirmPassword"
@@ -158,8 +158,8 @@ const SignUp: React.FC = () => {
           </Button>
           <div className="flex w-full justify-center items-center">
             <p className="text-sm"> {t("sign.have-an-acount")}</p>
-            <Button variant="link" className="text-[#6EC1E4]">
-              <Link to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`}>
+            <Button variant="link" >
+              <Link className="text-orange2" to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`}>
                 {t("sign.signIn")}
               </Link>
             </Button>

@@ -27,7 +27,7 @@ const SwordJoystickImageBox: React.FC = () => {
   }, []);
 
   return (
-    <div className="hidden   2xl:flex justify-end absolute top-[1240px] h-[1300px] w-full z-[-1] ">
+    <div className="hidden   2xl:flex justify-end absolute top-[1240px] h-[1500px] w-full z-[-1] ">
       <div
         className={`w-80 h-80 flex justify-center items-center transition-transform duration-500 ${
           isMovingLeft
