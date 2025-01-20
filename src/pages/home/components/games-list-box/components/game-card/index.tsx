@@ -106,7 +106,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
         <Button
           variant="outline"
           onClick={handleLikeClick}
-          className={` transition-all duration-300 ease-in ${
+          className={` transition-all duration-300 ease-in bg-transparent ${
             isAnimating
               ? "animate-like-animation"
               : "hover:bg-blue2 dark:hover:bg-green2 hover:text-white2 hover:dark:text-black"
