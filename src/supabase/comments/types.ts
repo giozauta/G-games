@@ -4,5 +4,5 @@ export type commentType = {
   game_id: number | null;
   id: number;
   user_id: string | null;
-  user_name: string | null;
+  user_email: string | null;
 };

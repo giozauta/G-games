@@ -1,11 +1,6 @@
 import { atom } from "jotai";
+import { Session } from "@supabase/supabase-js";
 
-interface User {
-  user: {
-    id: string;
-  };
-}
-
-export const userAtom = atom<User | null>(null);
+export const userAtom = atom<Session|null>(null);
 
 export const Lang = atom("en");

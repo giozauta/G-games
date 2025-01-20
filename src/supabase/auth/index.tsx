@@ -1,4 +1,5 @@
 import supabase from "..";
+import { RegisterType, UserType } from "./types";
 
 export const register = async ({
   email,
@@ -6,7 +7,7 @@ export const register = async ({
 }: {
   email: string;
   password: string;
-}) => {
+}):Promise<RegisterType>=> {
   try {
     const { data, error } = await supabase.auth.signUp({ email, password });
     if (error) {
@@ -27,7 +28,7 @@ export const login = async ({
 }: {
   email: string;
   password: string;
-}) => {
+}): Promise<UserType|false> => {
   try {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -41,11 +42,11 @@ export const login = async ({
     return data;
   } catch (err) {
     console.error("Login error:", err);
-    return err;
+    return false;
   }
 };
 
-export const logout = async () => {
+export const logout = async (): Promise<void> => {
   try {
     await supabase.auth.signOut();
     console.log("Logout successful");

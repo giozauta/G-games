@@ -18,9 +18,12 @@ import { useEddGameComment } from "@/react-query/mutation/game-page";
 const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
   const { t } = useTranslation();
   //
-  const IsuserLogedIn = useAtom(userAtom)[0]?.user;
+  const [user] = useAtom(userAtom);
+  const isUserLogin = !!user;
+  const userImail = user?.user?.email
+
   //
-const {control, handleSubmit,reset} = useForm({
+  const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       comment: "",
     },
@@ -32,29 +35,41 @@ const {control, handleSubmit,reset} = useForm({
     isError,
     refetch,
   } = useGetCommentsByGameId(gameInfo.id);
-//
+  //
 
-const {mutate:addComment} = useEddGameComment();
-//
-const handleCommentAdd = (formValue:{comment:string}) => {
-  
-  if(!IsuserLogedIn){
-    alert("Please login to add comment");
-    return;
-  }
-  if(!formValue){
-    alert("Please add comment");
-    return;
-  }
+  const { mutate: addComment } = useEddGameComment();
+  //
+  const handleCommentAdd = (formValue: { comment: string }) => {
 
-  addComment({id:gameInfo.id,comment:formValue.comment},{
-    onSuccess: () => {
-      refetch();
+    if (!isUserLogin) {
+      alert("Please login to add comment");
+      return;
     }
-  })
-  reset();
+    if (!formValue) {
+      alert("Please add comment");
+      return;
+    }
+    if(!userImail){
+      alert("Please login to add comment");
+      return;
+    }
+    addComment(
+      { id: gameInfo.id, comment: formValue.comment ,user_email:userImail },
+      {
+        onSuccess: () => {
+          refetch();
+        },
+      },
+    );
+    reset();
+  };
+//
+const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    handleSubmit(handleCommentAdd)();
+  }
 };
-
 
   if (isLoading) {
     return (
@@ -87,27 +102,31 @@ const handleCommentAdd = (formValue:{comment:string}) => {
                 key={comment.id}
                 className="border p-2 rounded-sm dark:border-white/10 mb-2 h-auto"
               >
-                <p>{comment.user_name ?? "Anonymous"}</p>
+                <p>{comment.user_email ?? "Anonymous"}</p>
                 <p className="text-sm ">{comment.comment}</p>
               </div>
             );
           })}
         </ScrollArea>
-        {IsuserLogedIn && (
+        {isUserLogin && (
           <form className="w-full flex flex-col justify-center items-center h-36 mt-2 ">
-          <Controller
-            control={control}
-            name="comment"
-            render={({ field }) => (
-              <Textarea
-              {...field}
-              placeholder={t("gamePage.textarea-placeholder")}
-              className="dark:bg-custom-gradient2 dark:text-orange2 dark:bg-black/20  h-full resize-none"
+            <Controller
+              control={control}
+              name="comment"
+              render={({ field }) => (
+                <Textarea
+                  {...field}
+                  placeholder={t("gamePage.textarea-placeholder")}
+                  className="dark:bg-custom-gradient2 dark:text-orange2 dark:bg-black/20  h-full resize-none"
+                  onKeyDown={onKeyPress}
+                />
+              )}
             />
-            )}
-          />
 
-            <Button onClick={handleSubmit(handleCommentAdd)} className="w-full dark:text-black bg-blue2 dark:bg-orange2/80 hover:dark:bg-orange2/60 mt-2">
+            <Button
+              onClick={handleSubmit(handleCommentAdd)}
+              className="w-full dark:text-black bg-blue2 dark:bg-orange2/80 hover:dark:bg-orange2/60 mt-2"
+            >
               {t("gamePage.send-comment")}
             </Button>
           </form>

@@ -96,7 +96,7 @@ export const updateGameById = async (
   newGameValues: GameNewDataType,
   image_file: File,
   old_image_url: string,
-) => {
+)=> {
   try {
     // Update the image in Supabase storage
     const imageResult = await supabase.storage
@@ -155,7 +155,7 @@ export const getGamesByUserId = async (
   }
 };
 
-export const deleteGamesById = async (id: number) => {
+export const deleteGamesById = async (id: number): Promise<GameType | null> => {
   try {
     const { data: game, error: fetchError } = await supabase
       .from("games")

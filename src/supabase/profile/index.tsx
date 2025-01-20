@@ -7,7 +7,7 @@ export const updateUserById = async ({
 }: {
   userId: string;
   updates: NewProfileValuesType;
-}) => {
+}): Promise<NewProfileValuesType | null> => {
   try {
     const { data, error } = await supabase
       .from("profiles")
