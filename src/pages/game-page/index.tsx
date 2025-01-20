@@ -27,9 +27,9 @@ const GamePage: React.FC = () => {
   }
 
   return (
-    <div className=" dark:bg-custom-gradient gap-4  h-auto pb-20  py-0 sm:py-20 flex flex-col lg:flex-row justify-center  items-center   w-full mx-auto  ">
-      <Card className="w-full md:w-[90%] lg:w-[700px] lg:px-10 min-h-[600px] p-6 ml-2 sm:border  border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg  dark:bg-custom-gradient  ">
-        <CardContent className=" gap-5 p-0 flex justify-start flex-col sm:flex-row ">
+    <div className=" w-full  dark:bg-custom-gradient gap-4  pb-20  py-0 sm:py-20 flex flex-col lg:flex-row justify-center  items-center   mx-auto  ">
+      <Card className="w-full md:w-[90%] lg:w-[800px] gap-6 justify-between   sm:gap-0 p-5  lg:p-10 min-h-[600px]  sm:border border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg dark:bg-custom-gradient lg:dark:bg-custom-gradient flex flex-col shadow-none ">
+        <CardContent className="  p-0 flex justify-start flex-col sm:flex-row ">
           <div className=" flex justify-center items-center   sm:w-[270px] sm:h-[355px]  ">
             <img
               src={imgUrl + gameInfo?.image_url}
@@ -41,21 +41,22 @@ const GamePage: React.FC = () => {
               }
             />
           </div>{" "}
-          <CardDescription className="p-0    flex sm:flex-col  gap-2 ">
-            <div className="p-2 ">Release Date: {gameInfo?.release_date}</div>
+          <CardDescription className="p-4 pl-0 sm:pl-4    flex sm:flex-col  gap-5 sm:gap-2 ">
+            <div >Release Date: {gameInfo?.release_date}</div>
 
-            <div className="p-2 ">
+            <div >
               Platform: {gameInfo?.platform?.toUpperCase()}
             </div>
-            <div className="p-2 ">Likes:{gameInfo?.likes ?? " 0"}</div>
+            <div >Likes:{gameInfo?.likes ?? " 0"}</div>
           </CardDescription>
         </CardContent>
 
-        <CardContent className=" p-0 pt-4 text-3xl text-orange2">
+        <CardContent className="  p-0  text-3xl text-orange2 ">
           {lang === "en" ? gameInfo?.name_en : gameInfo?.name_ka}
         </CardContent>
-        <CardContent className=" p-0 pt-4 ">
+        <CardContent className=" p-0  overflow-y-auto hide-scrollbar lg:hover:visible-scrollbar h-[200px] md:h-[100px] ">
           {lang === "en" ? gameInfo?.description_en : gameInfo?.description_ka}
+
         </CardContent>
       </Card>
 
