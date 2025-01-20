@@ -62,7 +62,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
         ))}
       </div>
 
-      <div className=" relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center  items-center w-full h-full px-0 sm:px-7 ">
+      <div className=" relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center  items-center w-full h-full px-0 sm:px-7 bg-blue2/60 dark:bg-transparent">
         <div className="  z-20  h-[450px]  w-[92%] sm:w-[50%]  md:w-[35%] flex  justify-start md:justify-end  ">
           <div className=" flex flex-col  gap-2 items-start   sm:pl-0 font-chakra-petch text-white font-bold w-full sm:w-full md:w-full lg:w-full xl:w-auto ">
             <div className={heroTextSize({ lang: currentLanguage })}>

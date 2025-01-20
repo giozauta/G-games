@@ -15,7 +15,6 @@ export default {
       backgroundImage: {
         "custom-gradient": "linear-gradient(to bottom, #000000, #0D1800)",
         "custom-gradient2": "linear-gradient(to top, #000000, #0D1800)",
-        "custom-gradientLight": "linear-gradient(to bottom, #ffffff, #F65A1D)",
         "custom-gradient-RightTop-leftBottom":
           "linear-gradient(to bottom left, #0C1700, black)",
         bar: "url('/images/bar.png')",
@@ -27,6 +26,9 @@ export default {
         orange2: "#F75A1D",
         green2: "#60D600",
         white2: "#ecece8",
+        creemy: "#F2F2F2",
+        creemy2: "#fcfbf5",
+  
       },
       animation: {
         "like-animation": "like 0.5s ease-in-out", //ანიმაცია

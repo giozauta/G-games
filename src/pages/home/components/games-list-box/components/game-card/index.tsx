@@ -8,7 +8,10 @@ import { Image } from "lucide-react";
 import { useLikesUpdate } from "@/react-query/mutation/game-card";
 import { useState } from "react";
 import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
-import { calculateMouseStyle, resetMouseStyle } from "../../../../utalities/mouseHandlers";
+import {
+  calculateMouseStyle,
+  resetMouseStyle,
+} from "../../../../utalities/mouseHandlers";
 
 const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
   gameData,
@@ -46,17 +49,16 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
     });
   };
 
-//
+  //
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const box = e.currentTarget.getBoundingClientRect();
+    setStyle(calculateMouseStyle(e, box));
+  };
 
-const handleMouseMove = (e: React.MouseEvent) => {
-  const box = e.currentTarget.getBoundingClientRect();
-  setStyle(calculateMouseStyle(e, box));
-};
-
-const handleMouseLeave = () => {
-  setStyle(resetMouseStyle());
-};
+  const handleMouseLeave = () => {
+    setStyle(resetMouseStyle());
+  };
   //
 
   if (!gameData) {
@@ -64,9 +66,12 @@ const handleMouseLeave = () => {
   }
 
   return (
-    <div             style={style}
-    onMouseMove={handleMouseMove}
-    onMouseLeave={handleMouseLeave} className="  px-4 bg-white text-black dark:text-white  flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-orange2 hover:border-blue2 transition-all duration-500 h-[420px] w-[310px] ">
+    <div
+      style={style}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="  px-4 bg-creemy2 text-black dark:text-white  flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-orange2 hover:border-blue2 transition-all duration-500 h-[420px] w-[310px] "
+    >
       <div className="rounded-xl overflow-hidden h-[50%] mt-5 flex justify-center items-center ">
         {imgUrl ? (
           <img
@@ -110,7 +115,7 @@ const handleMouseLeave = () => {
           {t("listBox.like")}
         </Button>
 
-        <Link  to={`/${lang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${gameData.id}`}>
+        <Link to={`/${lang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${gameData.id}`}>
           <Button
             variant="outline"
             className="rounded-[50%] p-3  w-10 h-10 dark:bg-[#60D600] bg-[#6ec1e4] flex items-center justify-center hover:rotate-[-45deg] hover:bg-[#60D600] dark:hover:bg-[#F75A1D] transition-all duration-500"

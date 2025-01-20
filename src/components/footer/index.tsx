@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
 
   return (
     <div
-      className={` flex flex-col bg-[#fcfbf5]  dark:bg-black  h-auto  sm:h-[594px] dark:${isHome ? "bg-custom-gradient" : "bg-custom-gradient2"}`}
+      className={` flex flex-col  dark:bg-black  h-auto  sm:h-[594px] dark:${isHome ? "bg-custom-gradient" : "bg-custom-gradient2"}`}
     >
       <div className=" sm:border-t  dark:border-white/10 sm:flex-row flex-col h-auto  sm:h-[494px] mx-auto flex w-full ">
         <div className="   flex flex-col justify-center items-start lg:items-center   w-full sm:w-[28%] md:w-[30%] lg:w-[40%]   ">

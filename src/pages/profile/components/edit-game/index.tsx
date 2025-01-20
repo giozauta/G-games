@@ -130,7 +130,9 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Input
                           {...field}
                           id="name_en"
-                          placeholder={t("profilePlaceholder.name-placeholderEn")}
+                          placeholder={t(
+                            "profilePlaceholder.name-placeholderEn",
+                          )}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -157,7 +159,9 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Textarea
                           {...field}
                           id="description_en"
-                          placeholder={t("profilePlaceholder.description-placeholderEn")}
+                          placeholder={t(
+                            "profilePlaceholder.description-placeholderEn",
+                          )}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -189,7 +193,9 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Input
                           {...field}
                           id="name-ka"
-                          placeholder={t("profilePlaceholderKa.name-placeholderKa")}
+                          placeholder={t(
+                            "profilePlaceholderKa.name-placeholderKa",
+                          )}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -215,7 +221,9 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                         <Textarea
                           {...field}
                           id="description-ka"
-                          placeholder={t("profilePlaceholderKa.description-placeholderKa")}
+                          placeholder={t(
+                            "profilePlaceholderKa.description-placeholderKa",
+                          )}
                         />
                         {fieldState.error?.message && (
                           <div className="text-red-500 text-sm">
@@ -246,7 +254,6 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                       {...field}
                       id="release_date"
                       placeholder={t("profilePlaceholder.year-placeholder")}
-                      
                     />
                     {fieldState.error?.message && (
                       <div className="text-red-500 text-sm">
@@ -272,7 +279,9 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
                     >
                       <SelectTrigger id="platform">
                         <SelectValue
-                          placeholder={t("profilePlaceholder.platform-placeholder")}
+                          placeholder={t(
+                            "profilePlaceholder.platform-placeholder",
+                          )}
                         />
                       </SelectTrigger>
                       <SelectContent>

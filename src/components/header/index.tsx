@@ -24,17 +24,20 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         headerRef.current?.classList.add("dark:bg-black");
+        headerRef.current?.classList.add("bg-[#CBD9DF]");
         headerRef.current?.classList.remove("dark:bg-transparent");
       } else {
         headerRef.current?.classList.remove("dark:bg-black");
+        headerRef.current?.classList.remove("bg-[#CBD9DF]");
         headerRef.current?.classList.add("dark:bg-transparent");
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
 
   const handleButtonState = () => {
     setButtonState(!buttonState);
@@ -47,7 +50,7 @@ const Header: React.FC = () => {
   return (
     <div
       ref={headerRef}
-      className="header   bg-[#fcfbf5] dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
+      className="header     dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto"
     >
       <div className="logo   w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between   ">
         <div className="flex  items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
