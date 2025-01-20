@@ -32,12 +32,11 @@ const Header: React.FC = () => {
         headerRef.current?.classList.add("dark:bg-transparent");
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
-  
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
 
   const handleButtonState = () => {
     setButtonState(!buttonState);

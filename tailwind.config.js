@@ -28,7 +28,7 @@ export default {
         white2: "#ecece8",
         creemy: "#F2F2F2",
         creemy2: "#fcfbf5",
-  
+        lightBlue: "#CBD9DF",
       },
       animation: {
         "like-animation": "like 0.5s ease-in-out", //ანიმაცია

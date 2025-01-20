@@ -70,7 +70,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
       style={style}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="  px-4 bg-creemy2 text-black dark:text-white  flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-orange2 hover:border-blue2 transition-all duration-500 h-[420px] w-[310px] "
+      className="  px-4 bg-creemy text-black dark:text-white  flex flex-col rounded-xl dark:bg-white/5 backdrop-blur-md border dark:border-white/10 dark:hover:border-orange2 hover:border-blue2 transition-all duration-500 h-[420px] w-[310px] "
     >
       <div className="rounded-xl overflow-hidden h-[50%] mt-5 flex justify-center items-center ">
         {imgUrl ? (
