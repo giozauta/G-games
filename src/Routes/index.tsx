@@ -11,7 +11,7 @@ import Loading from "@/components/loading";
 
 const AppRoutes = () => {
   return (
-    <Suspense fallback={<Loading/>}>
+    <Suspense fallback={<Loading />}>
       <Routes>
         <Route path=":lang" element={<LangGuard />}>
           <Route element={<IsAuthLayout />}>{AUTH_LAYOUT_ROUTES}</Route>
@@ -19,9 +19,10 @@ const AppRoutes = () => {
         </Route>
         <Route path="/" element={<Navigate to="/en/home" />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/en/"  element={<Navigate to="/en/home" />} />
+        <Route path="/en/" element={<Navigate to="/en/home" />} />
       </Routes>
     </Suspense>
+
   );
 };
 

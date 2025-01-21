@@ -44,7 +44,7 @@ const SignUp: React.FC = () => {
 
   return (
     <div className="flex justify-center items-center font-chakra-petch h-[750px] dark:bg-custom-gradient">
-      <Card className="w-[350px] dark:bg-custom-gradient">
+      <Card className="w-[350px] dark:bg-custom-gradient bg-creemy">
         <CardHeader>
           <CardTitle className="text-2xl text-orange2">
             {t("sign.signUp")}

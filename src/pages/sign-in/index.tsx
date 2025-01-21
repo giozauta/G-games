@@ -57,8 +57,8 @@ const SignIn: React.FC = () => {
   };
   //
   return (
-    <div className="flex justify-center items-center font-chakra-petch h-[650px] dark:bg-custom-gradient">
-      <Card className="w-[350px] dark:bg-custom-gradient">
+    <div className="flex justify-center items-center font-chakra-petch h-[650px] dark:bg-custom-gradient ">
+      <Card className="w-[350px] dark:bg-custom-gradient bg-creemy">
         <CardHeader>
           <CardTitle className="text-orange2 text-2xl">
             {t("sign.signIn")}

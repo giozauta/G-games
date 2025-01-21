@@ -90,8 +90,8 @@ const AddGame: React.FC = () => {
 
   //
   return (
-    <div className=" flex  py-10 justify-center items-center font-chakra-petch min-h-[750px] dark:bg-custom-gradient ">
-      <Card className="w-[500px] dark:bg-custom-gradient shadow-lg  border-none bg-creemy ">
+    <div className=" flex  py-10 justify-center items-center font-chakra-petch min-h-[750px]  dark:bg-custom-gradient ">
+      <Card className="w-[500px] dark:bg-custom-gradient shadow-lg  bg-creemy  ">
         <CardHeader>
           <CardTitle className="text-orange2 text-2xl">
             {t("addGame.addGame")}
@@ -230,7 +230,7 @@ const AddGame: React.FC = () => {
           </Tabs>
 
           {/* საერთო */}
-          <div className="grid w-full items-center gap-4 mt-6">
+          <div className="grid w-full items-center gap-4 mt-6 ">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="year" className="dark:text-green2 text-blue2">
                 {t("addGame.year")}
@@ -245,6 +245,7 @@ const AddGame: React.FC = () => {
                       {...field}
                       type="date"
                       placeholder={t("addGame.year-placeholder")}
+                      className="text-gray-500"
                     />
                   );
                 }}
@@ -266,8 +267,9 @@ const AddGame: React.FC = () => {
                 control={control}
                 render={({ field }) => (
                   <Select value={field.value} onValueChange={field.onChange}>
-                    <SelectTrigger id="platform">
+                    <SelectTrigger className="text-gray-500" id="platform">
                       <SelectValue
+                      
                         placeholder={t("addGame.platform-placeholder")}
                       />
                     </SelectTrigger>
@@ -294,8 +296,10 @@ const AddGame: React.FC = () => {
               <Controller
                 name="image"
                 control={control}
+                
                 render={({ field }) => (
                   <Input
+                    className="text-gray-500 pl-1 py-1.5"
                     required
                     id="image"
                     type="file"
@@ -317,7 +321,7 @@ const AddGame: React.FC = () => {
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex justify-between">
+        <CardFooter className="flex justify-between ">
           <Button
             onClick={handleSubmit(handleAddGame)}
             variant="outline"
