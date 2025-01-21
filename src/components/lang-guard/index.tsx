@@ -1,3 +1,4 @@
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 import { useParams, Outlet, Navigate } from "react-router-dom";
 
 const LangGuard: React.FC = () => {
@@ -6,9 +7,9 @@ const LangGuard: React.FC = () => {
   const langs = ["en", "ka"];
 
   if (!langs.includes(currentLang)) {
-    return <Navigate to={"/en/home"} />;
+    return <Navigate to={`/en/${DEFAULT_LAYOUT_PATH.HOME}`} />;
   }
-  return <Outlet />;
+  return <Outlet/>;
 };
 
 export default LangGuard;
