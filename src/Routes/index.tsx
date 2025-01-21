@@ -3,7 +3,7 @@ import IsAuthLayout from "@/layouts/auth";
 import DefaultLayout from "@/layouts/default";
 import NotFound from "@/pages/404";
 
-import { Navigate, Route, Routes} from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { AUTH_LAYOUT_ROUTES } from "./auth";
 import { DEFAULT_LAYOUT_ROUTES } from "./default";
 import { Suspense } from "react";
@@ -13,7 +13,7 @@ import ScrollToTop from "@/components/scroll-to-top";
 const AppRoutes = () => {
   return (
     <Suspense fallback={<Loading />}>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
         <Route path=":lang" element={<LangGuard />}>
           <Route element={<IsAuthLayout />}>{AUTH_LAYOUT_ROUTES}</Route>
