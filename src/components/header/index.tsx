@@ -50,10 +50,7 @@ const Header: React.FC = () => {
   };
   //
   return (
-    <div
-      ref={headerRef}
-      className={headerClasses({ isProfilePage })}
-    >
+    <div ref={headerRef} className={headerClasses({ isProfilePage })}>
       <div className="logo   w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between   ">
         <div className="flex  items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
           <img src="/images/logo.png" alt="logo" />
@@ -74,7 +71,6 @@ const Header: React.FC = () => {
       </div>
 
       <div className={navbarWrapperClasses({ isHidden: buttonState })}>
-
         <Navbar />
 
         {user && (

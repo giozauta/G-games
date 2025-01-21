@@ -5,6 +5,7 @@ import i18next from "i18next";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { AUTH_LAYOUT_PATHS } from "@/Routes/auth/index.enum";
 import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
+import { containerStyles } from "./schema";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -14,9 +15,7 @@ const Footer: React.FC = () => {
   const isHome = location.slice(4) === DEFAULT_LAYOUT_PATH.HOME; //დინამიურად რომ შევცვალოთ bg-სტილი როცა home გვერძზე ვართ
 
   return (
-    <div
-      className={` flex flex-col  dark:bg-black  h-auto  sm:h-[594px] dark:${isHome ? "bg-custom-gradient" : "bg-custom-gradient2"}`}
-    >
+    <div className={containerStyles({ isHome })}>
       <div className=" sm:border-t  dark:border-white/10 sm:flex-row flex-col h-auto  sm:h-[494px] mx-auto flex w-full ">
         <div className="   flex flex-col justify-center items-start lg:items-center   w-full sm:w-[28%] md:w-[30%] lg:w-[40%]   ">
           {/*პროცენტიანი ყუთი*/}
@@ -63,12 +62,16 @@ const Footer: React.FC = () => {
               {t("footer.explore")}
             </span>
 
+            <span  className=" h-2/3 "
+            >
             <Link
+            className=" text-black   dark:text-white dark:hover:text-blue2 hover:text-blue2 transition-all duration-300 ease-in"
               to={`/${currentLang}/${AUTH_LAYOUT_PATHS.PROFILE}`}
-              className=" h-2/3 text-black   dark:text-white dark:hover:text-blue2 hover:text-blue2 transition-all duration-300 ease-in "
             >
               {t("footer.user-profile")}
             </Link>
+            </span>
+
           </div>
         </div>
         <div className="border-t sm:border-t-0  sm:border-l  dark:border-white/10   flex justify-between items-center w-full py-5 sm:py-0 sm:w-[50%] md:w-[48%] lg:w-[40%] ">
