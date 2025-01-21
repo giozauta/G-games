@@ -11,19 +11,38 @@ const Profile: React.FC = () => {
   const userId = user?.user?.id;
   const currentLang = useAtom(Lang)[0];
   //
-  const { data: userData, refetch } = useProfileInfo(userId);
+  const {
+    data: userData,
+    refetch,
+    isLoading,
+    isError,
+  } = useProfileInfo(userId);
   //user info
   const userFullNameEn = userData?.first_name_en + " " + userData?.last_name_en;
   const userFullNameKa = userData?.first_name_ka + " " + userData?.last_name_ka;
   //
-  if (!userData) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        Loading...
+      </div>
+    );
   }
-  if (!user) {
-    return <div>something went wrong...</div>;
+  if (isError) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        something went wrong...
+      </div>
+    );
+  }
+  if (!userData) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        something went wrong...
+      </div>
+    );
   }
   //
-
   return (
     <div>
       <div className="relative lg:top-[-100px]  w-full h-[300px] sm:h-[400px] bg-bar bg-cover bg-center">

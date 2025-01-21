@@ -319,7 +319,7 @@ const AddGame: React.FC = () => {
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex justify-between ">
+        <CardFooter className="flex justify-between">
           <Button
             onClick={handleSubmit(handleAddGame)}
             variant="outline"

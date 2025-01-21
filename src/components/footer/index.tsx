@@ -62,16 +62,14 @@ const Footer: React.FC = () => {
               {t("footer.explore")}
             </span>
 
-            <span  className=" h-2/3 "
-            >
-            <Link
-            className=" text-black   dark:text-white dark:hover:text-blue2 hover:text-blue2 transition-all duration-300 ease-in"
-              to={`/${currentLang}/${AUTH_LAYOUT_PATHS.PROFILE}`}
-            >
-              {t("footer.user-profile")}
-            </Link>
+            <span className=" h-2/3 ">
+              <Link
+                className=" text-black   dark:text-white dark:hover:text-blue2 hover:text-blue2 transition-all duration-300 ease-in"
+                to={`/${currentLang}/${AUTH_LAYOUT_PATHS.PROFILE}`}
+              >
+                {t("footer.user-profile")}
+              </Link>
             </span>
-
           </div>
         </div>
         <div className="border-t sm:border-t-0  sm:border-l  dark:border-white/10   flex justify-between items-center w-full py-5 sm:py-0 sm:w-[50%] md:w-[48%] lg:w-[40%] ">
