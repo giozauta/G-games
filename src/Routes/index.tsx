@@ -22,7 +22,6 @@ const AppRoutes = () => {
         <Route path="/en/" element={<Navigate to="/en/home" />} />
       </Routes>
     </Suspense>
-
   );
 };
 

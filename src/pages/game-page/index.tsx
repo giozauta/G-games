@@ -23,10 +23,18 @@ const GamePage: React.FC = () => {
     );
   }
   if (isError) {
-    return <div className="dark:bg-custom-gradient sm:h-[800px] flex justify-center items-center   w-[99%] sm:w-full mx-auto ">something went wrong...</div>;
+    return (
+      <div className="dark:bg-custom-gradient sm:h-[800px] flex justify-center items-center   w-[99%] sm:w-full mx-auto ">
+        something went wrong...
+      </div>
+    );
   }
   if (!gameInfo) {
-    return <div className="dark:bg-custom-gradient sm:h-[800px] flex justify-center items-center   w-[99%] sm:w-full mx-auto ">Loading game information...</div>;
+    return (
+      <div className="dark:bg-custom-gradient sm:h-[800px] flex justify-center items-center   w-[99%] sm:w-full mx-auto ">
+        Loading game information...
+      </div>
+    );
   }
 
   return (

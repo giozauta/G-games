@@ -269,7 +269,6 @@ const AddGame: React.FC = () => {
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger className="text-gray-500" id="platform">
                       <SelectValue
-                      
                         placeholder={t("addGame.platform-placeholder")}
                       />
                     </SelectTrigger>
@@ -296,7 +295,6 @@ const AddGame: React.FC = () => {
               <Controller
                 name="image"
                 control={control}
-                
                 render={({ field }) => (
                   <Input
                     className="text-gray-500 pl-1 py-1.5"

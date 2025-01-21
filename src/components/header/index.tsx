@@ -19,8 +19,8 @@ const Header: React.FC = () => {
   const currentLang = lang.lang ?? "en";
   const [user] = useAtom(userAtom);
   //
-  const profileRoute = AUTH_LAYOUT_PATHS.PROFILE; 
-  const location = useLocation().pathname.includes(profileRoute);//რომ განვსაზღვროთ რომ პროფილის გვერდზე ვართ ჰედერის ტექსტის ფერის სტილისთვის
+  const profileRoute = AUTH_LAYOUT_PATHS.PROFILE;
+  const location = useLocation().pathname.includes(profileRoute); //რომ განვსაზღვროთ რომ პროფილის გვერდზე ვართ ჰედერის ტექსტის ფერის სტილისთვის
   //
   const { mutate: logOut } = useLogOut();
   //
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
   return (
     <div
       ref={headerRef}
-      className={`header ${location&&"text-white"}   dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto`}
+      className={`header ${location && "text-white"}   dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto`}
     >
       <div className="logo   w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between   ">
         <div className="flex  items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
@@ -97,7 +97,9 @@ const Header: React.FC = () => {
             className="flex pb-5 sm:pb-0 w-20  sm:w-auto  items-center gap-2 hover:text-[#64d100] transition-colors duration-300 ease-in  h-full  "
           >
             <img src="/images/user4.png" alt="user" className="w-5 h-5  mb-2" />
-            <div className="text-base   h-full flex justify-center items-center font-semibold">{t("navbar.login")}</div>
+            <div className="text-base   h-full flex justify-center items-center font-semibold">
+              {t("navbar.login")}
+            </div>
           </Link>
         )}
       </div>

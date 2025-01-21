@@ -18,18 +18,18 @@ const LangSwitch: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [, setLang] = useAtom(Lang);
-//
-  const profileRoute = AUTH_LAYOUT_PATHS.PROFILE; 
-  const textSyleWithLocation = location.pathname.includes(profileRoute);//რომ განვსაზღვროთ რომ პროფილის გვერდზე ვართ ჰედერის ტექსტის ფერის სტილისთვის
+  //
+  const profileRoute = AUTH_LAYOUT_PATHS.PROFILE;
+  const textSyleWithLocation = location.pathname.includes(profileRoute); //რომ განვსაზღვროთ რომ პროფილის გვერდზე ვართ ჰედერის ტექსტის ფერის სტილისთვის
 
-//
+  //
   const handleChangeLanguage = (language: string) => {
     i18n.changeLanguage(language);
     setLang(language); // update language in atom store
     const currentPath = location.pathname.split("/").slice(2).join("/");
     navigate(`/${language}/${currentPath}`);
   };
-//
+  //
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -37,7 +37,9 @@ const LangSwitch: React.FC = () => {
         asChild
       >
         <Button className="bg-transparent dark:bg-transparent hover:bg-transparent hover:dark:bg-transparent hover:text-[#64d100] dark:hover:text-[#64d100] shadow-none">
-          <Globe className={`h-4 w-4  text-black dark:text-white ${textSyleWithLocation && "text-white"}`} />
+          <Globe
+            className={`h-4 w-4  text-black dark:text-white ${textSyleWithLocation && "text-white"} transition-all duration-300 ease-in`}
+          />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
