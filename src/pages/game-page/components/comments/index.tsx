@@ -78,10 +78,18 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
     );
   }
   if (isError) {
-    return <div className="flex justify-center items-center h-screen">something went wrong...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        something went wrong...
+      </div>
+    );
   }
   if (!comments) {
-    return <div className="flex justify-center items-center h-screen">Loading game information...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading game information...
+      </div>
+    );
   }
 
   return (
