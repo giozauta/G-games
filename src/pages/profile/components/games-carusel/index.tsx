@@ -56,15 +56,15 @@ const ProfileGameCarusel: React.FC = () => {
 
   return (
     <Carousel className="w-full h-full max-w-md mx-auto ">
-      <CarouselContent className="h-full -ml-1 flex items-center">
+      <CarouselContent className="h-full -ml-1 flex items-center ">
         {gamesInfo?.map((data) => (
           <CarouselItem
             key={data.id}
-            className="pl-1 md:basis-1/2 lg:basis-1/3 group relative h-full"
+            className="pl-1 md:basis-1/2 lg:basis-1/3 group relative h-full "
           >
-            <Card className="relative h-full flex flex-col">
+            <Card className="relative h-full flex flex-col ">
               {/* transparent box with Delete,enter,edit, Buttons */}
-              <div className="absolute  flex-col  inset-0 bg-black/50 flex items-center justify-center  gap-4   opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute  flex-col  inset-0 bg-black/50 flex items-center justify-center  gap-4   opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                 <Button variant="green" className="w-[60%]">
                   <Link
                     to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${data.id}`}
@@ -82,7 +82,7 @@ const ProfileGameCarusel: React.FC = () => {
                 </Button>
               </div>
 
-              <CardContent className="p-0 border-[1px] dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#fcfbf5] shadow-lg dark:bg-black flex flex-col h-full">
+              <CardContent className=" p-0 border-[1px] dark:border-[#f75b1d71] border-[#6ec1e4] bg-creemy shadow-lg dark:bg-black flex flex-col h-full">
                 {/* image section */}
                 <div className="aspect-square dark:bg-black p-1 overflow-hidden flex items-center justify-center">
                   <img

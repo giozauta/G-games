@@ -51,11 +51,11 @@ const Profile: React.FC = () => {
 
       <div className="dark:bg-custom-gradient  py-12   sm:mx-auto ">
         <div className=" items-center sm:items-start flex flex-col lg:flex-row justify-between  h-auto lg:h-[400px] w-[90%] lg:w-[70%] mx-auto gap-8">
-          <div className="flex-1 p-6  h-[250px] w-full bg-white dark:bg-gray-800/50 shadow-lg rounded-lg ">
+          <div className="flex-1 p-6  h-[250px] w-full bg-lightBlue dark:bg-gray-800/50 shadow-lg rounded-lg ">
             <UserInfo userData={userData} currentLang={currentLang} />
           </div>
 
-          <div className="flex-1 p-7 h-[250px]   w-full bg-white dark:bg-gray-800/50 shadow-lg rounded-lg ">
+          <div className="flex-1 p-7 h-[250px]   w-full bg-lightBlue dark:bg-gray-800/50 shadow-lg rounded-lg ">
             <ProfileGameCarusel />
           </div>
         </div>

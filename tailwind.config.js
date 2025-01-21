@@ -17,6 +17,7 @@ export default {
         "custom-gradient2": "linear-gradient(to top, #000000, #0D1800)",
         "custom-gradient-RightTop-leftBottom":
           "linear-gradient(to bottom left, #0C1700, black)",
+        "custom-gradient-lightBlue":"linear-gradient(to bottom, #22596e, #f5f9fc)",
         bar: "url('/images/bar.png')",
         "bar-mobile": "url('/images/bar-mobile.png')",
         sword: "url('/images/sword.png')",
@@ -26,9 +27,10 @@ export default {
         orange2: "#F75A1D",
         green2: "#60D600",
         white2: "#ecece8",
-        creemy: "#F2F2F2",
+        creemy: "#F2F2F2",//
+        lightBlue: "#CBD9DF",//
         creemy2: "#fcfbf5",
-        lightBlue: "#CBD9DF",
+
       },
       animation: {
         "like-animation": "like 0.5s ease-in-out", //ანიმაცია

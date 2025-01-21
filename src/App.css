@@ -4,8 +4,8 @@
 
 html:not(.dark) body {
   color: black;
-  /* background-color: #f5f9fc; */
   background: linear-gradient(to bottom, #22596e, #f5f9fc);
+
 }
 
 html.dark body {

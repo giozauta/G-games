@@ -46,7 +46,7 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
   }
 
   return (
-    <div className=" pb-20 sm:pb-0 pt-10 sm:pt-0 flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900] ">
+    <div className=" flex flex-col sm:flex-row justify-between w-full h-[900px] overflow-hidden relative sm:absolute top-0 left-0 bg-gradient-to-r from-[#1d0b03] to-[#0b1900] ">
       <div className=" absolute top-0 left-0 w-full h-full z-0 hidden md:flex justify-center items-center ">
         <img src="/images/bg-1.png" alt="bg" />
       </div>
@@ -57,12 +57,12 @@ const Hero: React.FC<{ games: GameType[] | undefined }> = ({ games }) => {
         {[...Array(180)].map((_, i) => (
           <div
             key={i}
-            className=" bg-black bg-transparent flex justify-center items-center   border-white/5 border border-b-0"
+            className=" bg-black bg-transparent flex justify-center items-center   border-white/5 border border-b-0 "
           ></div>
         ))}
       </div>
 
-      <div className=" dark:border-none relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center  items-center w-full h-full px-0 sm:px-7 bg-blue2/60 dark:bg-transparent">
+      <div className="py-10 sm:py-0 dark:border-none relative gap-0 sm:gap-10 md:gap-0   flex flex-col sm:flex-row justify-evenly sm:justify-center  items-center w-full h-full px-0 sm:px-7 bg-blue2/60 dark:bg-transparent ">
         <div className="  z-20  h-[450px]  w-[92%] sm:w-[50%]  md:w-[35%] flex  justify-start md:justify-end  ">
           <div className=" flex flex-col  gap-2 items-start   sm:pl-0 font-chakra-petch text-white font-bold w-full sm:w-full md:w-full lg:w-full xl:w-auto ">
             <div className={heroTextSize({ lang: currentLanguage })}>

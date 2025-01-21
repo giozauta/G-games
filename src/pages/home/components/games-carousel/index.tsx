@@ -42,7 +42,7 @@ const GameCarousel: React.FC<{ games: GameType[] | undefined }> = ({
             className=" pl-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 "
           >
             <div className="p-1 ">
-              <Card className="rounded-2xl hover:scale-105 transition-all duration-200 ease-in border hover:border-blue2 dark:border-black dark:hover:border-orange2 bg-lightBlue">
+              <Card className="rounded-2xl hover:scale-105 transition-all duration-200 ease-in  hover:border-blue2 border dark:hover:border-orange2 bg-lightBlue">
                 <CardContent className="rounded-2xl shadow-sm p-5 flex flex-col aspect-square items-center justify-center  ">
                   <div className=" h-4/5 w-full flex items-center justify-center ">
                     <img
