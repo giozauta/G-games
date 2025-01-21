@@ -7,10 +7,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { AUTH_LAYOUT_ROUTES } from "./auth";
 import { DEFAULT_LAYOUT_ROUTES } from "./default";
 import { Suspense } from "react";
+import Loading from "@/components/loading";
 
 const AppRoutes = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading/>}>
       <Routes>
         <Route path=":lang" element={<LangGuard />}>
           <Route element={<IsAuthLayout />}>{AUTH_LAYOUT_ROUTES}</Route>
@@ -18,6 +19,7 @@ const AppRoutes = () => {
         </Route>
         <Route path="/" element={<Navigate to="/en/home" />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/en/"  element={<Navigate to="/en/home" />} />
       </Routes>
     </Suspense>
   );

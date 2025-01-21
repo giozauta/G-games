@@ -72,15 +72,18 @@ const AddGame: React.FC = () => {
       release_date: formValues.releaseDate,
     };
     // ვამატებთ სუპაბეისში
-    AddGame({
-      fileName: fileName,
-      file: imageFile,
-      newGameValues: newGameValues,
-    },{
-      onSuccess: () => {
-        alert(t("addGame.success"));
-      }
-    });
+    AddGame(
+      {
+        fileName: fileName,
+        file: imageFile,
+        newGameValues: newGameValues,
+      },
+      {
+        onSuccess: () => {
+          alert(t("addGame.success"));
+        },
+      },
+    );
     //იმისთვის რომ ფორმის მნიშვნელობები დავაბრუნოთ საწყისზე
     reset();
   };

@@ -564,6 +564,18 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lottiefiles/dotlottie-react@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/dotlottie-react/-/dotlottie-react-0.12.1.tgz#b71949f28d3cf1fda73814b4b068e835a30082b9"
+  integrity sha512-8l0db31gqozQMC2ZfzV6NWN1cit/NOlevVgS98qC2N4vugS6CZ6IWE4EfLLJEa9DILSinENDE4K85+eIJw4MOQ==
+  dependencies:
+    "@lottiefiles/dotlottie-web" "0.39.0"
+
+"@lottiefiles/dotlottie-web@0.39.0":
+  version "0.39.0"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/dotlottie-web/-/dotlottie-web-0.39.0.tgz#bfbddcc6cb8becbd36424eebd5b294de4b66d6f5"
+  integrity sha512-kJWL6NEtbXQQHFK8kMfNte/5vuTHjFhL11a30s4PJSikao8IeEu+hLJH72flWHyTLpL4tmnxW3WkTKUwZ8Osug==
+
 "@mapbox/node-pre-gyp@^2.0.0-rc.0":
   version "2.0.0-rc.0"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-2.0.0-rc.0.tgz#4390439d79e30bba0a4dccb230723e359505c8b7"
@@ -874,16 +886,9 @@
   dependencies:
     "@radix-ui/react-primitive" "2.0.1"
 
-"@radix-ui/react-slot@1.1.1":
+"@radix-ui/react-slot@1.1.1", "@radix-ui/react-slot@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@radix-ui/react-slot/-/react-slot-1.1.1.tgz"
-  integrity sha512-RApLLOcINYJA+dMVbOju7MYv1Mb2EBp2nH4HdDzXTSyaR5optlm6Otrz1euW3HbdOR8UmmFK06TD+A9frYWv+g==
-  dependencies:
-    "@radix-ui/react-compose-refs" "1.1.1"
-
-"@radix-ui/react-slot@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-1.1.1.tgz#ab9a0ffae4027db7dc2af503c223c978706affc3"
   integrity sha512-RApLLOcINYJA+dMVbOju7MYv1Mb2EBp2nH4HdDzXTSyaR5optlm6Otrz1euW3HbdOR8UmmFK06TD+A9frYWv+g==
   dependencies:
     "@radix-ui/react-compose-refs" "1.1.1"
@@ -1274,6 +1279,20 @@
   integrity sha512-d4xhcjX5b3roNMObRNMfb1HinHQlQLPo8xlDj60dnHeeAw2bBymR2cy/l1giJpHzo/ZFgSvgVUvIWr4kCrenCg==
   dependencies:
     react-i18next "*"
+
+"@types/react-lottie@^1.2.10":
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/@types/react-lottie/-/react-lottie-1.2.10.tgz#220f68a2dfa0d4b131ab4930e8bf166b9442c68c"
+  integrity sha512-rCd1p3US4ELKJlqwVnP0h5b24zt5p9OCvKUoNpYExLqwbFZMWEiJ6EGLMmH7nmq5V7KomBIbWO2X/XRFsL0vCA==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*":
+  version "19.0.7"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.7.tgz#c451968b999d1cb2d9207dc5ff56496164cf511d"
+  integrity sha512-MoFsEJKkAtZCrC1r6CM8U22GzhG7u2Wir8ons/aCKH6MBdD1ibV24zOSSkdZVUKqN5i396zG5VKLYZ3yaUZdLA==
+  dependencies:
+    csstype "^3.0.2"
 
 "@types/react@^18.3.18":
   version "18.3.18"
@@ -3165,6 +3184,18 @@ loose-envify@^1.1.0, loose-envify@^1.4.0:
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lottie-react@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/lottie-react/-/lottie-react-2.4.0.tgz#f7249eee2b1deee70457a2d142194fdf2456e4bd"
+  integrity sha512-pDJGj+AQlnlyHvOHFK7vLdsDcvbuqvwPZdMlJ360wrzGFurXeKPr8SiRCjLf3LrNYKANQtSsh5dz9UYQHuqx4w==
+  dependencies:
+    lottie-web "^5.10.2"
+
+lottie-web@^5.10.2, lottie-web@^5.12.2:
+  version "5.12.2"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.12.2.tgz#579ca9fe6d3fd9e352571edd3c0be162492f68e5"
+  integrity sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==
 
 lru-cache@^10.2.0:
   version "10.4.3"

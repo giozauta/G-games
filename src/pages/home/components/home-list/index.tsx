@@ -5,20 +5,18 @@ import Hero from "../hero";
 import SwordJoystickImageBox from "../sword-joystick-image-box";
 
 const HomeList: React.FC = () => {
-  const { data: games, refetch , isLoading} = useGamesList();
-
-  if (!games) {
-    return null;
-  }
+  const { data: games, refetch, isLoading , isError } = useGamesList();
 
   if (isLoading) {
-    return (
-      <div>...loading</div>
-    );
+    return <div className="h-screen w-full pb-40 sm:pb-80  flex justify-center items-center">...loading </div>;
   }
-  
+
+  if(isError){
+    return <div className="h-screen w-full pb-40 sm:pb-80  flex justify-center items-center">error</div>
+  }
 
   return (
+
     <div className="h-full pb-40 sm:pb-80   ">
       <Hero games={games} />
       <GameCarousel games={games} />
