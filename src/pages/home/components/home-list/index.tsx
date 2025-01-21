@@ -5,11 +5,18 @@ import Hero from "../hero";
 import SwordJoystickImageBox from "../sword-joystick-image-box";
 
 const HomeList: React.FC = () => {
-  const { data: games, refetch } = useGamesList();
+  const { data: games, refetch , isLoading} = useGamesList();
 
   if (!games) {
     return null;
   }
+
+  if (isLoading) {
+    return (
+      <div>...loading</div>
+    );
+  }
+  
 
   return (
     <div className="h-full pb-40 sm:pb-80   ">

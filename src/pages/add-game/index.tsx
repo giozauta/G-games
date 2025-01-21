@@ -76,21 +76,26 @@ const AddGame: React.FC = () => {
       fileName: fileName,
       file: imageFile,
       newGameValues: newGameValues,
+    },{
+      onSuccess: () => {
+        alert(t("addGame.success"));
+      }
     });
     //იმისთვის რომ ფორმის მნიშვნელობები დავაბრუნოთ საწყისზე
     reset();
   };
+
   //
   return (
     <div className=" flex  py-10 justify-center items-center font-chakra-petch min-h-[750px] dark:bg-custom-gradient ">
       <Card className="w-[500px] dark:bg-custom-gradient shadow-lg  border-none bg-creemy ">
-        <CardHeader >
+        <CardHeader>
           <CardTitle className="text-orange2 text-2xl">
             {t("addGame.addGame")}
           </CardTitle>
           <CardDescription>{t("addGame.instruction")}</CardDescription>
         </CardHeader>
-        <CardContent >
+        <CardContent>
           <Tabs defaultValue="english" className="w-full ">
             <TabsList className="flex justify-center mb-4 bg-gray-200">
               <TabsTrigger className="w-1/2" value="english">
