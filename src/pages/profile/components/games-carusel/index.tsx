@@ -49,14 +49,14 @@ const ProfileGameCarusel: React.FC = () => {
       },
     });
   };
-//
+  //
   if (!gamesInfo) {
     return <div>Loading...</div>;
   }
 
   return (
     <Carousel className="w-full h-full max-w-md mx-auto ">
-      <CarouselContent  className="h-full -ml-1 flex items-center ">
+      <CarouselContent className="h-full -ml-1 flex items-center ">
         {gamesInfo?.map((data) => (
           <CarouselItem
             key={data.id}

@@ -49,7 +49,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
     });
   };
 
-  //3d ეფექტისთვის 
+  //3d ეფექტისთვის
   const handleMouseMove = (e: React.MouseEvent) => {
     const box = e.currentTarget.getBoundingClientRect();
     setStyle(calculateMouseStyle(e, box));
