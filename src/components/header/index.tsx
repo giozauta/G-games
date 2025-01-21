@@ -10,6 +10,7 @@ import { userAtom } from "@/store/jotai";
 import { useLogOut } from "@/react-query/mutation/log-out";
 import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 import { AUTH_LAYOUT_PATHS } from "@/Routes/auth/index.enum";
+import { headerClasses, navbarWrapperClasses } from "./schema";
 
 const Header: React.FC = () => {
   const [buttonState, setButtonState] = React.useState(true);
@@ -20,7 +21,7 @@ const Header: React.FC = () => {
   const [user] = useAtom(userAtom);
   //
   const profileRoute = AUTH_LAYOUT_PATHS.PROFILE;
-  const location = useLocation().pathname.includes(profileRoute); //რომ განვსაზღვროთ რომ პროფილის გვერდზე ვართ ჰედერის ტექსტის ფერის სტილისთვის
+  const isProfilePage = useLocation().pathname.includes(profileRoute); //რომ განვსაზღვროთ რომ პროფილის გვერდზე ვართ ჰედერის ტექსტის ფერის სტილისთვის
   //
   const { mutate: logOut } = useLogOut();
   //
@@ -51,7 +52,7 @@ const Header: React.FC = () => {
   return (
     <div
       ref={headerRef}
-      className={`header ${location && "text-white"}   dark:bg-transparent sm:bg-none px-2 lg:px-32 flex flex-col h-[auto] sm:flex-row sm:h-[90px] sm:items-center justify-between sticky top-0 z-50 mx-auto`}
+      className={headerClasses({ isProfilePage })}
     >
       <div className="logo   w-full sm:w-[43%] h-full flex items-center py-4 sm:p-1 justify-between   ">
         <div className="flex  items-center justify-center gap-5 scale-100 sm:scale-75 md:scale-100 ">
@@ -72,11 +73,8 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <div
-        className={`${
-          buttonState ? "hidden" : "flex"
-        }  flex flex-col w-full h-full sm:flex sm:w-[57%]   sm:flex-row sm:items-center sm:justify-between `}
-      >
+      <div className={navbarWrapperClasses({ isHidden: buttonState })}>
+
         <Navbar />
 
         {user && (
