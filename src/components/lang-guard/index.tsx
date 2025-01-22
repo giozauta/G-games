@@ -9,7 +9,7 @@ const LangGuard: React.FC = () => {
   if (!langs.includes(currentLang)) {
     return <Navigate to={`/en/${DEFAULT_LAYOUT_PATH.HOME}`} />;
   }
-  return <Outlet/>;
+  return <Outlet />;
 };
 
 export default LangGuard;

@@ -32,19 +32,19 @@ const SignUp: React.FC = () => {
   const { t } = useTranslation();
   const lang = i18next.language;
   const currentLang = lang ?? "en";
-//
+  //
   const user = localStorage.getItem("userSession");
-  console.log(user)
-//
+  console.log(user);
+  //
   const { mutate: handleSignUp } = useSignUp();
-//
+  //
   const onSubmit = (fieldValues: FormValues) => {
     handleSignUp({
       email: fieldValues.email,
       password: fieldValues.password,
     });
   };
-//
+  //
   return (
     <div className="flex justify-center items-center font-chakra-petch h-[750px] dark:bg-custom-gradient">
       <Card className="w-[350px] dark:bg-custom-gradient bg-creemy">
@@ -183,8 +183,8 @@ const SignUp: React.FC = () => {
           </Button>
           <div className="flex w-full justify-center items-center">
             <p className="text-sm"> {t("sign.have-an-acount")}</p>
-            
-          <Button variant="link">
+
+            <Button variant="link">
               <Link
                 className="text-orange2"
                 to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`}
@@ -192,7 +192,6 @@ const SignUp: React.FC = () => {
                 {t("sign.signIn")}
               </Link>
             </Button>
-            
           </div>
         </CardFooter>
       </Card>

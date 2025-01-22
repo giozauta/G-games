@@ -10,11 +10,9 @@ export const SIGN_IN_ROUTES = [
     key={DEFAULT_LAYOUT_PATH.SIGN_IN}
     path={DEFAULT_LAYOUT_PATH.SIGN_IN}
     element={
-      <NoAuthGuard> 
-
-      <SignIn />
+      <NoAuthGuard>
+        <SignIn />
       </NoAuthGuard>
-
-  }
+    }
   />,
 ];

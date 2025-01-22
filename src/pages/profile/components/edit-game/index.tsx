@@ -81,8 +81,8 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
   };
 
   return (
-    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogTrigger asChild>
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen} >
+      <DialogTrigger asChild >
         <Button
           variant="orange"
           className="w-[60%] "
@@ -91,7 +91,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
           {t("profile.eddit")}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] bg-creemy">
         <DialogHeader>
           <DialogTitle className="text-orange2">
             {t("profile.edditGame")}
@@ -101,9 +101,9 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="grid gap-4 py-4">
+        <div className="grid gap-4 py-4 ">
           <Tabs defaultValue="english" className="w-full ">
-            <TabsList className="flex justify-center mb-4">
+            <TabsList className="flex justify-center mb-4 bg-gray-200">
               <TabsTrigger className="w-1/2" value="english">
                 {t("profile.english")}
               </TabsTrigger>
@@ -332,7 +332,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
         <DialogFooter>
           <Button
             type="submit"
-            variant="outline"
+            className="bg-orange2 dark:bg-green2"
             onClick={handleSubmit(handleEditGame)}
           >
             {t("profile.save")}

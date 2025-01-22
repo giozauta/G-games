@@ -8,7 +8,7 @@ const DefaultLayout: React.FC = () => {
     <>
       <Header />
 
-        <Outlet />
+      <Outlet />
 
       <Footer />
     </>

@@ -11,7 +11,10 @@ const AuthGuard: React.FC<PropsWithChildren> = ({ children }) => {
 
   if (!user) {
     return (
-      <Navigate state={{ from: location }} to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`} />
+      <Navigate
+        state={{ from: location }}
+        to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.SIGN_IN}`}
+      />
     );
   }
 

@@ -86,13 +86,13 @@ const EditProfile: React.FC<{
       {SHEET_SIDES.map((side) => (
         <Sheet key={side}>
           <SheetTrigger asChild>
-            <Button variant="green" className="w-28">
+            <Button variant="green" className="w-28 ">
               {t("profile.edit-profile")}
             </Button>
           </SheetTrigger>
           <SheetContent
             side={side}
-            className="bg-custom-gradient2 bg-[white] dark:bg-custom-gradient border-[#1f1f1f] text-black w-[91%] px-1 sm:px-6 b"
+            className="bg-custom-gradient2 bg-creemy dark:bg-custom-gradient border-[#1f1f1f] text-black w-[91%] px-1 sm:px-6 b"
           >
             <SheetHeader>
               <SheetTitle className="dark:text-green2 text-orange2 ">
@@ -102,7 +102,7 @@ const EditProfile: React.FC<{
             </SheetHeader>
             <div className="grid gap-4 py-4 dark:text-white  ">
               <Tabs defaultValue="english" className="w-full">
-                <TabsList className="flex justify-center mb-4">
+                <TabsList className="flex justify-center mb-4 bg-gray-200">
                   <TabsTrigger className="w-1/2" value="english">
                     {t("profile.english")}
                   </TabsTrigger>
