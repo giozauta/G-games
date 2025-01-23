@@ -81,23 +81,22 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
   };
 
   return (
-    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen} >
-      <DialogTrigger asChild >
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+      <DialogTrigger asChild>
         <Button
           variant="orange"
-          className="w-[60%] "
           onClick={() => setIsDialogOpen(true)}
         >
-          {t("profile.eddit")}
+          {t("profile.edit")}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] bg-creemy">
         <DialogHeader>
           <DialogTitle className="text-orange2">
-            {t("profile.edditGame")}
+            {t("profile.editGame")}
           </DialogTitle>
           <DialogDescription>
-            {t("profile.edditGameInstruction")}
+            {t("profile.editGameInstruction")}
           </DialogDescription>
         </DialogHeader>
 
@@ -114,7 +113,7 @@ const GameEdit: React.FC<{ gameInfo: GameType; refetch: () => void }> = ({
 
             {/* English Tab */}
             <TabsContent value="english">
-              <div className="grid w-full items-center gap-4">
+              <div className="grid w-full items-center gap-4 ">
                 <div className="flex flex-col space-y-1.5">
                   <Label
                     htmlFor="name-en"

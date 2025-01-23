@@ -21,10 +21,6 @@ import { profileSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEditProfile } from "@/react-query/mutation/profile";
 
-const SHEET_SIDES = ["right"] as const;
-
-type EditProfile = (typeof SHEET_SIDES)[number];
-
 const EditProfile: React.FC<{
   userData: UserDataPropType;
   refetch: () => void;
@@ -67,6 +63,15 @@ const EditProfile: React.FC<{
       phoneNumber: event.phone,
       age: event.age,
     };
+    // გვჭირდება რომ შევამოწმოთ შევცვალეთ თუარა რამე ველი
+    const isUnchanged = Object.entries(newData).every(
+      ([key, value]) => userData[key as keyof typeof newData] === value,
+    );
+
+    if (isUnchanged) {
+      alert(t("profile.no-changes"));
+      return;
+    }
 
     if (!userData?.id) {
       return;
@@ -76,216 +81,208 @@ const EditProfile: React.FC<{
       {
         onSuccess: () => {
           refetch();
+          alert(t("profile.profile-success"));
         },
       },
     );
   };
 
   return (
-    <div className="grid grid-cols-2 gap-2 ">
-      {SHEET_SIDES.map((side) => (
-        <Sheet key={side}>
-          <SheetTrigger asChild>
-            <Button variant="green" className="w-28 ">
+    <div className="flex justify-start items-center ">
+      <Sheet key={"right"}>
+        <SheetTrigger asChild>
+          <Button variant="outline" className="w-full bg-creemy">
+            {t("profile.profile")}
+          </Button>
+        </SheetTrigger>
+
+        <SheetContent
+          side={"right"}
+          className="bg-custom-gradient2 bg-creemy dark:bg-custom-gradient border-[#1f1f1f] text-black w-[91%] px-1 sm:px-6 b"
+        >
+          <SheetHeader>
+            <SheetTitle className="dark:text-green2 text-orange2 ">
               {t("profile.edit-profile")}
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side={side}
-            className="bg-custom-gradient2 bg-creemy dark:bg-custom-gradient border-[#1f1f1f] text-black w-[91%] px-1 sm:px-6 b"
-          >
-            <SheetHeader>
-              <SheetTitle className="dark:text-green2 text-orange2 ">
-                {t("profile.edit-profile")}
-              </SheetTitle>
-              <SheetDescription>{t("profile.description")}</SheetDescription>
-            </SheetHeader>
-            <div className="grid gap-4 py-4 dark:text-white  ">
-              <Tabs defaultValue="english" className="w-full">
-                <TabsList className="flex justify-center mb-4 bg-gray-200">
-                  <TabsTrigger className="w-1/2" value="english">
-                    {t("profile.english")}
-                  </TabsTrigger>
-                  <TabsTrigger className="w-1/2" value="georgian">
-                    {t("profile.georgian")}
-                  </TabsTrigger>
-                </TabsList>
+            </SheetTitle>
+            <SheetDescription>{t("profile.description")}</SheetDescription>
+          </SheetHeader>
+          <div className="grid gap-4 py-4 dark:text-white  ">
+            <Tabs defaultValue="english" className="w-full">
+              <TabsList className="flex justify-center mb-4 bg-gray-200">
+                <TabsTrigger className="w-1/2" value="english">
+                  {t("profile.english")}
+                </TabsTrigger>
+                <TabsTrigger className="w-1/2" value="georgian">
+                  {t("profile.georgian")}
+                </TabsTrigger>
+              </TabsList>
 
-                {/* ინგლისური Tab */}
-                <TabsContent value="english">
-                  <div className="grid gap-4 ">
-                    {["name", "lastName", "location", "gender"].map((names) => (
-                      <div
-                        key={names}
-                        className="grid grid-cols-4 items-center gap-4 "
+              {/* ინგლისური Tab */}
+              <TabsContent value="english">
+                <div className="grid gap-4 ">
+                  {["name", "lastName", "location", "gender"].map((names) => (
+                    <div
+                      key={names}
+                      className="grid grid-cols-4 items-center gap-4 "
+                    >
+                      <Label
+                        htmlFor={`${names.toLowerCase()}En`}
+                        className="text-right text-blue2 dark:text-orange2  h-full pt-3"
                       >
-                        <Label
-                          htmlFor={`${names.toLowerCase()}En`}
-                          className="text-right text-blue2 dark:text-orange2  h-full pt-3"
-                        >
-                          {t(`profile.${names}`)}
-                        </Label>
+                        {t(`profile.${names}`)}
+                      </Label>
 
-                        <Controller
-                          control={control}
-                          name={`${names}En` as keyof FormValuesType}
-                          render={({ field, fieldState }) => {
-                            return (
-                              <div className="col-span-3">
-                                <Input
-                                  {...field}
-                                  id={`${names.toLowerCase()}En`}
-                                  placeholder={t(`profilePlaceholder.${names}`)}
-                                  value={field.value ?? ""}
-                                />
+                      <Controller
+                        control={control}
+                        name={`${names}En` as keyof FormValuesType}
+                        render={({ field, fieldState }) => {
+                          return (
+                            <div className="col-span-3">
+                              <Input
+                                {...field}
+                                id={`${names.toLowerCase()}En`}
+                                placeholder={t(`profilePlaceholder.${names}`)}
+                                value={field.value ?? ""}
+                              />
 
-                                {fieldState.error?.message && (
-                                  <span className="text-red-600 text-sm">
-                                    {t(
-                                      `editProfileErrors.${fieldState.error?.message}${names}`,
-                                    )}
-                                  </span>
-                                )}
-                              </div>
-                            );
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-
-                {/* ქართული Tab */}
-                <TabsContent value="georgian">
-                  <div className="grid gap-4">
-                    {["name", "lastName", "location", "gender"].map((names) => (
-                      <div
-                        key={names}
-                        className="grid grid-cols-4 items-center gap-4"
-                      >
-                        <Label
-                          htmlFor={`${names.toLowerCase()}Ka`}
-                          className="text-right text-blue2 dark:text-orange2  h-full pt-3"
-                        >
-                          {t(`profile.${names}`)}
-                        </Label>
-
-                        <Controller
-                          control={control}
-                          name={`${names}Ka` as keyof FormValuesType}
-                          render={({ field, fieldState }) => {
-                            return (
-                              <div className="col-span-3">
-                                <Input
-                                  {...field}
-                                  id={`${names.toLowerCase()}Ka`}
-                                  placeholder={t(
-                                    `profilePlaceholderKa.${names}`,
+                              {fieldState.error?.message && (
+                                <span className="text-red-600 text-sm">
+                                  {t(
+                                    `editProfileErrors.${fieldState.error?.message}${names}`,
                                   )}
-                                  value={field.value ?? ""}
-                                />
+                                </span>
+                              )}
+                            </div>
+                          );
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
 
-                                {fieldState.error?.message && (
-                                  <span className=" text-red-600 text-sm ">
-                                    {t(
-                                      `editProfileErrors.${fieldState.error?.message}${names}`,
-                                    )}
-                                  </span>
-                                )}
-                              </div>
-                            );
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-              </Tabs>
+              {/* ქართული Tab */}
+              <TabsContent value="georgian">
+                <div className="grid gap-4">
+                  {["name", "lastName", "location", "gender"].map((names) => (
+                    <div
+                      key={names}
+                      className="grid grid-cols-4 items-center gap-4"
+                    >
+                      <Label
+                        htmlFor={`${names.toLowerCase()}Ka`}
+                        className="text-right text-blue2 dark:text-orange2  h-full pt-3"
+                      >
+                        {t(`profile.${names}`)}
+                      </Label>
 
-              {/* Phone Field */}
-              <div className="grid grid-cols-4 items-center gap-4 ">
-                <Label
-                  htmlFor="phone"
-                  className="text-right text-blue2 dark:text-orange2"
-                >
-                  {t(`profile.phone`)}
-                </Label>
+                      <Controller
+                        control={control}
+                        name={`${names}Ka` as keyof FormValuesType}
+                        render={({ field, fieldState }) => {
+                          return (
+                            <div className="col-span-3">
+                              <Input
+                                {...field}
+                                id={`${names.toLowerCase()}Ka`}
+                                placeholder={t(`profilePlaceholderKa.${names}`)}
+                                value={field.value ?? ""}
+                              />
 
-                <Controller
-                  control={control}
-                  name="phone"
-                  render={({ field, fieldState }) => {
-                    return (
-                      <div className="col-span-3">
-                        <Input
-                          {...field}
-                          id="phone"
-                          placeholder={t("profilePlaceholder.phone")}
-                        />
-                        {fieldState.error?.message && (
-                          <span className=" text-red-600 text-sm">
-                            {t(
-                              `editProfileErrors.${fieldState.error?.message}`,
-                            )}
-                          </span>
-                        )}
-                      </div>
-                    );
-                  }}
-                />
-              </div>
-              {/* Age Field */}
-              <div className="grid grid-cols-4 items-center gap-4 ">
-                <Label
-                  htmlFor="age"
-                  className="text-right text-blue2 dark:text-orange2  h-full pt-3"
-                >
-                  {t(`profile.age`)}
-                </Label>
+                              {fieldState.error?.message && (
+                                <span className=" text-red-600 text-sm ">
+                                  {t(
+                                    `editProfileErrors.${fieldState.error?.message}${names}`,
+                                  )}
+                                </span>
+                              )}
+                            </div>
+                          );
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
 
-                <Controller
-                  control={control}
-                  name="age"
-                  render={({ field, fieldState }) => {
-                    return (
-                      <div className="col-span-3">
-                        <Input
-                          {...field}
-                          id="age"
-                          type="number"
-                          placeholder={t("profilePlaceholder.age")}
-                          onChange={(e) =>
-                            field.onChange(e.target.valueAsNumber)
-                          }
-                        />
-                        {fieldState.error?.message && (
-                          <span className="text-red-600 text-sm">
-                            {t(
-                              `editProfileErrors.${fieldState.error?.message}`,
-                            )}
-                          </span>
-                        )}
-                      </div>
-                    );
-                  }}
-                />
-              </div>
+            {/* Phone Field */}
+            <div className="grid grid-cols-4 items-center gap-4 ">
+              <Label
+                htmlFor="phone"
+                className="text-right text-blue2 dark:text-orange2"
+              >
+                {t(`profile.phone`)}
+              </Label>
+
+              <Controller
+                control={control}
+                name="phone"
+                render={({ field, fieldState }) => {
+                  return (
+                    <div className="col-span-3">
+                      <Input
+                        {...field}
+                        id="phone"
+                        placeholder={t("profilePlaceholder.phone")}
+                      />
+                      {fieldState.error?.message && (
+                        <span className=" text-red-600 text-sm">
+                          {t(`editProfileErrors.${fieldState.error?.message}`)}
+                        </span>
+                      )}
+                    </div>
+                  );
+                }}
+              />
             </div>
+            {/* Age Field */}
+            <div className="grid grid-cols-4 items-center gap-4 ">
+              <Label
+                htmlFor="age"
+                className="text-right text-blue2 dark:text-orange2  h-full pt-3"
+              >
+                {t(`profile.age`)}
+              </Label>
 
-            <SheetFooter>
-              <SheetClose asChild>
-                <Button
-                  type="submit"
-                  className="dark:bg-green2 bg-orange2"
-                  onClick={handleSubmit(handleEditProfile)}
-                >
-                  {t("profile.save")}
-                </Button>
-              </SheetClose>
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
-      ))}
+              <Controller
+                control={control}
+                name="age"
+                render={({ field, fieldState }) => {
+                  return (
+                    <div className="col-span-3">
+                      <Input
+                        {...field}
+                        id="age"
+                        type="number"
+                        placeholder={t("profilePlaceholder.age")}
+                        onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                      />
+                      {fieldState.error?.message && (
+                        <span className="text-red-600 text-sm">
+                          {t(`editProfileErrors.${fieldState.error?.message}`)}
+                        </span>
+                      )}
+                    </div>
+                  );
+                }}
+              />
+            </div>
+          </div>
+
+          <SheetFooter>
+            <SheetClose asChild>
+              <Button
+                type="submit"
+                className="dark:bg-green2 bg-orange2"
+                onClick={handleSubmit(handleEditProfile)}
+              >
+                {t("profile.save")}
+              </Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

@@ -23,15 +23,20 @@ export const addCommentsByGameId = async ({
   id,
   comment,
   user_email,
+  user_id,
 }: {
   id: number;
   comment: string;
   user_email: string;
+  user_id: string;
 }): Promise<commentType[] | null> => {
   try {
-    const { data, error } = await supabase
-      .from("comments")
-      .insert({ game_id: id, comment: comment, user_email: user_email });
+    const { data, error } = await supabase.from("comments").insert({
+      game_id: id,
+      comment: comment,
+      user_email: user_email,
+      user_id: user_id,
+    });
 
     if (error) {
       throw new Error(error.message);

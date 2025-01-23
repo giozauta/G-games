@@ -21,7 +21,7 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
   const [user] = useAtom(userAtom);
   const isUserLogin = !!user;
   const userImail = user?.user?.email;
-
+  const userId = user?.user?.id;
   //
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -36,7 +36,6 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
     refetch,
   } = useGetCommentsByGameId(gameInfo.id);
   //
-
   const { mutate: addComment } = useEddGameComment();
   //
   const handleCommentAdd = (formValue: { comment: string }) => {
@@ -52,8 +51,17 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
       alert("Please login to add comment");
       return;
     }
+    if (!userId) {
+      alert("Please login to add comment");
+      return;
+    }
     addComment(
-      { id: gameInfo.id, comment: formValue.comment, user_email: userImail },
+      {
+        id: gameInfo.id,
+        comment: formValue.comment,
+        user_email: userImail,
+        user_id: userId,
+      },
       {
         onSuccess: () => {
           refetch();
@@ -93,7 +101,7 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
   }
 
   return (
-    <Card className="w-full   md:w-[90%]  lg:w-[400px] lg:px-10 min-h-[600px] p-6 mr- sm:border border-none bg-[#fcfbf5] rounded-none sm:rounded-xl sm:shadow-lg dark:bg-custom-gradient lg:dark:bg-custom-gradient flex flex-col shadow-none ">
+    <Card className="w-full   md:w-[90%]  lg:w-[400px] lg:px-10 min-h-[600px] p-6 mr- sm:border border-none bg-creemy rounded-none sm:rounded-xl sm:shadow-lg  flex flex-col shadow-none dark:bg-custom-gradient2 lg:dark:bg-custom-gradient ">
       <div className="flex flex-col flex-grow  w-full  ">
         <CardHeader className=" dark:text-orange2 text-blue2 h-16 p-0 flex justify-center items-start ">
           <CardTitle className="text-xl">

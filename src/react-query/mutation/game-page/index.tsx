@@ -9,10 +9,12 @@ export const useEddGameComment = () => {
       id,
       comment,
       user_email,
+      user_id,
     }: {
       id: number;
       comment: string;
       user_email: string;
-    }) => addCommentsByGameId({ id, comment, user_email }),
+      user_id: string;
+    }) => addCommentsByGameId({ id, comment, user_email, user_id }),
   });
 };

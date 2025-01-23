@@ -6,6 +6,10 @@
   "location": "Location",
   "gender": "Gender",
   "age": "Age",
+  "profile": "Profile",
+  "comments": "Comments",
+  "profile-success":"Profile updated successfully",
+  "no-changes": "No changes detected",
 
   "description": "Make changes to your profile here. Click save when you're done.",
   "english": "English",
@@ -13,13 +17,15 @@
   "save": "Save changes",
 
   "enter": "Enter",
-  "eddit": "Eddit",
+  "edit": "Edit",
   "delete": "Delete",
 
   "game-description": "Description",
   "year": "Year",
   "platform": "Platform",
   "image": "Upload Image",
-  "edditGame": "Edit Game",
-  "edditGameInstruction": "Make changes to your Game Info here. Click save when you're done."
+  "editGame": "Edit Game",
+  "editGameInstruction": "Make changes to your Game Info here. Click save when you're done."
+
+
 }

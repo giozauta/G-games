@@ -15,7 +15,7 @@ const UserInfo: React.FC<{
   const age = userData?.age;
 
   return (
-    <div className="h-full w-full   text-black dark:text-white flex flex-col justify-center items-start">
+    <div className="  text-black dark:text-white h-full  flex flex-col justify-center items-start ">
       <div>
         {t("profile.phone")}: {phoneNumber}
       </div>
