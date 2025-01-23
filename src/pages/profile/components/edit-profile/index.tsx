@@ -91,7 +91,7 @@ const EditProfile: React.FC<{
     <div className="flex justify-start items-center ">
       <Sheet key={"right"}>
         <SheetTrigger asChild>
-          <Button variant="outline" className="w-full bg-creemy">
+          <Button variant="outline" className="w-full bg-creemy ">
             {t("profile.profile")}
           </Button>
         </SheetTrigger>

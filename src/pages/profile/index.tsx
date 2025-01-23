@@ -4,7 +4,7 @@ import UserInfo from "./components/user-info";
 import { useProfileInfo } from "@/react-query/query/profile";
 import { useAtom } from "jotai";
 import { Lang, userAtom } from "@/store/jotai";
-import EditSwitch from "./components/edit-switch";
+import EditSheet from "./components/edit-switch";
 
 const Profile: React.FC = () => {
   const [user] = useAtom(userAtom);
@@ -55,7 +55,7 @@ const Profile: React.FC = () => {
               : userFullNameKa}
 
             <div className=" mt-4 flex gap-5 relative">
-              <EditSwitch refetch={refetch} userData={userData} />
+              <EditSheet refetch={refetch} userData={userData} />
             </div>
           </div>
 
@@ -74,7 +74,7 @@ const Profile: React.FC = () => {
           <div className="flex-1 p-6 h-[250px] w-full justify-center items-center  bg-lightBlue dark:bg-gray-800/50 shadow-lg rounded-lg">
             <UserInfo userData={userData} currentLang={currentLang} />
           </div>
-          <div className="flex-1 p-7  h-[250px]   w-full bg-lightBlue dark:bg-gray-800/50 shadow-lg rounded-lg ">
+          <div className="flex-1 p-7  h-[250px]    w-full bg-lightBlue dark:bg-gray-800/50 shadow-lg rounded-lg ">
             <ProfileGameCarusel />
           </div>
         </div>

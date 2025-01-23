@@ -8,7 +8,7 @@
   "age": "Age",
   "profile": "Profile",
   "comments": "Comments",
-  "profile-success":"Profile updated successfully",
+  "profile-success": "Profile updated successfully",
   "no-changes": "No changes detected",
 
   "description": "Make changes to your profile here. Click save when you're done.",
@@ -25,7 +25,11 @@
   "platform": "Platform",
   "image": "Upload Image",
   "editGame": "Edit Game",
-  "editGameInstruction": "Make changes to your Game Info here. Click save when you're done."
+  "editGameInstruction": "Make changes to your Game Info here. Click save when you're done.",
 
-
+  "delete-comments": "Delete Comments",
+  "delete-comments-description": "In here you can delete your comments from the games",
+  "open-comments-box": "Open Comment Box",
+  "close-comments-box": "Close Comment Box",
+  "cancel": "Cancel"
 }

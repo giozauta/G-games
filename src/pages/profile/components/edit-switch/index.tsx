@@ -10,12 +10,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import EditProfile from "../edit-profile";
-import EditComments from "../edit-comments";
+import DeleteComments from "../delete-comments";
 import { UserDataPropType } from "../edit-profile/types";
 import { Pencil } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const EditSwitch: React.FC<{
+const EditSheet: React.FC<{
   userData: UserDataPropType;
   refetch: () => void;
 }> = ({ refetch, userData }) => {
@@ -40,11 +40,11 @@ const EditSwitch: React.FC<{
           onValueChange={setPosition}
         >
           <EditProfile refetch={refetch} userData={userData} />
-          <EditComments />
+          <DeleteComments />
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export default EditSwitch;
+export default EditSheet;
