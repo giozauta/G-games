@@ -51,8 +51,15 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
       alert("Game information is incomplete, unable to add comment");
       return;
     }
-    if (!formValue) {
+    if (!formValue.comment) {
       alert("Please add comment");
+      return;
+    }
+    //სიტყვა რომ ძალიანგრძელი არ ჩავწეროთ რამაც არ გამოიწვიოს ui ში ცუდად გამოჩენა 
+    const words = formValue.comment.split(/\s+/); 
+    const longWord = words.find((word) => word.length > 35);
+    if (longWord) {
+      alert(`The word "${longWord}" is too long. Words cannot exceed 35 characters.`);
       return;
     }
     addComment(
@@ -75,7 +82,7 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
   };
   //
   const onKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(handleCommentAdd)();
     }
@@ -136,6 +143,7 @@ const CommentSection: React.FC<{ gameInfo: GameInfoType }> = ({ gameInfo }) => {
                   placeholder={t("gamePage.textarea-placeholder")}
                   className="dark:bg-custom-gradient2 dark:text-orange2 dark:bg-black/20  h-full resize-none"
                   onKeyDown={onKeyPress}
+                  
                 />
               )}
             />
