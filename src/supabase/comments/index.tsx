@@ -107,18 +107,17 @@ export const addCommentsByGameId = async ({
 
 export const deleteCommentById = async (id: number): Promise<void> => {
   try {
-      const { error } = await supabase
-          .from('comments')
-          .delete()
-          .eq('id', id);
+    const { error } = await supabase.from("comments").delete().eq("id", id);
 
-      if (error) {
-          throw new Error(`Failed to delete comment with id ${id}: ${error.message}`);
-      }
+    if (error) {
+      throw new Error(
+        `Failed to delete comment with id ${id}: ${error.message}`,
+      );
+    }
 
-      console.log(`Comment with id ${id} successfully deleted.`);
+    console.log(`Comment with id ${id} successfully deleted.`);
   } catch (err) {
-      console.error(`Error deleting comment: ${(err as Error).message}`);
-      throw err;
+    console.error(`Error deleting comment: ${(err as Error).message}`);
+    throw err;
   }
 };

@@ -17,10 +17,9 @@ export const useEditProfile = () => {
   });
 };
 
-
-export const useDeleteComment = () =>{
+export const useDeleteComment = () => {
   return useMutation({
     mutationKey: [PROFILE_MUTATION_KEY.DELETE_COMMENT],
-    mutationFn: (comment_id:number) =>deleteCommentById(comment_id)
-  })
-}
+    mutationFn: (comment_id: number) => deleteCommentById(comment_id),
+  });
+};
