@@ -10,19 +10,22 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useDeleteComment } from "@/react-query/mutation/profile";
 import { useCommentsByUserId } from "@/react-query/query/profile";
+import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
 import { userAtom } from "@/store/jotai";
+import i18next from "i18next";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link} from "react-router-dom";
 
 const CommentsCarusel: React.FC = () => {
   const { t } = useTranslation();
+  const currentLang = i18next.language;
   const user_id = useAtom(userAtom)[0]?.user?.id;
   //გვჭირდება რომ კომენტარების ჩვენება ვაკონტროლოთ
   const [commentBoxDisplayStatus, setCommentBoxDisplayStatus] = useState<
     boolean[]
   >([]);
-
   //
   const {
     data: gamesWithComments,
@@ -31,6 +34,7 @@ const CommentsCarusel: React.FC = () => {
     refetch,
   } = useCommentsByUserId(user_id);
   //
+
   const img_url = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
   //გვჭირდება რომ კომენტარების ჩვენების state ვაკონტროლოთ
   useEffect(() => {
@@ -104,11 +108,13 @@ const CommentsCarusel: React.FC = () => {
                         ))}
                       </ScrollArea>
                     ) : (
+                      <Link className="h-full w-full object-cover rounded-m" to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${game?.game_id}`}>
                       <img
                         src={img_url + game?.image_url}
                         alt="game"
                         className="h-full w-full object-cover rounded-md"
                       />
+                      </Link>
                     )}
                   </div>
                 </Card>
