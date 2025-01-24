@@ -5,5 +5,7 @@
   "game-comments-head": "თამაშის კომენტარები",
   "description": "აქ დაამატებ კომენტარს თუ ხართ დალოგებული",
   "send-comment": "კომენტარის გაგზავნა",
-  "textarea-placeholder": "დააკომენტარე აქ"
+  "textarea-placeholder": "დააკომენტარე აქ",
+
+  "no-comments": "არარის კომენტარები"
 }

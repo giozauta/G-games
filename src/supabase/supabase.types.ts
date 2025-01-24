@@ -54,24 +54,33 @@ export type Database = {
         Row: {
           comment: string | null;
           created_at: string;
-          game_id: number | null;
+          game_id: number;
+          game_name_en: string | null;
+          game_name_ka: string | null;
           id: number;
+          image_url: string | null;
           user_email: string | null;
           user_id: string | null;
         };
         Insert: {
           comment?: string | null;
           created_at?: string;
-          game_id?: number | null;
+          game_id: number;
+          game_name_en?: string | null;
+          game_name_ka?: string | null;
           id?: number;
+          image_url?: string | null;
           user_email?: string | null;
           user_id?: string | null;
         };
         Update: {
           comment?: string | null;
           created_at?: string;
-          game_id?: number | null;
+          game_id?: number;
+          game_name_en?: string | null;
+          game_name_ka?: string | null;
           id?: number;
+          image_url?: string | null;
           user_email?: string | null;
           user_id?: string | null;
         };

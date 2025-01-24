@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { PROFILE_MUTATION_KEY } from "./enum";
 import { updateUserById } from "@/supabase/profile";
 import { NewProfileValuesType } from "./types";
+import { deleteCommentById } from "@/supabase/comments";
 
 export const useEditProfile = () => {
   return useMutation({
@@ -15,3 +16,11 @@ export const useEditProfile = () => {
     }) => updateUserById({ userId, updates }),
   });
 };
+
+
+export const useDeleteComment = () =>{
+  return useMutation({
+    mutationKey: [PROFILE_MUTATION_KEY.DELETE_COMMENT],
+    mutationFn: (comment_id:number) =>deleteCommentById(comment_id)
+  })
+}

@@ -2,6 +2,7 @@ import { getProfileInfo } from "@/supabase/account";
 import { useQuery } from "@tanstack/react-query";
 import { PROFILE_QUERY_KEY } from "./enum";
 import { getGamesById, getGamesByUserId } from "@/supabase/game";
+import { getCommentsByUserId } from "@/supabase/comments";
 
 export const useProfileInfo = (userId: string | undefined) => {
   return useQuery({
@@ -25,5 +26,12 @@ export const useGamesById = (gameId: number | undefined) => {
     queryKey: [PROFILE_QUERY_KEY.GAMES, gameId],
     queryFn: () => getGamesById(gameId),
     enabled: !!gameId,
+  });
+};
+
+export const useCommentsByUserId = (user_id: string | undefined) => {
+  return useQuery({
+    queryKey: [PROFILE_QUERY_KEY.COMMENTS],
+    queryFn: () => getCommentsByUserId(user_id),
   });
 };

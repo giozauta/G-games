@@ -29,7 +29,9 @@
 
   "delete-comments": "კომენტარების წაშლა",
   "delete-comments-description": "შეგიძლიათ თამაშების კომენტარების წაშლა ამ ველიდან",
-  "open-comments-box": "კომენტარების გახსნა",
-  "close-comments-box": "კომენტარების დახურვა",
-  "cancel": "გაუქმება"
+  "open-comments-box": "კომენტარების ჩვენება",
+  "close-comments-box": "კომენტარების დამალვა",
+  "cancel": "გაუქმება",
+  "no-comments": "კომენტარები არ მოიძებნა "
+
 }

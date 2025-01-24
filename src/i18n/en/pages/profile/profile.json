@@ -31,5 +31,6 @@
   "delete-comments-description": "In here you can delete your comments from the games",
   "open-comments-box": "Open Comment Box",
   "close-comments-box": "Close Comment Box",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "no-comments": "No comments found"
 }
