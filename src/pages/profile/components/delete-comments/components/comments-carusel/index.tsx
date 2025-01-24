@@ -78,9 +78,9 @@ const CommentsCarusel: React.FC = () => {
             >
               <div className="p-1 h-full">
                 <Card className="h-full border-none bg-creemy">
-                  <div className="h-[500px] sm:h-[400px] md:h-[500px] 2xl:h-[550px] mb-2 w-full flex items-center justify-center transition-all duration-200 ease-in border border-white/20 rounded-md hover:border-blue2 dark:hover:border-orange2">
+                  <div className="h-[400px] sm:h-[400px] md:h-[500px] 2xl:h-[550px] mb-2 w-full flex items-center justify-center transition-all duration-200 ease-in border border-white/20 rounded-md hover:border-blue2 dark:hover:border-orange2">
                     {commentBoxDisplayStatus[index] ? (
-                      <ScrollArea className="w-full h-[400px] sm:h-[500px] flex hover:overflow-y-auto">
+                      <ScrollArea className="w-full h-[350px] sm:h-[500px] flex hover:overflow-y-auto">
                         {game?.comments?.map((comment, index) => (
                           <div
                             key={index}
