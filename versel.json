@@ -6,6 +6,13 @@
       "destination": "/index.html"
     }
   ],
+  "redirects": [
+    {
+      "source": "/en/*",
+      "destination": "/index.html",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
