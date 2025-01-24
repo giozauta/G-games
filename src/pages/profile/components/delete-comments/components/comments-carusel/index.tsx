@@ -35,7 +35,7 @@ const CommentsCarusel: React.FC = () => {
   //გვჭირდება რომ კომენტარების ჩვენების state ვაკონტროლოთ
   useEffect(() => {
     if (gamesWithComments) {
-      setCommentBoxDisplayStatus(Array(gamesWithComments.length).fill(true));
+      setCommentBoxDisplayStatus(Array(gamesWithComments.length).fill(false));
     }
   }, [gamesWithComments]);
   //
