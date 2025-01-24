@@ -1,9 +1,7 @@
 {
   "version": 2,
   "env": {
-    "VITE_SUPABASE_URL": "https://lphvmshtnpncjxpaiybr.supabase.co",
-    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwaHZtc2h0bnBuY2p4cGFpeWJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIzMTE2NzgsImV4cCI6MjA0Nzg4NzY3OH0.Qk7RQs9BwEAVXrS-LN7rPsKgNXypzBr4eZrhxitmrUo",
-    "VITE_SUPABASE_GAME_IMAGES_STORAGE_URL": "https://lphvmshtnpncjxpaiybr.supabase.co/storage/v1/object/public/game_images/"
+    "VITE_API_BASE_URL": "http://localhost:3000/api"
   },
   "rewrites": [
     {
