@@ -51,7 +51,6 @@ const CommentsCarusel: React.FC = () => {
     deleteComment(comment_id, {
       onSuccess: () => {
         refetch();
-        
       },
     });
   };

@@ -64,6 +64,5 @@ export default {
     require("tailwindcss-animate"),
     require("tailwind-scrollbar"),
     require("@tailwindcss/line-clamp"),
-
   ],
 };
