@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/index.html",
+      "permanent": true
     }
   ],
   "headers": [
