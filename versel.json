@@ -4,6 +4,12 @@
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    },{
+      "source": "/en*",
+      "destination": "/index.html"
+    },{
+      "source": "/en/home*",
+      "destination": "/index.html"
     }
   ],
   "headers": [
