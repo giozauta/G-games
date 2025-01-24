@@ -16,7 +16,7 @@ import i18next from "i18next";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CommentsCarusel: React.FC = () => {
   const { t } = useTranslation();
@@ -108,12 +108,15 @@ const CommentsCarusel: React.FC = () => {
                         ))}
                       </ScrollArea>
                     ) : (
-                      <Link className="h-full w-full object-cover rounded-m" to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${game?.game_id}`}>
-                      <img
-                        src={img_url + game?.image_url}
-                        alt="game"
-                        className="h-full w-full object-cover rounded-md"
-                      />
+                      <Link
+                        className="h-full w-full object-cover rounded-m"
+                        to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.GAME_PAGE}/${game?.game_id}`}
+                      >
+                        <img
+                          src={img_url + game?.image_url}
+                          alt="game"
+                          className="h-full w-full object-cover rounded-md"
+                        />
                       </Link>
                     )}
                   </div>

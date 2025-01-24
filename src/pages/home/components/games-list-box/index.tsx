@@ -61,8 +61,8 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
   }
 
   return (
-    <div className=" py-10  border  rounded-none sm:rounded-xl dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#CBD9DF] shadow-lg dark:bg-black flex flex-col p-2 sm:p-10 md:p-20   gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-full sm:w-[82%]  md:w-[82%] lg:w-[96%] xl:w-[82%]  mx-auto h-[770px] sm:h-[900px] md:h-[1400px] ">
-      <div className=" flex flex-col gap-4 items-start sm:flex-row sm:items-center  justify-center ">
+    <div className=" py-10  border   rounded-none sm:rounded-xl dark:border-[#f75b1d71] border-[#6ec1e4] bg-[#CBD9DF] shadow-lg dark:bg-black flex flex-col    gap-10 mt-20 sm:mt-40 md:mt-60 lg:mt-80 w-full sm:w-[82%]  md:w-[82%] lg:w-[96%] xl:w-[82%]  mx-auto h-[770px] sm:h-[900px] md:h-[1400px] ">
+      <div className=" px-2 sm:px-10  md:px-16 lg:px-20 sm:pt-10 lg:pt-20  flex flex-col gap-4 items-start sm:flex-row sm:items-center  justify-center ">
         <div className="text-5xl sm:text-6xl pb-4 sm:pb-0 flex justify-center sm:justify-start w-full sm:w-2/3 font-chakra-petch ">
           {t("listBox.all-games")}
         </div>
@@ -89,7 +89,7 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
         </div>
       </div>
 
-      <ScrollArea className="gap-5  pt-4   flex flex-wrap justify-center sm:mt-10 overflow-y-scroll h-[1050px] hide-scrollbar sm:hover:visible-scrollbar ">
+      <ScrollArea className=" gap-5 lg:mx-10 xl:px-20  py-4   flex flex-wrap justify-evenly sm:mt-10  h-[1050px] overflow-y-scroll hide-scrollbar sm:hover:visible-scrollbar ">
         {gamesList?.map((game) => (
           <GameCard refetch={refetch} key={game.id} gameData={game} />
         ))}
