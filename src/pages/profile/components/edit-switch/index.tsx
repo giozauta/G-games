@@ -30,7 +30,9 @@ const EditSheet: React.FC<{
           className="  flex  justify-center  items-center "
         >
           <Pencil />
-          <span>{t("profile.edit")}/{t("profile.delete")}</span>
+          <span>
+            {t("profile.edit")}/{t("profile.delete")}
+          </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-full bg-lightBlue">
