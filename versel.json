@@ -2,8 +2,7 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "https://games-site-v33k.vercel.app/en/home",
-      
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
