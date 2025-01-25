@@ -50,7 +50,7 @@ const SignUp: React.FC = () => {
           <CardTitle className="text-2xl text-orange2">
             {t("sign.signUp")}
           </CardTitle>
-          <CardDescription>{t("sign.instruction")}</CardDescription>
+          <CardDescription>{t("sign.registerInstruction")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form>

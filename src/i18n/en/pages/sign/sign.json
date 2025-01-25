@@ -13,7 +13,7 @@
   "dont-have-account": "Don't have an account ?",
   "signUp": "Sign Up",
 
-  "registerInstruction": "register if you don't have an account",
+  "registerInstruction": "You need to confirm from your email to activate your account",
   "confirmPassword": "Confirm Password",
   "have-an-acount": "Have an account ?"
 }

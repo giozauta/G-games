@@ -13,7 +13,7 @@
   "dont-have-account": "არ გაქვთ ექაუნთი ?",
   "signUp": "რეგისტრაცია",
 
-  "registerInstruction": "დარეგისტრილდი თუ არ არის ექაუნთი",
+  "registerInstruction": "თქვენ უნდა დაადასტუროთ თქვენი ექაუნთი თქვენი მეილიდან",
   "confirmPassword": "დაადასტურე პაროლი",
   "have-an-acount": "გაქვთ ექაუნთი ?"
 }

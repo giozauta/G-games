@@ -36,15 +36,25 @@ export const login = async ({
     });
     if (error) {
       console.error("Login error:", error.message);
+      if (error.message.includes("Invalid login credentials")) {
+        alert("The email or password is incorrect. Please try again.");
+      } else if (error.message.includes("User not found")) {
+        alert("No user found with that email address.");
+      } else {
+        alert("An error occurred. Please try again later.");
+      }
+
       return false;
     }
     console.log("Login successful:", data);
     return data;
   } catch (err) {
     console.error("Login error:", err);
+    alert("An unexpected error occurred. Please try again.");
     return false;
   }
 };
+
 
 export const logout = async (): Promise<void> => {
   try {
