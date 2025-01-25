@@ -13,15 +13,13 @@
   "maxAge": "Age is too long",
   "receivedNan": "Age is required",
 
-"only-georgianname": "Name must contain only georgian letters",
-"only-georgianlastName": "Last name must contain only georgian letters",
-"only-georgianlocation": "Location must contain only georgian letters",
-"only-georgiangender": "Gender must contain only georgian letters",
+  "only-georgianname": "Name must contain only georgian letters",
+  "only-georgianlastName": "Last name must contain only georgian letters",
+  "only-georgianlocation": "Location must contain only georgian letters",
+  "only-georgiangender": "Gender must contain only georgian letters",
 
-"only-englishname": "Name must contain only english letters",
-"only-englishlastName": "Last name must contain only english letters",
-"only-englishlocation": "Location must contain only english letters",
-"only-englishgender": "Gender must contain only english letters"
-
-
+  "only-englishname": "Name must contain only english letters",
+  "only-englishlastName": "Last name must contain only english letters",
+  "only-englishlocation": "Location must contain only english letters",
+  "only-englishgender": "Gender must contain only english letters"
 }
