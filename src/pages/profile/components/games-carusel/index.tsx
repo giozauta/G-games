@@ -25,7 +25,6 @@ const ProfileGameCarusel: React.FC = () => {
   const userId = user?.user?.id;
   //
   const imageUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
-  console.log(imageUrl);
   //
   const { data: gamesInfo, refetch } = useGamesInfoByUserId(userId);
   //

@@ -33,9 +33,7 @@ const SignUp: React.FC = () => {
   const lang = i18next.language;
   const currentLang = lang ?? "en";
   //
-  const user = localStorage.getItem("userSession");
-  console.log(user);
-  //
+
   const { mutate: handleSignUp } = useSignUp();
   //
   const onSubmit = (fieldValues: FormValues) => {

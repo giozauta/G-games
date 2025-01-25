@@ -12,8 +12,6 @@ const SwordJoystickImageBox: React.FC = () => {
 
       const joystickStart = 1500;
       const joystickEnd = 2400;
-      console.log(currentScroll);
-
       setIsMovingLeft(currentScroll > swordStart && currentScroll < swordEnd);
       setIsMovingRight(
         currentScroll > joystickStart && currentScroll < joystickEnd,
