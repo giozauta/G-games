@@ -19,17 +19,17 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
 }) => {
   const [isAnimating, setIsAnimating] = useState(false); //ლაიქიცს ანიმაციისთვის
   //
+  const [likes, setLikes] = useState(gameData.likes??0); //ლაიქები რომ გამოგვიჩნდეს სანამ მონაცემები მოგვივა ბაზიდან 
+  //
   const [style, setStyle] = useState({}); //რომ შევცვალოთ ყუთზე ჰოვერი
-
   //
   const { t } = useTranslation();
   const lang = i18n.language ?? "en";
   //
-  const gameNameEn = gameData.name_en;
-  const gameNameKa = gameData.name_ka;
-  const likes = gameData.likes;
-  const Platform = gameData.platform;
-  const releaseDate = gameData.release_date;
+  const gameNameEn = gameData?.name_en;
+  const gameNameKa = gameData?.name_ka;
+  const Platform = gameData?.platform;
+  const releaseDate = gameData?.release_date;
   const imgUrl =
     import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL + gameData.image_url;
   //
@@ -37,6 +37,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
 
   // Handle like action
   const handleLikeClick = () => {
+    setLikes(likes + 1);//სანამ მონაცემები ბაზიდან დაგვიბრუნდება ლაიქი რომ გამოგვიჩინოს
     //ლაიქის ანიმაციისთვის
     if (!isAnimating) {
       setIsAnimating(true);
