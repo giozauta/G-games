@@ -84,7 +84,6 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
             <Image
               size={100}
               className="hover:scale-105 text-blue2 dark:text-orange2 transition-all duration-300 ease-in"
-              
             />
           </div>
         )}

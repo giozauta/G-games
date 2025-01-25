@@ -58,7 +58,7 @@ const TopThreeBox: React.FC<{
             >
               {/* ავატარი  */}
               <Avatar className="w-16 h-16  shadow-lg ">
-                <AvatarImage src={imgUrl + game.image_url} alt="avatar"/>
+                <AvatarImage src={imgUrl + game.image_url} alt="avatar" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
 
