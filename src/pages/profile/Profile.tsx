@@ -75,6 +75,7 @@ const Profile: React.FC = () => {
             <UserInfo userData={userData} currentLang={currentLang} />
           </div>
           <div className="flex-1 h-[250px]  p-7  w-full bg-lightBlue dark:bg-gray-800/50 shadow-lg rounded-lg ">
+            
             <ProfileGameCarusel />
           </div>
         </div>

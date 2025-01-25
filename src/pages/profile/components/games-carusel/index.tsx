@@ -26,7 +26,7 @@ const ProfileGameCarusel: React.FC = () => {
   //
   const imageUrl = import.meta.env.VITE_SUPABASE_GAME_IMAGES_STORAGE_URL;
   //
-  const { data: gamesInfo, refetch } = useGamesInfoByUserId(userId);
+  const { data: gamesInfo, refetch , isLoading } = useGamesInfoByUserId(userId);
   //
   const { mutate: deleteGame } = useDeleteGame();
   //
@@ -49,19 +49,25 @@ const ProfileGameCarusel: React.FC = () => {
     });
   };
   //
-  if (!gamesInfo) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <Carousel className="w-full h-full max-w-md mx-auto ">
-      <CarouselContent className="h-full -ml-1 flex items-center ">
-        {gamesInfo?.map((data) => (
+
+    <Carousel className="w-full h-full max-w-md mx-auto ">    
+      <CarouselContent className="h-full -ml-1 flex items-center ">       
+        {         gamesInfo?.length === 0?(
+          <div className=" w-[95%] mx-auto h-[200px] flex justify-center items-center">
+            <h1>{t("profile.no-games")}</h1>
+          </div>
+        ):gamesInfo?.map((data) => (
           <CarouselItem
             key={data.id}
             className="pl-1 md:basis-1/2 lg:basis-1/3 group relative h-full "
           >
-            <Card className="relative h-full flex flex-col ">
+            
+            <Card className="relative h-full flex flex-col">
               {/* transparent box with Delete,enter,edit, Buttons */}
               <div className="absolute  flex-col  inset-0 bg-black/50 flex items-center justify-center  gap-4   opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                 <Button variant="green" className="w-[75%]">

@@ -1,9 +1,7 @@
 import { z } from "zod";
 
-
 const englishRegex = /^[a-zA-Z0-9\s.,:;!?'"()\-_]*$/;
 const georgianRegex = /^[ა-ჰ0-9\s.,:;!?'"()\-_]*$/;
-
 
 export const addEditGameSchema = z.object({
   name_en: z
@@ -30,7 +28,7 @@ export const addEditGameSchema = z.object({
       message: "only-english",
     }),
 
-    description_ka: z
+  description_ka: z
     .string()
     .min(6, { message: "min-description" })
     .max(900, { message: "max-description" })

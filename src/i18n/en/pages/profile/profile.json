@@ -26,6 +26,7 @@
   "image": "Upload Image",
   "editGame": "Edit Game",
   "editGameInstruction": "Make changes to your Game Info here. Click save when you're done.",
+  "no-games": "No games found",
 
   "delete-comments": "Delete Comments",
   "delete-comments-description": "In here you can delete your comments from the games",
