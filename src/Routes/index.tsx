@@ -19,7 +19,7 @@ const AppRoutes = () => {
           <Route element={<IsAuthLayout />}>{AUTH_LAYOUT_ROUTES}</Route>
           <Route element={<DefaultLayout />}>{DEFAULT_LAYOUT_ROUTES}</Route>
         </Route>
-        <Route path="/" element={<Navigate to="/en/home" />} />
+        <Route path="/" element={<Navigate to="/en/home"  />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/en/" element={<Navigate to="/en/home" />} />
       </Routes>
