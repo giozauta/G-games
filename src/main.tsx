@@ -10,13 +10,13 @@ import { ThemeProvider } from "./components/theme-provider/index.tsx";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+  <StrictMode>      <BrowserRouter>
+
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
           <App />
         </ThemeProvider>
-      </BrowserRouter>
-    </QueryClientProvider>
+    </QueryClientProvider>      </BrowserRouter>
+
   </StrictMode>,
 );

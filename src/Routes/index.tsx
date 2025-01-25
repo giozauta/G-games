@@ -15,7 +15,7 @@ const AppRoutes = () => {
     <Suspense fallback={<Loading />}>
       <ScrollToTop />
       <Routes>
-      <Route path="/:lang" element={<LangGuard />}>
+        <Route path="/:lang" element={<LangGuard />}>
           <Route element={<IsAuthLayout />}>{AUTH_LAYOUT_ROUTES}</Route>
           <Route element={<DefaultLayout />}>{DEFAULT_LAYOUT_ROUTES}</Route>
         </Route>
