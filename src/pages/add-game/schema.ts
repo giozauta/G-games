@@ -1,10 +1,7 @@
 import { z } from "zod";
 
-// Regex for English characters
-const englishRegex = /^[a-zA-Z\s]*$/; 
-
-// Regex for Georgian characters
-const georgianRegex = /^[\u10A0-\u10FF\s]*$/; 
+const englishRegex = /^[a-zA-Z0-9\s.,:;!?'"()\-_]*$/;
+const georgianRegex = /^[ა-ჰ0-9\s.,:;!?'"()\-_]*$/;
 
 export const addGameSchema = z.object({
   nameEn: z
@@ -45,9 +42,7 @@ export const addGameSchema = z.object({
 
   releaseDate: z.string().date(),
 
-  image: z
-    .any()
-    .refine((file) => file instanceof File, {
-      message: "image",
-    }),
+  image: z.any().refine((file) => file instanceof File, {
+    message: "image",
+  }),
 });

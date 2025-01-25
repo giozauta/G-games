@@ -4,8 +4,8 @@
   "min-description": "Description must contain at least 6 character(s)",
   "max-description": "Description must contain at most 900 character(s)",
 
-"only-english": "Only English letters are allowed",
-"only-georgian": "Only Georgian letters are allowed",
+  "only-english": "Only English letters are allowed",
+  "only-georgian": "Only Georgian letters are allowed",
 
   "Invalid date": "Date must be a valid date",
   "platform": "Platform must be Xbox, PlayStation, or PC",

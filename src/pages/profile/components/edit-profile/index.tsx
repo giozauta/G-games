@@ -43,12 +43,12 @@ const EditProfile: React.FC<{
       age: userData?.age ?? 0,
     },
   });
-//
+  //
   const { mutate: editProfile } = useEditProfile();
-//
+  //
   const { t } = useTranslation();
 
-//
+  //
   const handleEditProfile = (event: FormValuesType) => {
     const newData = {
       first_name_en: event.nameEn,
@@ -88,7 +88,6 @@ const EditProfile: React.FC<{
     );
   };
   //
-
 
   return (
     <div className="flex justify-start items-center ">
