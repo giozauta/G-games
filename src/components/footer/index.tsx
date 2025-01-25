@@ -85,7 +85,6 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:text-blue2 transition-all duration-300 ease-in"
                 aria-label="Visit GitHub profile of Giorgi Zautashvili"
-
               >
                 <div className="pb-2 footerLinksHover">
                   {t("footer.github")}
@@ -98,7 +97,6 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-blue2 transition-all duration-300 ease-in"
                   aria-label="Visit LinkedIn profile of Giorgi Zautashvili"
-
                 >
                   {t("footer.linkedIn")}
                 </a>
@@ -110,7 +108,6 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-blue2 transition-all duration-300 ease-in"
                   aria-label="Visit Twitter profile of Giorgi Zautashvili"
-
                 >
                   {t("footer.twitter")}{" "}
                 </a>

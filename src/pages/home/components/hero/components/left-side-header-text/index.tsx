@@ -15,7 +15,7 @@ const LeftSideHeaderText: React.FC<{ currentLanguage: CurrentLangType }> = ({
   const user = useAtom(userAtom)[0];
 
   return (
-    <div className="  z-20 h-[340px]  sm:h-[400px] lg:h-[500px]  w-[92%] sm:w-[50%]  md:w-[35%] flex  justify-start md:justify-end  ">
+    <div className=" z-20 h-[340px]  sm:h-[400px] lg:h-[500px]  w-[92%] sm:w-[50%]  md:w-[35%] flex  justify-start md:justify-end  ">
       <div className=" flex flex-col  gap-2 items-start   sm:pl-0 font-chakra-petch text-white font-bold w-full sm:w-full md:w-full lg:w-full xl:w-auto ">
         <div className={heroTextSize({ lang: currentLanguage })}>
           {t("hero.ultimate")}
