@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { PropsWithChildren } from "react";
 import i18next from "i18next";
-import { DEFAULT_LAYOUT_PATH } from "@/Routes/default/index.enum";
+import { AUTH_LAYOUT_PATHS } from "@/Routes/auth/index.enum";
 
 const NoAuthGuard: React.FC<PropsWithChildren> = ({ children }) => {
   //ეს კომპონენტი გვჭირდება რომ დალოგინებული იუზერი აღარ შევიდეს ლოგინ გვერდზე
@@ -10,7 +10,7 @@ const NoAuthGuard: React.FC<PropsWithChildren> = ({ children }) => {
   const currentLang = lang ?? "en";
 
   if (user) {
-    return <Navigate to={`/${currentLang}/${DEFAULT_LAYOUT_PATH.HOME}`} />;
+    return <Navigate to={`/${currentLang}/${AUTH_LAYOUT_PATHS.PROFILE}`} />;
   }
 
   return children;

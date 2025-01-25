@@ -55,7 +55,6 @@ export const login = async ({
   }
 };
 
-
 export const logout = async (): Promise<void> => {
   try {
     await supabase.auth.signOut();

@@ -112,7 +112,7 @@ const EditProfile: React.FC<{
                 <TabsTrigger className="w-1/2" value="english">
                   {t("profile.english")}
                 </TabsTrigger>
-                <TabsTrigger className="w-1/2" value="georgian">
+                <TabsTrigger className="w-1/2" value="georgia">
                   {t("profile.georgian")}
                 </TabsTrigger>
               </TabsList>
@@ -162,7 +162,7 @@ const EditProfile: React.FC<{
               </TabsContent>
 
               {/* ქართული Tab */}
-              <TabsContent value="georgian ">
+              <TabsContent value="georgia">
                 <div className="grid gap-4">
                   {["name", "lastName", "location", "gender"].map((names) => (
                     <div
