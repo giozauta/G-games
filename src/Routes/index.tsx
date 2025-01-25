@@ -21,6 +21,7 @@ const AppRoutes = () => {
         </Route>
         <Route path="/" element={<Navigate to="/en/home" />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/en/" element={<Navigate to="/en/home" />} />
       </Routes>
     </Suspense>
   );
