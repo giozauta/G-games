@@ -11,7 +11,7 @@
   "profile-success": "Profile updated successfully",
   "no-changes": "No changes detected",
 
-  "description": "Make changes to your profile here. Click save when you're done.",
+  "description": "You need to fill out both tabs to save the changes.",
   "english": "English",
   "georgian": "Georgian",
   "save": "Save changes",

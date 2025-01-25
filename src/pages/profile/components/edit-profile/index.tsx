@@ -43,11 +43,12 @@ const EditProfile: React.FC<{
       age: userData?.age ?? 0,
     },
   });
-
+//
   const { mutate: editProfile } = useEditProfile();
-
+//
   const { t } = useTranslation();
 
+//
   const handleEditProfile = (event: FormValuesType) => {
     const newData = {
       first_name_en: event.nameEn,
@@ -86,6 +87,8 @@ const EditProfile: React.FC<{
       },
     );
   };
+  //
+
 
   return (
     <div className="flex justify-start items-center ">
@@ -112,7 +115,7 @@ const EditProfile: React.FC<{
                 <TabsTrigger className="w-1/2" value="english">
                   {t("profile.english")}
                 </TabsTrigger>
-                <TabsTrigger className="w-1/2" value="georgia">
+                <TabsTrigger className="w-1/2" value="georgian">
                   {t("profile.georgian")}
                 </TabsTrigger>
               </TabsList>
@@ -162,7 +165,7 @@ const EditProfile: React.FC<{
               </TabsContent>
 
               {/* ქართული Tab */}
-              <TabsContent value="georgia">
+              <TabsContent value="georgian">
                 <div className="grid gap-4">
                   {["name", "lastName", "location", "gender"].map((names) => (
                     <div

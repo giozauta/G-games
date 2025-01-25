@@ -194,7 +194,7 @@ const AddGame: React.FC = () => {
                   />
                   {formState.errors?.nameEn?.message && (
                     <p className="text-red-500">
-                      {t(`addGameErrors.${formState.errors?.nameEn?.message}`)}
+                      {t(`addGameErrors.${formState.errors?.nameKa?.message}`)}
                     </p>
                   )}
                 </div>
