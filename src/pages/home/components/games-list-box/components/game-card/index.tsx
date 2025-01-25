@@ -19,7 +19,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
 }) => {
   const [isAnimating, setIsAnimating] = useState(false); //ლაიქიცს ანიმაციისთვის
   //
-  const [likes, setLikes] = useState(gameData.likes??0); //ლაიქები რომ გამოგვიჩნდეს სანამ მონაცემები მოგვივა ბაზიდან 
+  const [likes, setLikes] = useState(gameData.likes ?? 0); //ლაიქები რომ გამოგვიჩნდეს სანამ მონაცემები მოგვივა ბაზიდან
   //
   const [style, setStyle] = useState({}); //რომ შევცვალოთ ყუთზე ჰოვერი
   //
@@ -37,7 +37,7 @@ const GameCard: React.FC<{ gameData: GameDataType; refetch: Refetch }> = ({
 
   // Handle like action
   const handleLikeClick = () => {
-    setLikes(likes + 1);//სანამ მონაცემები ბაზიდან დაგვიბრუნდება ლაიქი რომ გამოგვიჩინოს
+    setLikes(likes + 1); //სანამ მონაცემები ბაზიდან დაგვიბრუნდება ლაიქი რომ გამოგვიჩინოს
     //ლაიქის ანიმაციისთვის
     if (!isAnimating) {
       setIsAnimating(true);
