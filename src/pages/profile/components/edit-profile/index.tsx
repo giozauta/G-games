@@ -106,7 +106,7 @@ const EditProfile: React.FC<{
             </SheetTitle>
             <SheetDescription>{t("profile.description")}</SheetDescription>
           </SheetHeader>
-          <div className="grid gap-4 py-4 dark:text-white  ">
+          <div className="grid gap-4 py-4 dark:text-white w-[90%] mx-auto sm:w-auto ">
             <Tabs defaultValue="english" className="w-full">
               <TabsList className="flex justify-center mb-4 bg-gray-200">
                 <TabsTrigger className="w-1/2" value="english">
@@ -162,7 +162,7 @@ const EditProfile: React.FC<{
               </TabsContent>
 
               {/* ქართული Tab */}
-              <TabsContent value="georgian">
+              <TabsContent value="georgian ">
                 <div className="grid gap-4">
                   {["name", "lastName", "location", "gender"].map((names) => (
                     <div
@@ -274,7 +274,7 @@ const EditProfile: React.FC<{
             <SheetClose asChild>
               <Button
                 type="submit"
-                className="dark:bg-green2 bg-orange2"
+                className="dark:bg-green2 bg-orange2 w-[90%] mx-auto sm:mx-0 sm:w-auto"
                 onClick={handleSubmit(handleEditProfile)}
               >
                 {t("profile.save")}
