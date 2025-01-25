@@ -84,29 +84,33 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue2 transition-all duration-300 ease-in"
+                aria-label="Visit GitHub profile of Giorgi Zautashvili"
+
               >
                 <div className="pb-2 footerLinksHover">
                   {t("footer.github")}
                 </div>
               </a>
               <div className="pb-2">
-                {" "}
                 <a
                   href="https://www.linkedin.com/in/giorgi-zautashvili-9779a7215"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue2 transition-all duration-300 ease-in"
+                  aria-label="Visit LinkedIn profile of Giorgi Zautashvili"
+
                 >
                   {t("footer.linkedIn")}
                 </a>
               </div>
               <div className="pb-2 ">
-                {" "}
                 <a
                   href="https://x.com/zautashvil5392"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue2 transition-all duration-300 ease-in"
+                  aria-label="Visit Twitter profile of Giorgi Zautashvili"
+
                 >
                   {t("footer.twitter")}{" "}
                 </a>
