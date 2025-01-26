@@ -2,10 +2,6 @@ import { z } from "zod";
 
 export const signUpSchema = z
   .object({
-    name: z
-      .string()
-      .min(1, { message: "minName" })
-      .max(20, { message: "maxName" }),
     email: z
       .string()
       .email({ message: "invalid-email" })

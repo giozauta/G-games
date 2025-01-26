@@ -23,7 +23,6 @@ const SignUp: React.FC = () => {
   const { control, handleSubmit, formState } = useForm<FormValues>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
-      name: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -55,34 +54,6 @@ const SignUp: React.FC = () => {
         <CardContent>
           <form>
             <div className="grid w-full items-center gap-5 ">
-              <div className="flex flex-col space-y-3.5">
-                <Label
-                  className="text-blue2 dark:text-green2 "
-                  htmlFor="framework"
-                >
-                  {t("sign.name")}
-                </Label>
-                <Controller
-                  name="name"
-                  control={control}
-                  render={({ field: { onChange, value } }) => {
-                    return (
-                      <Input
-                        value={value}
-                        onChange={onChange}
-                        id="name"
-                        placeholder={t("sign.name-placeholder")}
-                      />
-                    );
-                  }}
-                />
-                {formState.errors.name?.message && (
-                  <Label className="text-red-600">
-                    {t(`signErrors.${formState.errors.name?.message}`)}
-                  </Label>
-                )}
-              </div>
-
               <div className="flex flex-col space-y-3.5">
                 <Label
                   className="text-blue2 dark:text-green2 "
