@@ -68,8 +68,8 @@ const CommentsCarusel: React.FC = () => {
   }
 
   return (
-    <Carousel className="w-full max-w-[90%] mx-auto">
-      <CarouselContent className="-ml-0 -mr-0 pr-1 h-full">
+    <Carousel className="w-full max-w-[90%] mx-auto ">
+      <CarouselContent className="-ml-0 -mr-0 pr-1 h-full ">
         {gamesWithComments?.length === 0 ? (
           <div className="h-full w-full flex justify-center items-center">
             {t("profile.no-comments")}
@@ -80,11 +80,11 @@ const CommentsCarusel: React.FC = () => {
               key={index}
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 h-full"
             >
-              <div className="p-1 h-full">
-                <Card className="h-full border-none bg-creemy">
-                  <div className="h-[400px] sm:h-[400px] md:h-[500px] 2xl:h-[550px] mb-2 w-full flex items-center justify-center transition-all duration-200 ease-in border border-white/20 rounded-md hover:border-blue2 dark:hover:border-orange2">
+              <div className="p-1 h-full ">
+                <Card className="h-full border-none bg-creemy ">
+                  <div className=" h-[300px] sm:h-[400px] lg:h-[450px] 2xl:h-[500px] mb-2 w-full flex items-center justify-center transition-all duration-200 ease-in border border-white/20 rounded-md hover:border-blue2 dark:hover:border-orange2">
                     {commentBoxDisplayStatus[index] ? (
-                      <ScrollArea className="w-full h-[350px] sm:h-[500px] flex hover:overflow-y-auto">
+                      <ScrollArea className="w-full h-[300px] sm:h-[400px] flex hover:overflow-y-auto ">
                         {game?.comments?.map((comment, index) => (
                           <div
                             key={index}

@@ -25,9 +25,9 @@ const DeleteComments: React.FC = () => {
       </SheetTrigger>
       <SheetContent
         side={"bottom"}
-        className="h-[90%] bg-lightBlue border-none dark:bg-custom-gradient"
+        className="h-[90%] bg-lightBlue border-none dark:bg-custom-gradient overflow-y-scroll hide-scrollbar"
       >
-        <SheetHeader className=" pb-5 sm:pb-14 pt-4  ">
+        <SheetHeader className=" pb-5 sm:pb-7 pt-4 ">
           <SheetTitle>{t("profile.delete-comments")}</SheetTitle>
           <SheetDescription>
             {t("profile.delete-comments-description")}
