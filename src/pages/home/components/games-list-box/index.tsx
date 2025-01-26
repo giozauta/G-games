@@ -89,7 +89,7 @@ const GamesListBox: React.FC<{ refetch: Refetch }> = ({ refetch }) => {
         </div>
       </div>
 
-      <ScrollArea className=" gap-5 lg:mx-10 xl:px-20  py-4   flex flex-wrap justify-evenly sm:mt-10  h-[1050px] overflow-y-scroll hide-scrollbar ">
+      <ScrollArea className=" gap-5 lg:mx-10 xl:px-10  py-4   flex flex-wrap justify-evenly sm:mt-10  h-[1050px] overflow-y-scroll hide-scrollbar  ">
         {gamesList?.map((game) => (
           <GameCard refetch={refetch} key={game.id} gameData={game} />
         ))}
