@@ -126,6 +126,7 @@ const SignUp: React.FC = () => {
                     return (
                       <Input
                         {...field}
+                        type="password"
                         id="password"
                         placeholder={t("sign.password-placeholder")}
                       />
@@ -154,6 +155,7 @@ const SignUp: React.FC = () => {
                     return (
                       <Input
                         {...field}
+                        type="password"
                         id="confirmPassword"
                         placeholder={t("sign.confirmPassword")}
                       />
